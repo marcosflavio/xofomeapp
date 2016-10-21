@@ -1,8 +1,10 @@
 <resources>
-<string name="app_name">Xô Fome!</string>
-<string name="test">Teste teste teste</string>
-<string name="imagem_produto">Produto</string>
-<string name="imagem_menu_produto">Menu de opções para produto</string>
-<string name="imagem_button_pedido">Adicionar ao pedido</string>
-<string name="price"> 59,90</string>    
+    <string name="app_name">Xô Fome!</string>
+    <string name="test">Nome produto</string>
+    <string name="imagem_produto">Produto</string>
+    <string name="imagem_menu_produto">Menu de opções para produto</string>
+    <string name="imagem_button_pedido">Adicionar ao pedido</string>
+    <string name="price"> 59.90</string>
+    <string name="descriptionPrice"> Preço</string>
+
 </resources>
