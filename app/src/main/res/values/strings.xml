@@ -6,5 +6,12 @@
     <string name="imagem_button_pedido">Adicionar ao pedido</string>
     <string name="price"> 59.90</string>
     <string name="descriptionPrice"> Preço</string>
+    <string name="title_activity_tela_lista_produtos">TelaListaProdutos</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="hello_blank_fragment2">Fragment 2</string>
+    <string name="hello_blank_fragment">Fragment 1</string>
+    <string name="comidas">Comidas</string>
+    <string name="bebidas">Bebidas</string>
 
 </resources>

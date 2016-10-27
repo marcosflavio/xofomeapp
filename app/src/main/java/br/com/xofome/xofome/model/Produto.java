@@ -6,7 +6,7 @@ package br.com.xofome.xofome.model;
 
 public class Produto {
 
-    private Long idProduto;
+    private int idProduto;
     private String nomeProduto;
     private Float preco;
     private String descricao;
@@ -30,11 +30,11 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public Long getIdProduto() {
+    public int getIdProduto() {
         return idProduto;
     }
 
-    public void setIdProduto(Long idProduto) {
+    public void setIdProduto(int idProduto) {
         this.idProduto = idProduto;
     }
 

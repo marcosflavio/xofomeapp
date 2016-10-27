@@ -28,8 +28,8 @@ public class ProdutoDAO extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table if not exists produto (id_produto primary key autoincrement, nome_produto text," +
-                "descricao text,preco float, tipo int);");
+        db.execSQL("create table if not exists produto (id_produto integer primary key autoincrement , nome_produto text," +
+                "descricao text,preco float, tipo integer);");
         Log.d(TAG, "Tabela produto criada com sucesso!");
     }
 
@@ -43,7 +43,7 @@ public class ProdutoDAO extends SQLiteOpenHelper {
 
     public void save(Produto produto){
         //Pego o id para verificar se o msm já foi inserido ou nao no banco
-        Long id = produto.getIdProduto();
+        Integer id = produto.getIdProduto();
 
         SQLiteDatabase db = getWritableDatabase();
         try{
@@ -99,7 +99,7 @@ public class ProdutoDAO extends SQLiteOpenHelper {
             do{
                 Produto produto = new Produto();
                 produtos.add(produto);
-                produto.setIdProduto( c.getLong(c.getColumnIndex("id_produto")));
+                produto.setIdProduto( c.getInt(c.getColumnIndex("id_produto")));
                 produto.setDescricao(c.getString(c.getColumnIndex("descricao")));
                 produto.setNomeProduto(c.getString(c.getColumnIndex("nome_produto")));
                 produto.setPreco(c.getFloat(c.getColumnIndex("preco")));
