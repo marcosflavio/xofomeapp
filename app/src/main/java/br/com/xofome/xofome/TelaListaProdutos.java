@@ -1,6 +1,7 @@
 package br.com.xofome.xofome;
 
 import android.net.Uri;
+
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;

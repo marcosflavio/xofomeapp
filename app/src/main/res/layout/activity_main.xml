@@ -10,28 +10,9 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="br.com.xofome.xofome.MainActivity">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <FrameLayout
+        android:id="@+id/frag"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <Button
-            android:text="Button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/button"
-            android:onClick="mostrarTelaProdutos" />
-
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="34dp"
-            android:layout_marginStart="34dp"
-            android:layout_marginTop="171dp"
-            android:id="@+id/list"/>
-    </LinearLayout>
+        android:layout_height="match_parent" />
 
 </RelativeLayout>
