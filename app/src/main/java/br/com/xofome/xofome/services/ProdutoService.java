@@ -42,4 +42,14 @@ public class ProdutoService {
             dao.close();
         }
     }
+
+    public static Produto formarProduto(int tipo, float preco, String nome, String desc){
+        Produto produto = new Produto();
+        produto.setTipo(tipo);
+        produto.setPreco(preco);
+        produto.setNomeProduto(nome);
+        produto.setDescricao(desc);
+
+        return produto;
+    }
 }

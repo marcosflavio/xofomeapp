@@ -76,7 +76,7 @@ public class FragmentComidas extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View vi = (View) inflater.inflate(R.layout.fragment_comidas, container, false);
+        View vi = (View) inflater.inflate(R.layout.fragment_produtos, container, false);
         recyclerView = (RecyclerView) vi.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         recyclerView.setItemAnimator(new DefaultItemAnimator());

@@ -53,7 +53,7 @@ public class ProdutoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View vi = (View) inflater.inflate(R.layout.fragment_comidas, container, false);
+        View vi = (View) inflater.inflate(R.layout.fragment_produtos, container, false);
         recyclerView = (RecyclerView) vi.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -62,10 +62,10 @@ public class ProdutoFragment extends Fragment {
             if(this.tipo.equals("comidas")){
                 produtos = ProdutoService.getProdutos(getContext(),0);
             }else if(this.tipo.equals("bebidas")){
-                produtos = ProdutoService.getProdutos(getContext(),1);
+               produtos = ProdutoService.getProdutos(getContext(),1);
             }
 
-            recyclerView.setAdapter(new ProdutoAdapter(getContext(), produtos, onClickProduto()));
+            recyclerView.setAdapter(new ProdutoAdapter(getContext().getApplicationContext(), produtos, onClickProduto()));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -108,16 +108,6 @@ public class ProdutoFragment extends Fragment {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);

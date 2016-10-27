@@ -13,5 +13,5 @@
     <string name="hello_blank_fragment">Fragment 1</string>
     <string name="comidas">Comidas</string>
     <string name="bebidas">Bebidas</string>
-
+    <string name="botaoAdicionar">Adicionar</string>
 </resources>

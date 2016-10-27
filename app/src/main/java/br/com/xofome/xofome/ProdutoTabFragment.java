@@ -30,17 +30,18 @@ public class ProdutoTabFragment extends Fragment implements TabLayout.OnTabSelec
         mViewPager.setAdapter(new TabsAdapter(getContext(), getChildFragmentManager()));
 
         //Tabs
-        tabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
+        tabLayout = (TabLayout) view.findViewById(R.id.tabLayoutProdutos);
         tabLayout.setTabTextColors(R.color.colorPrimary, R.color.colorPrimaryDark);
 
         //Adiciona as tabs
         tabLayout.addTab(tabLayout.newTab().setText(R.string.comidas));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.bebidas));
-
+        tabLayout.setupWithViewPager(mViewPager);
         //listener para tratar eventos de clique na tab
         tabLayout.setOnTabSelectedListener(this);
         //se mudar, o viewpager atualiza a tab selecionada
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
         return view;
     }
 
