@@ -11,7 +11,7 @@
         android:layout_width="118dp"
         android:layout_height="162dp"
         app:cardCornerRadius="18dp"
-        app:cardElevation="24dp">
+        app:cardElevation="19dp">
 
         <LinearLayout
             android:orientation="vertical"

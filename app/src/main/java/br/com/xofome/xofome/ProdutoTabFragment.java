@@ -1,10 +1,13 @@
 package br.com.xofome.xofome;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +23,7 @@ public class ProdutoTabFragment extends Fragment implements TabLayout.OnTabSelec
     private ViewPager mViewPager;
     private TabLayout tabLayout;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -31,7 +35,7 @@ public class ProdutoTabFragment extends Fragment implements TabLayout.OnTabSelec
 
         //Tabs
         tabLayout = (TabLayout) view.findViewById(R.id.tabLayoutProdutos);
-        tabLayout.setTabTextColors(R.color.colorPrimary, R.color.colorPrimaryDark);
+        tabLayout.setTabTextColors(R.color.colorPrimaryDark, R.color.colorPrimaryDark);
 
         //Adiciona as tabs
         tabLayout.addTab(tabLayout.newTab().setText(R.string.comidas));

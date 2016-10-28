@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity implements ProdutoFragment.O
         setContentView(R.layout.activity_main);
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         replaceFragment(new ProdutoTabFragment());
-       // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarMain);
+        setSupportActionBar(toolbar);
 
     }
 

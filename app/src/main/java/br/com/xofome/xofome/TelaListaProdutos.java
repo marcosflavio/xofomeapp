@@ -36,7 +36,7 @@ public class TelaListaProdutos extends AppCompatActivity implements FragmentBebi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_lista_produtos);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarUnused);
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
