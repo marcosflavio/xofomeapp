@@ -1,10 +1,12 @@
 package br.com.xofome.xofome.adapters;
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.List;
@@ -58,6 +60,7 @@ public class ProdutoAdapter extends RecyclerView.Adapter <ProdutoAdapter.Produto
 
                 @Override
                 public void onClick(View view) {
+
               onClickListener.onClickProduto(holder.view, position);
 
                 }
@@ -77,12 +80,16 @@ public class ProdutoAdapter extends RecyclerView.Adapter <ProdutoAdapter.Produto
     public static class ProdutosViewHolder extends RecyclerView.ViewHolder{
         public TextView nomeProduto;
         public TextView precoProduto;
+        public CardView cardView;
         private View view;
-
+        public ImageButton imgShop;
+        public ImageButton imgMenu;
         public ProdutosViewHolder(View view){
             super(view);
             this.view = view;
             nomeProduto = (TextView) view.findViewById(R.id.info_text);
+            imgShop = (ImageButton) view.findViewById(R.id.imageButton);
+            imgMenu = (ImageButton) view.findViewById(R.id.imageButton2);
             precoProduto = (TextView) view.findViewById(R.id.textViewPrice);
         }
 

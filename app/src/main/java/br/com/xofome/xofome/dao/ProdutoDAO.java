@@ -63,6 +63,7 @@ public class ProdutoDAO extends SQLiteOpenHelper {
         }else{
             //insiro o produto
             db.insert("produto","",values);
+            Log.d(TAG, "Produto" + produto.getNomeProduto() + " adicionado ao banco!");
         }
         }finally {
             db.close();
