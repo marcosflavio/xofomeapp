@@ -1,4 +1,4 @@
-package br.com.xofome.xofome;
+package br.com.xofome.xofome.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import br.com.xofome.xofome.R;
 import br.com.xofome.xofome.constantes.Codes;
 import br.com.xofome.xofome.constantes.Keys;
 import br.com.xofome.xofome.model.Produto;

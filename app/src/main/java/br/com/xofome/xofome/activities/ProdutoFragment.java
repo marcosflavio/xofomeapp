@@ -1,4 +1,4 @@
-package br.com.xofome.xofome;
+package br.com.xofome.xofome.activities;
 
 import android.content.Context;
 import android.net.Uri;
@@ -11,13 +11,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.xofome.xofome.R;
 import br.com.xofome.xofome.adapters.ProdutoAdapter;
 import br.com.xofome.xofome.model.Produto;
-import br.com.xofome.xofome.services.ProdutoService;
 
 /**
  * Created by marcosf on 27/10/2016.
@@ -34,7 +33,7 @@ public class ProdutoFragment extends Fragment {
     // TODO: Rename and change types and number of parameters
     public static ProdutoFragment newInstance(String param1, String param2) {
         ProdutoFragment fragment = new ProdutoFragment();
-        Bundle args = new Bundle();
+//        Bundle args = new Bundle();
 //        args.putString(ARG_PARAM1, param1);
 //        args.putString(ARG_PARAM2, param2);
 
@@ -56,7 +55,7 @@ public class ProdutoFragment extends Fragment {
         // Inflate the layout for this fragment
         View vi = (View) inflater.inflate(R.layout.fragment_produtos, container, false);
         recyclerView = (RecyclerView) vi.findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setHasFixedSize(true);
         List<Produto> produtoStub = new ArrayList<Produto>();

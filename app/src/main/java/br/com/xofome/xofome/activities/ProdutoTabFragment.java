@@ -1,4 +1,4 @@
-package br.com.xofome.xofome;
+package br.com.xofome.xofome.activities;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import br.com.xofome.xofome.R;
 import br.com.xofome.xofome.adapters.TabsAdapter;
 
 /**

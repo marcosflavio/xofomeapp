@@ -6,7 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import br.com.xofome.xofome.ProdutoFragment;
+import br.com.xofome.xofome.activities.ProdutoFragment;
 import br.com.xofome.xofome.R;
 
 /**
