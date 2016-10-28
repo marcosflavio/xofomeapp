@@ -48,24 +48,15 @@ public class ProdutoDAO extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         try{
 
-
         ContentValues values = new ContentValues();
         values.put("nome_produto", produto.getNomeProduto());
         values.put("descricao", produto.getDescricao());
         values.put("preco", produto.getPreco());
         values.put("tipo", produto.getTipo());
-
-        if(id != null){
-            String id_produto = String.valueOf(produto.getIdProduto());
-            String [] whereArgs = new String [] {id_produto};
-            //atualizo o produto
-            db.update("produto", values, "id_produto=?", whereArgs);
-        }else{
-            //insiro o produto
+          //insiro o produto
             db.insert("produto","",values);
-            Log.d(TAG, "Produto" + produto.getNomeProduto() + " adicionado ao banco!");
-        }
         }finally {
+            Log.d(TAG, "Produto" + produto.getNomeProduto() + " adicionado ao banco!");
             db.close();
         }
 

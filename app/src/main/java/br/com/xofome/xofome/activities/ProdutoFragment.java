@@ -11,12 +11,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import br.com.xofome.xofome.R;
 import br.com.xofome.xofome.adapters.ProdutoAdapter;
 import br.com.xofome.xofome.model.Produto;
+import br.com.xofome.xofome.services.ProdutoService;
 
 /**
  * Created by marcosf on 27/10/2016.
@@ -74,20 +76,20 @@ public class ProdutoFragment extends Fragment {
         produtoStub.add(p5);
         produtoStub.add(p6);
 
-        //try {
+        try {
             if(this.tipo.equals("comidas")){
 
-                produtos = produtoStub;
+                produtos = ProdutoService.getProdutos(getContext(),0);
                 //produtos = ProdutoService.getProdutos(getContext(),0);
             }else if(this.tipo.equals("bebidas")){
-               //produtos = ProdutoService.getProdutos(getContext(),1);
-                produtos = produtoStub;
+               produtos = ProdutoService.getProdutos(getContext(),1);
+                //produtos = produtoStub;
             }
 
             recyclerView.setAdapter(new ProdutoAdapter(getContext().getApplicationContext(), produtos, onClickProduto()));
-        //} catch (IOException e) {
-        //    e.printStackTrace();
-        //}
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         return vi;
 
