@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import br.com.xofome.xofome.R;
@@ -60,22 +59,6 @@ public class ProdutoFragment extends Fragment {
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setHasFixedSize(true);
-        List<Produto> produtoStub = new ArrayList<Produto>();
-        Produto p1 = new Produto("Baião", 50.0f, "Baião saboroso", 0);
-        Produto p2 = new Produto("Galeto", 50.0f, "Galeto saboroso", 0);
-        Produto p3 = new Produto("Farofa", 50.0f, "Farofa saborosa", 0);
-
-        Produto p4 = new Produto("Baião2", 50.0f, "Baião saboroso2", 1);
-        Produto p5 = new Produto("Galeto2", 50.0f, "Galeto saboroso2", 1);
-        Produto p6 = new Produto("Farofa2", 50.0f, "Farofa saborosa2", 1);
-
-        produtoStub.add(p1);
-        produtoStub.add(p2);
-        produtoStub.add(p3);
-        produtoStub.add(p4);
-        produtoStub.add(p5);
-        produtoStub.add(p6);
-
         try {
             if(this.tipo.equals("comidas")){
 

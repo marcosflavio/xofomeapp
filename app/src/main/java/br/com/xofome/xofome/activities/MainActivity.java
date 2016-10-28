@@ -15,15 +15,16 @@ import br.com.xofome.xofome.constantes.Codes;
 
 public class MainActivity extends AppCompatActivity implements ProdutoFragment.OnFragmentInteractionListener{
 
+    private FragmentManager supportFragmentManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        FragmentManager supportFragmentManager = getSupportFragmentManager();
+        this.supportFragmentManager = getSupportFragmentManager();
         replaceFragment(new ProdutoTabFragment());
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarMain);
         setSupportActionBar(toolbar);
-
     }
 
 
@@ -53,6 +54,8 @@ public class MainActivity extends AppCompatActivity implements ProdutoFragment.O
             Intent intent = new Intent(this,ActivityAdd.class);
             startActivityForResult(intent, Codes.REQUEST_ADD);
             return true;
+        }else if( id == R.id.refresh){
+            replaceFragment(new ProdutoTabFragment());
         }
         return super.onOptionsItemSelected(item);
     }

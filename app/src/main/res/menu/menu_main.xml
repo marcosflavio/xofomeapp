@@ -9,5 +9,11 @@
         android:icon="@mipmap/ic_search"
         app:showAsAction="always" />
 
+    <item
+        android:id="@+id/refresh"
+        android:orderInCategory="100"
+        android:title="Adicionar"
+        android:icon="@mipmap/ic_refresh"
+        app:showAsAction="always" />
 
 </menu>
