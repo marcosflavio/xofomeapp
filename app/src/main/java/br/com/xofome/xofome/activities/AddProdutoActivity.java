@@ -13,7 +13,7 @@ import br.com.xofome.xofome.constantes.Keys;
 import br.com.xofome.xofome.model.Produto;
 import br.com.xofome.xofome.services.ProdutoService;
 
-public class ActivityAdd extends AppCompatActivity {
+public class AddProdutoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

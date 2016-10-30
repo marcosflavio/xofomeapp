@@ -2,7 +2,6 @@ package br.com.xofome.xofome.activities;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -73,7 +72,7 @@ public class MainActivity extends AppCompatActivity{
             }else{
                 args.putString("tipo", "bebidas");
             }
-            Fragment f = new BlankFragment();
+            Fragment f = new ProdutoFragment();
             f.setArguments(args);
             return f;
         }
@@ -118,7 +117,7 @@ public class MainActivity extends AppCompatActivity{
         int id = item.getItemId();
 
         if (id == R.id.search) {
-            Intent intent = new Intent(this,ActivityAdd.class);
+            Intent intent = new Intent(this,AddProdutoActivity.class);
             startActivityForResult(intent, Codes.REQUEST_ADD);
             return true;
         }
