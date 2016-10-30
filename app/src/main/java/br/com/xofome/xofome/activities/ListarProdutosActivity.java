@@ -21,25 +21,20 @@ import br.com.xofome.xofome.constantes.Codes;
 
 public class ListarProdutosActivity extends AppCompatActivity{
 
-//    private FragmentManager supportFragmentManager;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_produtos);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        // Get the ViewPager and set it's PagerAdapter so that it can display items
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         PagerAdapter pagerAdapter =
                 new PagerAdapter(getSupportFragmentManager(), ListarProdutosActivity.this);
         viewPager.setAdapter(pagerAdapter);
 
-        // Give the TabLayout the ViewPager
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(viewPager);
 
-        // Iterate over all tabs and set the custom view
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
             TabLayout.Tab tab = tabLayout.getTabAt(i);
             tab.setCustomView(pagerAdapter.getTabView(i));
@@ -93,20 +88,8 @@ public class ListarProdutosActivity extends AppCompatActivity{
     }
 
 
-
-//    // Adiciona o fragment no centro da tela
-//    private void replaceFragment(Fragment frag) {
-//        getSupportFragmentManager().beginTransaction().replace(R.id.frag, frag, "TAG").commit();
-//    }
-//
-//    @Override
-//    public void onFragmentInteraction(Uri uri) {
-//
-//    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }

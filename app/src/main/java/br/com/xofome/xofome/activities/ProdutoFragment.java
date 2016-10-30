@@ -29,7 +29,6 @@ public class ProdutoFragment extends Fragment {
 
 
     public ProdutoFragment() {
-        // Required empty public constructor
     }
 
     @Override
