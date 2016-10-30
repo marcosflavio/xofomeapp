@@ -62,7 +62,7 @@ public class ProdutoFragment extends Fragment {
 
             LinearLayoutManager llm = new LinearLayoutManager(getActivity());
             GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
-            rv.setLayoutManager(gridLayoutManager);
+            rv.setLayoutManager(llm);
 
 
          } catch (IOException e) {

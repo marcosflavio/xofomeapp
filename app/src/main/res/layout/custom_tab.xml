@@ -11,5 +11,5 @@
         android:textSize="16dip"
         android:textColor="#ffffff"
         android:singleLine="true"
-        />
+        android:textStyle="normal|bold" />
 </LinearLayout>
