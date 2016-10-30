@@ -10,12 +10,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
 
 import java.io.IOException;
 import java.util.List;
 
 import br.com.xofome.xofome.R;
 import br.com.xofome.xofome.adapters.ProdutoAdapter;
+import br.com.xofome.xofome.adapters.ProdutoAdapterGrid;
 import br.com.xofome.xofome.model.Produto;
 import br.com.xofome.xofome.services.ProdutoService;
 
@@ -26,19 +28,16 @@ import br.com.xofome.xofome.services.ProdutoService;
 public class ProdutoFragment extends Fragment {
     private ProdutoFragment.OnFragmentInteractionListener mListener;
     private RecyclerView recyclerView;
+    //private GridView gridView;
     private static List<Produto> produtos;
     private String tipo;
+
     public ProdutoFragment() {
     }
 
     // TODO: Rename and change types and number of parameters
     public static ProdutoFragment newInstance(String param1, String param2) {
         ProdutoFragment fragment = new ProdutoFragment();
-//        Bundle args = new Bundle();
-//        args.putString(ARG_PARAM1, param1);
-//        args.putString(ARG_PARAM2, param2);
-
-//        fragment.setArguments(args);
         return fragment;
     }
 
@@ -55,10 +54,13 @@ public class ProdutoFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View vi = (View) inflater.inflate(R.layout.fragment_produtos, container, false);
-        recyclerView = (RecyclerView) vi.findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setHasFixedSize(true);
+        //recyclerView = (RecyclerView) vi.findViewById(R.id.gridview);
+        //recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
+        //recyclerView.setItemAnimator(new DefaultItemAnimator());
+        //recyclerView.setHasFixedSize(true);
+        // gridView = (GridView) vi.findViewById(R.id.gridview);
+
+
         try {
             if(this.tipo.equals("comidas")){
 
@@ -69,7 +71,8 @@ public class ProdutoFragment extends Fragment {
                 //produtos = produtoStub;
             }
 
-            recyclerView.setAdapter(new ProdutoAdapter(getContext().getApplicationContext(), produtos, onClickProduto()));
+            //recyclerView.setAdapter(new ProdutoAdapter(getContext().getApplicationContext(), produtos, onClickProduto()));
+            //gridView.setAdapter(new ProdutoAdapterGrid(getContext().getApplicationContext(), produtos));
         } catch (IOException e) {
             e.printStackTrace();
         }

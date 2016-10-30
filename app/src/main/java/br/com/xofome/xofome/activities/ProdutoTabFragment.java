@@ -32,7 +32,7 @@ public class ProdutoTabFragment extends Fragment implements TabLayout.OnTabSelec
         //ViewPager
         mViewPager = (ViewPager) view.findViewById(R.id.viewPagerProduto);
         mViewPager.setOffscreenPageLimit(2);
-        mViewPager.setAdapter(new TabsAdapter(getContext(), getChildFragmentManager()));
+        mViewPager.setAdapter(new TabsAdapter(getContext(), this.getChildFragmentManager()));
 
         //Tabs
         tabLayout = (TabLayout) view.findViewById(R.id.tabLayoutProdutos);

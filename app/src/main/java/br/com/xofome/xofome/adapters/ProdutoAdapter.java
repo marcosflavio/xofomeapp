@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -39,7 +40,7 @@ public class ProdutoAdapter extends RecyclerView.Adapter <ProdutoAdapter.Produto
     public ProdutoAdapter.ProdutosViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //Esse método cria uma subclasse de RecycleView.ViewHolder
         //Infla o view do Layout
-        View view = LayoutInflater.from(context).inflate(R.layout.product_layout, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.card_item, parent, false);
         //Cria a classe do ViewHolder
         ProdutosViewHolder holder = new ProdutosViewHolder(view);
         return holder;
@@ -84,6 +85,7 @@ public class ProdutoAdapter extends RecyclerView.Adapter <ProdutoAdapter.Produto
         private View view;
         public ImageButton imgShop;
         public ImageButton imgMenu;
+        public ImageView imageView;
         public ProdutosViewHolder(View view){
             super(view);
             this.view = view;
@@ -91,6 +93,7 @@ public class ProdutoAdapter extends RecyclerView.Adapter <ProdutoAdapter.Produto
             imgShop = (ImageButton) view.findViewById(R.id.imageButton);
             imgMenu = (ImageButton) view.findViewById(R.id.imageButton2);
             precoProduto = (TextView) view.findViewById(R.id.textViewPrice);
+            imageView = (ImageView) view.findViewById(R.id.imageProduto);
         }
 
         public View getView() {
