@@ -22,7 +22,7 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
-public class TelaListaProdutos extends AppCompatActivity implements FragmentBebidas.OnFragmentInteractionListener, FragmentComidas.OnFragmentInteractionListener {
+public class TelaListaProdutos extends AppCompatActivity implements ProdutoFragment.OnFragmentInteractionListener {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -58,7 +58,7 @@ public class TelaListaProdutos extends AppCompatActivity implements FragmentBebi
         tabLayout.setupWithViewPager(mViewPager);
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabListaProduto);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -109,10 +109,10 @@ public class TelaListaProdutos extends AppCompatActivity implements FragmentBebi
 
             switch (sectionNumber){
                 case 1:
-                    fragment = new FragmentComidas();
+                    fragment = ProdutoFragment.newInstance("", "");
                     break;
                 case 2:
-                    fragment = new FragmentBebidas();
+                    fragment = ProdutoFragment.newInstance("", "");
                     break;
             }
 
@@ -136,7 +136,7 @@ public class TelaListaProdutos extends AppCompatActivity implements FragmentBebi
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
-        public SectionsPagerAdapter(FragmentManager fm) { super(fm); }
+        private SectionsPagerAdapter(FragmentManager fm) { super(fm); }
 
         @Override
         public Fragment getItem(int position) {

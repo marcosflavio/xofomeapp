@@ -19,7 +19,11 @@
             android:name=".TelaListaProdutos"
             android:label="@string/title_activity_tela_lista_produtos"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ActivityAdd"></activity>
+        <activity android:name=".ActivityAdd" />
+        <activity
+            android:name=".TelaListaPedido"
+            android:label="@string/title_activity_tela_lista_pedido"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
