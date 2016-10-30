@@ -19,20 +19,20 @@ import android.widget.TextView;
 import br.com.xofome.xofome.R;
 import br.com.xofome.xofome.constantes.Codes;
 
-public class MainActivity extends AppCompatActivity{
+public class ListarProdutosActivity extends AppCompatActivity{
 
 //    private FragmentManager supportFragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_listar_produtos);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // Get the ViewPager and set it's PagerAdapter so that it can display items
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         PagerAdapter pagerAdapter =
-                new PagerAdapter(getSupportFragmentManager(), MainActivity.this);
+                new PagerAdapter(getSupportFragmentManager(), ListarProdutosActivity.this);
         viewPager.setAdapter(pagerAdapter);
 
         // Give the TabLayout the ViewPager
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity{
         }
 
         public View getTabView(int position) {
-            View tab = LayoutInflater.from(MainActivity.this).inflate(R.layout.custom_tab, null);
+            View tab = LayoutInflater.from(ListarProdutosActivity.this).inflate(R.layout.custom_tab, null);
             TextView tv = (TextView) tab.findViewById(R.id.custom_text);
             tv.setText(tabTitles[position]);
             return tab;
