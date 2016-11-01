@@ -1,13 +1,16 @@
 package br.com.xofome.xofome.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import br.com.xofome.xofome.R;
+import br.com.xofome.xofome.constantes.Codes;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,5 +37,10 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+    }
+
+    public void callListarProdutosActivity (View view){
+        Intent intent = new Intent(this,ListarProdutosActivity.class);
+        startActivityForResult(intent, Codes.REQUEST_LIST);
     }
 }

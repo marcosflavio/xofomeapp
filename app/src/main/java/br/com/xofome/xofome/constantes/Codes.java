@@ -9,6 +9,7 @@ public interface Codes {
     public static final int REQUEST_ADD = 1;
     public static final int REQUEST_EDIT = 2;
     public static final int REQUEST_TABS = 3;
+    public static final int REQUEST_LIST = 4;
 
     public static final int RESPONSE_ADD_OK = 3;
     public static final int RESPONSE_EDIT_OK = 4;
