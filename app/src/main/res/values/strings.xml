@@ -16,4 +16,5 @@
     <string name="botaoAdicionar">Adicionar</string>
     <string name="cardapio">Cardápio</string>
     <string name="add_activity_name">Adicionar Produto</string>
+    <string name="button_cadastrar">Sign up!</string>
 </resources>

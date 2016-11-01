@@ -24,12 +24,9 @@ import br.com.xofome.xofome.services.ProdutoService;
 
 public class ProdutoFragment extends Fragment {
     private ProdutoFragment.OnFragmentInteractionListener mListener;
-    private static List<Produto> produtos;
     private static List<Produto> comidas;
     private static List<Produto> bebidas;
     private String tipo;
-
-
 
     public ProdutoFragment() {
     }
@@ -45,7 +42,7 @@ public class ProdutoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View rootView = inflater.inflate(R.layout.fragment_blank, container, false);
         ProdutoAdapter adapter = null;
         RecyclerView rv = (RecyclerView) rootView.findViewById(R.id.rv_recycler_view);
@@ -53,18 +50,10 @@ public class ProdutoFragment extends Fragment {
 
         try {
             if(this.tipo.equals("comidas")){
-
                 comidas = ProdutoService.getProdutos(getContext(),0);
-//                if(produtos.size() > 0)
-//                    produtos.clear();
-
-               // produtos = ProdutoService.getProdutos(getContext(),0);
                 adapter = new ProdutoAdapter(this.getContext(),comidas, onClickProduto());
             }else if(this.tipo.equals("bebidas")){
-//                if(produtos.size() > 0)
-//                    produtos.clear();
                 bebidas = ProdutoService.getProdutos(getContext(),1);
-                // produtos = ProdutoService.getProdutos(getContext(),1);
                 adapter = new ProdutoAdapter(this.getContext(),bebidas, onClickProduto());
             }
 
@@ -87,10 +76,6 @@ public class ProdutoFragment extends Fragment {
 
             @Override
             public void onClickProduto(View view, int idx){
-                //Erro aqui
-                //Como faço pra pegar a lista de bebidas qnd eu estiver na tab bebidas?
-                //Como faço para pegar a lista de comidas qnd eu estiver na tab comidas?
-
                 if(tipo.equals("comidas")){
                     Produto p = comidas.get(idx);
                     Toast.makeText(getContext(),"Produto " + p.getNomeProduto() + "Comidas", Toast.LENGTH_SHORT).show();

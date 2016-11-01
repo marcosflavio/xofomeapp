@@ -90,7 +90,7 @@ public class ListarProdutosActivity extends AppCompatActivity{
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_listar_produtos, menu);
         return true;
     }
 
@@ -99,7 +99,7 @@ public class ListarProdutosActivity extends AppCompatActivity{
 
         int id = item.getItemId();
 
-        if (id == R.id.search) {
+        if (id == R.id.add) {
             Intent intent = new Intent(this,AddProdutoActivity.class);
             startActivityForResult(intent, Codes.REQUEST_ADD);
             return true;
