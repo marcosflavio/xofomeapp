@@ -46,7 +46,7 @@ public class ListarProdutosActivity extends AppCompatActivity{
 
     class PagerAdapter extends FragmentPagerAdapter {
 
-        String tabTitles[] = new String[] { "Comida", "Bebida" };
+        String tabTitles[] = new String[] { "Comidas", "Bebidas" };
         Context context;
 
         public PagerAdapter(FragmentManager fm, Context context) {
