@@ -8,21 +8,21 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".ListaPedidoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".TelaListaProdutos"
-            android:label="@string/title_activity_tela_lista_produtos"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ActivityAdd" />
         <activity
-            android:name=".TelaListaPedido"
-            android:label="@string/title_activity_tela_lista_pedido"
+            android:name=".MainActivity"
+            android:label="@string/title_activity_lista_pedido"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".DescricaoProdutoActivity"
+            android:label="@string/title_activity_descricao_produto"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

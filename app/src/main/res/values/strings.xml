@@ -15,4 +15,18 @@
     <string name="bebidas">Bebidas</string>
     <string name="botaoAdicionar">Adicionar</string>
     <string name="title_activity_tela_lista_pedido">TelaListaPedido</string>
+    <string name="title_activity_lista_pedido">ListaPedidoActivity</string>
+    <string-array name="quant_itens">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string name="title_activity_descricao_produto">DescricaoProdutoActivity</string>
+    <string name="nome_do_produto">Nome do Produto</string>
+    <string name="quantidade_itens">Quant.</string>
+    <string name="total_a_pagar">Total a pagar:</string>
+    <string name="detalhes">Detalhes</string>
+    <string name="texto_detalhes">Pastel de flango é mto bom.\n\nRecomendo</string>
 </resources>

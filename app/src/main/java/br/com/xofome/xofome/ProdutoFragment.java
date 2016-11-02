@@ -27,6 +27,7 @@ public class ProdutoFragment extends Fragment {
     private RecyclerView recyclerView;
     private static List<Produto> produtos;
     private String tipo;
+
     public ProdutoFragment() {
     }
 
@@ -54,10 +55,12 @@ public class ProdutoFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View vi = (View) inflater.inflate(R.layout.fragment_produtos, container, false);
+
         recyclerView = (RecyclerView) vi.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setHasFixedSize(true);
+
         try {
             if(this.tipo.equals("comidas")){
                 produtos = ProdutoService.getProdutos(getContext(),0);
