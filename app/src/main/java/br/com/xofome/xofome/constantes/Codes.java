@@ -12,6 +12,7 @@ public interface Codes {
     public static final int REQUEST_LIST = 4;
     public static final int REQUEST_BACK = 5;
     public static final int REQUEST_CADASTAR_END = 6;
+    public static final int REQUEST_EDITAR_END = 7;
 
     public static final int RESPONSE_ADD_OK = 3;
     public static final int RESPONSE_EDIT_OK = 4;

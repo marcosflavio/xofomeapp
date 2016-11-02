@@ -34,5 +34,13 @@
     <string name="ponto_ref"> Ponto de Referência (Opicional):</string>
     <string name="confirmar_menu_item"> Confirmar</string>
     <string name="descartar_menu_item"> Cancelar </string>
+    <string name="header_editar_endereco"> Dados do Endereço</string>
+    <string name="title_activity_editar_endereco"> Editar Endereço</string>
+    <string name="editar_rua_stub"> Vila Velha</string>
+    <string name="editar_bairro_stub"> Barra do Ceará</string>
+    <string name="editar_numero_stub"> 193</string>
+    <string name="editar_complemento_stub"> Apartamento </string>
+    <string name="editar_pnt_ref_stub"> Próximo a Avenia Leste/Oeste </string>
+
 
 </resources>

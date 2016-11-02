@@ -24,10 +24,13 @@
             android:theme="@style/AppTheme">
 
         </activity>
-
-
-        <activity android:name=".activities.CadastrarEnderecoActivity"
+        <activity
+            android:name=".activities.CadastrarEnderecoActivity"
             android:label="@string/title_activity_cadastrar_endereco">
+
+        </activity>
+        <activity android:name=".activities.EditarEnderecoActivity"
+            android:label="@string/title_activity_editar_endereco">
 
         </activity>
     </application>

@@ -138,7 +138,8 @@ public class ListarProdutosActivity extends AppCompatActivity
 
         if (id == R.id.nav_alt_end) {
 
-            Toast.makeText(getApplicationContext(),"Clicou em Alterar Endereço", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this,EditarEnderecoActivity.class);
+            startActivityForResult(intent, Codes.REQUEST_EDITAR_END);
 
         } else if (id == R.id.nav_config) {
 
