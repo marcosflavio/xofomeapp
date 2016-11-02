@@ -126,6 +126,10 @@ public class ListarProdutosActivity extends AppCompatActivity
             Intent intent = new Intent(this,AddProdutoActivity.class);
             startActivityForResult(intent, Codes.REQUEST_ADD);
             return true;
+        }else if (id == R.id.refresh){
+            Intent intent = new Intent(this,SelecionarEnderecoActivity.class);
+            startActivityForResult(intent, Codes.REQUEST_SELECT_END);
+            return true;
         }
         return super.onOptionsItemSelected(item);
 

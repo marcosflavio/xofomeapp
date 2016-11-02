@@ -41,6 +41,12 @@
     <string name="editar_numero_stub"> 193</string>
     <string name="editar_complemento_stub"> Apartamento </string>
     <string name="editar_pnt_ref_stub"> Próximo a Avenia Leste/Oeste </string>
-
-
+    <string name="nome_fulano_de_tal"> Caio Flávio </string>
+    <string name="email_fulano_de_tal"> caioflavio@gmail.com</string>
+    <string name="selecionar_entrega"> Selecione o endereço de Entrega </string>
+    <string name="radio_button_end_atual"> Rua Doutor Rui Maia, nº 625, Ap 106 - Centro </string>
+    <string name="radio_button_end_cadastrado"> Rua Miguel Pereira, nº 297, Térreo - Centro</string>
+    <string name="text_end_atual"> Endereço Atual: </string>
+    <string name="text_end_cadastrado"> Endereço Cadastrado:</string>
+    <string name="title_activity_selecionar_endereco"> Selecionar Endereço</string>
 </resources>

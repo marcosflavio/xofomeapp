@@ -21,16 +21,17 @@
         <activity
             android:name=".activities.ListarProdutosActivity"
             android:label="@string/title_activity_drawer"
-            android:theme="@style/AppTheme">
-
-        </activity>
+            android:theme="@style/AppTheme"></activity>
         <activity
             android:name=".activities.CadastrarEnderecoActivity"
-            android:label="@string/title_activity_cadastrar_endereco">
+            android:label="@string/title_activity_cadastrar_endereco"></activity>
+        <activity
+            android:name=".activities.EditarEnderecoActivity"
+            android:label="@string/title_activity_editar_endereco"></activity>
 
-        </activity>
-        <activity android:name=".activities.EditarEnderecoActivity"
-            android:label="@string/title_activity_editar_endereco">
+        <activity android:name=".activities.SelecionarEnderecoActivity"
+            android:label="@string/title_activity_selecionar_endereco"
+            android:theme="@style/AppTheme">
 
         </activity>
     </application>
