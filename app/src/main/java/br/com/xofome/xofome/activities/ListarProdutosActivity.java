@@ -148,7 +148,11 @@ public class ListarProdutosActivity extends AppCompatActivity
         } else if (id == R.id.nav_config) {
 
             Toast.makeText(getApplicationContext(),"Clicou em Configurações", Toast.LENGTH_SHORT).show();
+        }else if (id == R.id.nav_acompanhar_pedido){
+            Intent intent = new Intent(this,AcompanharPedidosActivity.class);
+            startActivityForResult(intent, Codes.REQUEST_ACOMPANHAR_PEDIDO);
         }
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

@@ -49,4 +49,8 @@
     <string name="text_end_atual"> Endereço Atual: </string>
     <string name="text_end_cadastrado"> Endereço Cadastrado:</string>
     <string name="title_activity_selecionar_endereco"> Selecionar Endereço</string>
+    <string name="back"> Voltar</string>
+    <string name="id_pedido"> Id do Pedido: </string>
+    <string name="status_pedido"> Status do Pedido:</string>
+
 </resources>
