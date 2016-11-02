@@ -18,4 +18,11 @@
     <string name="add_activity_name">Adicionar Produto</string>
     <string name="button_cadastrar">Sign up!</string>
     <string name="cadastrar_activity_name">Cadastre-se!</string>
+    <string name="title_activity_nav">NavActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_drawer"> Produtos </string>
+    <string name="configs"> Configurações </string>
+    <string name="alt_endereço"> Alterar Endereço </string>
+
 </resources>
