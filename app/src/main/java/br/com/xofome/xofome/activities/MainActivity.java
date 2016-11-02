@@ -39,10 +39,10 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public void callListarProdutosActivity (View view){
-        Intent intent = new Intent(this,ListarProdutosActivity.class);
-        startActivityForResult(intent, Codes.REQUEST_LIST);
-    }
+//    public void callListarProdutosActivity (View view){
+//        Intent intent = new Intent(this,ListarProdutosActivity.class);
+//        startActivityForResult(intent, Codes.REQUEST_LIST);
+//    }
 
     public void callCadastrarEndereco (View view){
         Intent intent = new Intent(this,CadastrarEnderecoActivity.class);

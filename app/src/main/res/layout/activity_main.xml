@@ -33,7 +33,7 @@
         android:layout_width="363dp"
         android:layout_height="66dp"
         android:id="@+id/button_cadastrar"
-        android:onClick="callCadastrarEndereco (MainActivity)"
+        android:onClick="callCadastrarEndereco"
         android:background="@drawable/facebook_sign_in"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.10" />
