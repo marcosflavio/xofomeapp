@@ -24,5 +24,6 @@
     <string name="title_activity_drawer"> Produtos </string>
     <string name="configs"> Configurações </string>
     <string name="alt_endereço"> Alterar Endereço </string>
+    <string name="acompanhar_pedido"> Acompanhar Pedido </string>
 
 </resources>
