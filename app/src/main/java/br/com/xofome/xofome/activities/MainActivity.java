@@ -43,4 +43,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,ListarProdutosActivity.class);
         startActivityForResult(intent, Codes.REQUEST_LIST);
     }
+
+    public void callCadastrarEndereco (View view){
+        Intent intent = new Intent(this,CadastrarEnderecoActivity.class);
+        startActivityForResult(intent, Codes.REQUEST_CADASTAR_END);
+    }
 }

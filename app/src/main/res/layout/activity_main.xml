@@ -29,16 +29,13 @@
         android:layout_weight="0.85"
         android:layout_gravity="center|fill"/>
 
-    <ImageButton
-        app:srcCompat="@drawable/facebook_button"
-        android:id="@+id/imageButton_cadastrar"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:adjustViewBounds="true"
-        android:scaleType="fitCenter"
-        android:layout_gravity="center"
-        android:background="@null"
-        android:elevation="15dp"
-        android:onClick="callListarProdutosActivity" />
+    <Button
+        android:layout_width="363dp"
+        android:layout_height="66dp"
+        android:id="@+id/button_cadastrar"
+        android:onClick="callCadastrarEndereco (MainActivity)"
+        android:background="@drawable/facebook_sign_in"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.10" />
 
 </LinearLayout>

@@ -11,20 +11,24 @@
         <activity
             android:name=".activities.AddProdutoActivity"
             android:label="@string/add_activity_name" />
-
         <activity android:name=".activities.MainActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".activities.ListarProdutosActivity"
             android:label="@string/title_activity_drawer"
             android:theme="@style/AppTheme">
+
+        </activity>
+
+
+        <activity android:name=".activities.CadastrarEnderecoActivity"
+            android:label="@string/title_activity_cadastrar_endereco">
+
         </activity>
     </application>
 

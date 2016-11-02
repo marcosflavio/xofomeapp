@@ -25,5 +25,14 @@
     <string name="configs"> Configurações </string>
     <string name="alt_endereço"> Alterar Endereço </string>
     <string name="acompanhar_pedido"> Acompanhar Pedido </string>
+    <string name="title_activity_cadastrar_endereco"> Cadastrar Endereço</string>
+    <string name="header_cadastrar_endereco"> Dados do Endereço</string>
+    <string name="rua"> Rua:</string>
+    <string name="bairro"> Bairro:</string>
+    <string name="numero"> Número:</string>
+    <string name="complemento"> Complemento (Opicional):</string>
+    <string name="ponto_ref"> Ponto de Referência (Opicional):</string>
+    <string name="confirmar_menu_item"> Confirmar</string>
+    <string name="descartar_menu_item"> Cancelar </string>
 
 </resources>
