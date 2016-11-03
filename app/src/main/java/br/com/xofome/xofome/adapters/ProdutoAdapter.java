@@ -4,6 +4,7 @@ package br.com.xofome.xofome.adapters;
  * Created by marcosf on 30/10/2016.
  */
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,6 +17,8 @@ import android.widget.TextView;
 import java.util.List;
 
 import br.com.xofome.xofome.R;
+import br.com.xofome.xofome.activities.SelecionarEnderecoActivity;
+import br.com.xofome.xofome.constantes.Codes;
 import br.com.xofome.xofome.model.Produto;
 
 public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.MyViewHolder> {
@@ -90,7 +93,7 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.MyViewHo
 
                     onClickListener.onClickProduto(holder.getView(), position);
 
-                }
+                    }
             });
         }
 

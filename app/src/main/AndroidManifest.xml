@@ -31,8 +31,15 @@
         <activity
             android:name=".activities.SelecionarEnderecoActivity"
             android:label="@string/title_activity_selecionar_endereco"
-            android:theme="@style/AppTheme"></activity>
-        <activity android:name=".activities.AcompanharPedidosActivity"></activity>
+            android:theme="@style/AppTheme">
+
+        </activity>
+
+        <activity android:name=".activities.AcompanharPedidosActivity"
+            android:label="@string/title_activity_acompanhar_pedido">
+
+
+        </activity>
     </application>
 
 </manifest>

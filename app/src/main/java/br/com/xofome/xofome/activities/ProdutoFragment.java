@@ -1,4 +1,5 @@
 package br.com.xofome.xofome.activities;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -79,6 +80,9 @@ public class ProdutoFragment extends Fragment {
                 if(tipo.equals("comidas")){
                     Produto p = comidas.get(idx);
                     Toast.makeText(getContext(),"Produto " + p.getNomeProduto() + "Comidas", Toast.LENGTH_SHORT).show();
+                    Intent  i = new Intent(getContext(),MainActivity.class);
+                    startActivity(i);
+
 
                 }else if(tipo.equals("bebidas")){
                     Produto p = bebidas.get(idx);

@@ -52,5 +52,6 @@
     <string name="back"> Voltar</string>
     <string name="id_pedido"> Id do Pedido: </string>
     <string name="status_pedido"> Status do Pedido:</string>
+    <string name="title_activity_acompanhar_pedido"> Acompanhe seu Pedido! </string>
 
 </resources>
