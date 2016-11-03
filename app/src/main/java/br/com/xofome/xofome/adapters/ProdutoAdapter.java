@@ -5,6 +5,7 @@ package br.com.xofome.xofome.adapters;
  */
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,10 +14,13 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
 import br.com.xofome.xofome.R;
+import br.com.xofome.xofome.activities.DescricaoProdutoActivity;
+import br.com.xofome.xofome.constantes.Keys;
 import br.com.xofome.xofome.model.Produto;
 
 public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.MyViewHolder> {
@@ -76,10 +80,23 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.MyViewHo
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
 
-        Produto p = produtos.get(position);
+        final Produto p = produtos.get(position);
         //Atualiza os valores nas views
         holder.textViewNomeProduto.setText(p.getNomeProduto());
         holder.textViewPrice.setText(String.valueOf(p.getPreco()));
+        holder.imageButtonShop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Toast.makeText(context,"Você adicionou o produto " +  p.getNomeProduto() +
+                " ao seu pedido!", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(context, DescricaoProdutoActivity.class);
+                intent.putExtra(Keys.REQUEST_DETALHES, p.getIdProduto());
+                context.startActivity(intent);
+
+            }
+        });
 
         //Click
         if (onClickListener != null) {

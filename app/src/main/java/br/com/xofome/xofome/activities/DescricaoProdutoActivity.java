@@ -8,9 +8,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
+
 import br.com.xofome.xofome.R;
 import br.com.xofome.xofome.constantes.Keys;
 import br.com.xofome.xofome.model.Produto;
+import br.com.xofome.xofome.services.ProdutoService;
 import br.com.xofome.xofome.services.ProdutoServiceMemory;
 
 public class DescricaoProdutoActivity extends AppCompatActivity {
@@ -40,15 +43,21 @@ public class DescricaoProdutoActivity extends AppCompatActivity {
     }
 
     private void inicializar(int id) {
-        Produto p = ProdutoServiceMemory.getProdutoById(id);
+       // Produto p = ProdutoServiceMemory.getProdutoById(id);
 
-        if (p != null) {
-            mNomeProduto.setText(p.getNomeProduto());
-            mPrecoProduto.setText(String.valueOf(p.getPreco()));
-            mDescricaoProduto.setText(p.getDescricao());
-        } else {
-            Toast.makeText(this, "Erro ao visualizar o produto.", Toast.LENGTH_LONG).show();
-            finish();
+        try {
+            Produto p = ProdutoService.getProduto(getApplicationContext(), id);
+
+            if (p != null) {
+                mNomeProduto.setText(p.getNomeProduto());
+                mPrecoProduto.setText(String.valueOf(p.getPreco()));
+                mDescricaoProduto.setText(p.getDescricao());
+            } else {
+                Toast.makeText(this, "Erro ao visualizar o produto.", Toast.LENGTH_LONG).show();
+                finish();
+            }
+        }catch (IOException E){
+
         }
     }
 }

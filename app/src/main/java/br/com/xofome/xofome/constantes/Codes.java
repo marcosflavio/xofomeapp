@@ -15,7 +15,7 @@ public interface Codes {
     public static final int REQUEST_EDITAR_END = 7;
     public static final int REQUEST_SELECT_END = 8;
     public static final int REQUEST_ACOMPANHAR_PEDIDO = 9;
-
+    public static final int REQUEST_LIST_PEDIDO = 10;
     public static final int RESPONSE_ADD_OK = 3;
     public static final int RESPONSE_EDIT_OK = 4;
 

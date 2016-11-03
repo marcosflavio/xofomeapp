@@ -127,8 +127,8 @@ public class ListarProdutosActivity extends AppCompatActivity
             startActivityForResult(intent, Codes.REQUEST_ADD);
             return true;
         } else if (id == R.id.refresh) {
-            Intent intent = new Intent(this, SelecionarEnderecoActivity.class);
-            startActivityForResult(intent, Codes.REQUEST_SELECT_END);
+            Intent intent = new Intent(this, ListaPedidoActivity.class);
+            startActivityForResult(intent, Codes.REQUEST_LIST_PEDIDO);
             return true;
         }
         return super.onOptionsItemSelected(item);
