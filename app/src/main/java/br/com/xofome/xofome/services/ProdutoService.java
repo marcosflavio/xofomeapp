@@ -1,7 +1,6 @@
 package br.com.xofome.xofome.services;
 
 import android.content.Context;
-import android.util.Log;
 
 import java.io.IOException;
 import java.util.List;

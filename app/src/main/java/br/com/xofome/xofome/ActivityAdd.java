@@ -1,15 +1,14 @@
 package br.com.xofome.xofome;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
 import br.com.xofome.xofome.constantes.Codes;
 import br.com.xofome.xofome.constantes.Keys;
 import br.com.xofome.xofome.model.Produto;
-import br.com.xofome.xofome.services.ProdutoService;
 import br.com.xofome.xofome.services.ProdutoServiceMemory;
 
 public class ActivityAdd extends AppCompatActivity {

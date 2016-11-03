@@ -1,27 +1,15 @@
 package br.com.xofome.xofome;
 
 import android.content.Intent;
-import android.icu.text.DecimalFormat;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-import java.text.NumberFormat;
-import java.util.Currency;
-import java.util.Locale;
-
 import br.com.xofome.xofome.constantes.Keys;
 import br.com.xofome.xofome.model.Produto;
-import br.com.xofome.xofome.services.ProdutoService;
 import br.com.xofome.xofome.services.ProdutoServiceMemory;
 
 public class DescricaoProdutoActivity extends AppCompatActivity {
