@@ -6,7 +6,7 @@ package br.com.xofome.xofome.model;
 
 public class Produto {
 
-    private int idProduto;
+    private static int idProduto = 0;
     private String nomeProduto;
     private Float preco;
     private String descricao;

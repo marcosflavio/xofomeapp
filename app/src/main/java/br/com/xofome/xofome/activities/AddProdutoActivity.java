@@ -1,22 +1,26 @@
-package br.com.xofome.xofome;
+package br.com.xofome.xofome.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
+import br.com.xofome.xofome.R;
 import br.com.xofome.xofome.constantes.Codes;
 import br.com.xofome.xofome.constantes.Keys;
 import br.com.xofome.xofome.model.Produto;
-import br.com.xofome.xofome.services.ProdutoServiceMemory;
+import br.com.xofome.xofome.services.ProdutoService;
 
-public class ActivityAdd extends AppCompatActivity {
+public class AddProdutoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarAdd);
+        setSupportActionBar(toolbar);
     }
 
 
@@ -31,10 +35,8 @@ public class ActivityAdd extends AppCompatActivity {
             String nome = nomeProduto.getText().toString();
             String desc = descProduto.getText().toString();
 
-//            Produto produto = ProdutoServiceMemory.formarProduto(tipo, preco, nome, desc);
-            Produto produto = ProdutoServiceMemory.formarProduto(tipo, preco, nome, desc);
-//            ProdutoService.save(this, produto);
-            ProdutoServiceMemory.save(produto);
+            Produto produto = ProdutoService.formarProduto(tipo, preco, nome, desc);
+            ProdutoService.save(getApplicationContext(), produto);
 
             Intent sav = new Intent();
             sav.putExtra(Keys.RESPONSE_SAVE_NOME, nome);

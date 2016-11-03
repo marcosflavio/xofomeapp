@@ -14,18 +14,46 @@
     <string name="comidas">Comidas</string>
     <string name="bebidas">Bebidas</string>
     <string name="botaoAdicionar">Adicionar</string>
-    <string name="title_activity_tela_lista_pedido">TelaListaPedido</string>
-    <string name="title_activity_lista_pedido">ListaPedidoActivity</string>
-    <string-array name="quant_itens">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-    </string-array>
-    <string name="title_activity_descricao_produto">DescricaoProdutoActivity</string>
-    <string name="nome_do_produto">Nome do Produto</string>
-    <string name="quantidade_itens">Quant.</string>
-    <string name="descricao">Descrição</string>
-    <string name="total_a_pagar">Total:</string>
+    <string name="cardapio">Cardápio</string>
+    <string name="add_activity_name">Adicionar Produto</string>
+    <string name="button_cadastrar">Sign up!</string>
+    <string name="cadastrar_activity_name">Cadastre-se!</string>
+    <string name="title_activity_nav">NavActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_drawer"> Produtos </string>
+    <string name="configs"> Configurações </string>
+    <string name="alt_endereço"> Alterar Endereço </string>
+    <string name="acompanhar_pedido"> Acompanhar Pedido </string>
+    <string name="title_activity_cadastrar_endereco"> Cadastrar Endereço</string>
+    <string name="header_cadastrar_endereco"> Dados do Endereço</string>
+    <string name="rua"> Rua:</string>
+    <string name="bairro"> Bairro:</string>
+    <string name="numero"> Número:</string>
+    <string name="complemento"> Complemento (Opicional):</string>
+    <string name="ponto_ref"> Ponto de Referência (Opicional):</string>
+    <string name="confirmar_menu_item"> Confirmar</string>
+    <string name="descartar_menu_item"> Cancelar </string>
+    <string name="header_editar_endereco"> Dados do Endereço</string>
+    <string name="title_activity_editar_endereco"> Editar Endereço</string>
+    <string name="editar_rua_stub"> Vila Velha</string>
+    <string name="editar_bairro_stub"> Barra do Ceará</string>
+    <string name="editar_numero_stub"> 193</string>
+    <string name="editar_complemento_stub"> Apartamento </string>
+    <string name="editar_pnt_ref_stub"> Próximo a Avenia Leste/Oeste </string>
+    <string name="nome_fulano_de_tal"> Caio Flávio </string>
+    <string name="email_fulano_de_tal"> caioflavio@gmail.com</string>
+    <string name="selecionar_entrega"> Selecione o endereço de Entrega </string>
+    <string name="radio_button_end_atual"> Rua Doutor Rui Maia, nº 625, Ap 106 - Centro </string>
+    <string name="radio_button_end_cadastrado"> Rua Miguel Pereira, nº 297, Térreo - Centro</string>
+    <string name="text_end_atual"> Endereço Atual: </string>
+    <string name="text_end_cadastrado"> Endereço Cadastrado:</string>
+    <string name="title_activity_selecionar_endereco"> Selecionar Endereço</string>
+    <string name="back"> Voltar</string>
+    <string name="id_pedido"> Id do Pedido: </string>
+    <string name="status_pedido"> Status do Pedido:</string>
+    <string name="title_activity_acompanhar_pedido"> Acompanhe seu Pedido! </string>
+    <string name="detalhes">Detalhes</string>
+    <string name="texto_detalhes">Pastel de flango é mto bom.\n\nRecomendo</string>
+
 </resources>

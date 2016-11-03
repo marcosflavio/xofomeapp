@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_selecionar_endereco"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="br.com.xofome.xofome.activities.SelecionarEnderecoActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarSelecionarEndereco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        app:buttonGravity="top|bottom"
+        android:minHeight="64dp"
+        android:elevation="0dp">
+    </android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:text="@string/selecionar_entrega"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewSelecionarEndHead"
+        android:textStyle="normal|bold"
+        android:textAlignment="center"
+        android:textSize="24sp" />
+
+    <RadioGroup
+        android:id="@+id/group1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:text="@string/text_end_atual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewEndAtual"
+            android:layout_weight="1"
+            android:textStyle="normal|bold" />
+
+        <RadioButton
+            android:text="@string/radio_button_end_atual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioButtonEnderecoAtual"
+            android:layout_weight="1"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
+
+        <TextView
+            android:text="@string/text_end_cadastrado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewEndCadastrado"
+            android:layout_weight="1"
+            android:textStyle="normal|bold" />
+
+        <RadioButton
+            android:text="@string/radio_button_end_cadastrado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioButtonEnderecoCadastrado"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
+    </RadioGroup>
+
+
+</LinearLayout>

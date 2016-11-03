@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_alt_end"
+            android:icon="@drawable/ic_house"
+            android:title="@string/alt_endereço"
+            />
+
+        <item
+            android:id="@+id/nav_acompanhar_pedido"
+            android:icon="@mipmap/ic_add_shopping_cart_black_48dp"
+            android:title="@string/acompanhar_pedido"
+            />
+
+    </group>
+
+    <item android:title="@string/configs">
+        <menu>
+            <item
+                android:id="@+id/nav_config"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Tools" />
+        </menu>
+    </item>
+
+</menu>
