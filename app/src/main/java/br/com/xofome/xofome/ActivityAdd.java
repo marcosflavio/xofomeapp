@@ -10,6 +10,7 @@ import br.com.xofome.xofome.constantes.Codes;
 import br.com.xofome.xofome.constantes.Keys;
 import br.com.xofome.xofome.model.Produto;
 import br.com.xofome.xofome.services.ProdutoService;
+import br.com.xofome.xofome.services.ProdutoServiceMemory;
 
 public class ActivityAdd extends AppCompatActivity {
 
@@ -31,12 +32,15 @@ public class ActivityAdd extends AppCompatActivity {
             String nome = nomeProduto.getText().toString();
             String desc = descProduto.getText().toString();
 
-            Produto produto = ProdutoService.formarProduto(tipo, preco, nome, desc);
-            ProdutoService.save(this, produto);
+//            Produto produto = ProdutoServiceMemory.formarProduto(tipo, preco, nome, desc);
+            Produto produto = ProdutoServiceMemory.formarProduto(tipo, preco, nome, desc);
+//            ProdutoService.save(this, produto);
+            ProdutoServiceMemory.save(produto);
 
             Intent sav = new Intent();
             sav.putExtra(Keys.RESPONSE_SAVE_NOME, nome);
             setResult(Codes.RESPONSE_ADD_OK);
+
             finish();
         }
     }

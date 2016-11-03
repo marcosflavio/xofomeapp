@@ -38,9 +38,8 @@ public class ItemPedidoListAdapter extends BaseAdapter{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        LayoutInflater li;
-        li = LayoutInflater.from(context);
-        View v =  li.inflate(R.layout.product_list_item_layout, null);
+        LayoutInflater li = LayoutInflater.from(context);
+        convertView =  li.inflate(R.layout.product_list_item_layout, null);
 
         ItemPedido itemPedido = getItem(position);
 
@@ -48,16 +47,17 @@ public class ItemPedidoListAdapter extends BaseAdapter{
             ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(context, R.array.quant_itens, android.R.layout.simple_spinner_item);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-            TextView nomeItem = (TextView) v.findViewById(R.id.nomeItemPedido);
+            TextView nomeItem = (TextView) convertView.findViewById(R.id.nomeItemPedido);
             nomeItem.setText(itemPedido.getNomeProduto());
 
-            Spinner spinner = (Spinner) v.findViewById(R.id.quantidadeItemPedido);
-            spinner.setAdapter(adapter);
+            NumberPicker quantidadeItemPedido = (NumberPicker) convertView.findViewById(R.id.quantidadeItemPedido);
+            quantidadeItemPedido.setMinValue(1);
+            quantidadeItemPedido.setMaxValue(10);
 
-            spinner.setSelection(itemPedido.getQuantidade() - 1);
+            quantidadeItemPedido.setValue(itemPedido.getQuantidade());
         }
 
-        return v;
+        return convertView;
     }
 
     public void addItem(ItemPedido item) {
@@ -78,10 +78,6 @@ public class ItemPedidoListAdapter extends BaseAdapter{
 
     @Override
     public long getItemId(int position) {
-        return itens.get(position).getIdItemPedido();
-    }
-
-    public int getIdProduto(int position){
-        return itens.get(position).getIdProduto();
+        return position;
     }
 }

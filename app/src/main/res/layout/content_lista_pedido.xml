@@ -45,10 +45,11 @@
 
         <ListView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="366dp"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:id="@+id/listaItemsPedido"/>
+            android:id="@+id/listaItemsPedido"
+            android:focusable="false" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -60,7 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/totalPagarText"
-                android:layout_weight="0.10"
+                android:layout_weight="0.04"
                 android:textSize="20sp"
                 android:textStyle="normal|bold"
                 android:layout_marginTop="10dp" />

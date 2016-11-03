@@ -26,7 +26,6 @@
     <string name="title_activity_descricao_produto">DescricaoProdutoActivity</string>
     <string name="nome_do_produto">Nome do Produto</string>
     <string name="quantidade_itens">Quant.</string>
-    <string name="total_a_pagar">Total a pagar:</string>
-    <string name="detalhes">Detalhes</string>
-    <string name="texto_detalhes">Pastel de flango é mto bom.\n\nRecomendo</string>
+    <string name="descricao">Descrição</string>
+    <string name="total_a_pagar">Total:</string>
 </resources>

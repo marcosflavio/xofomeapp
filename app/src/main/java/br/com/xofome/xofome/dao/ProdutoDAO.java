@@ -10,6 +10,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.xofome.xofome.model.ItemPedido;
 import br.com.xofome.xofome.model.Produto;
 
 /**
@@ -49,25 +50,24 @@ public class ProdutoDAO extends SQLiteOpenHelper {
         try{
 
 
-        ContentValues values = new ContentValues();
-        values.put("nome_produto", produto.getNomeProduto());
-        values.put("descricao", produto.getDescricao());
-        values.put("preco", produto.getPreco());
-        values.put("tipo", produto.getTipo());
+            ContentValues values = new ContentValues();
+            values.put("nome_produto", produto.getNomeProduto());
+            values.put("descricao", produto.getDescricao());
+            values.put("preco", produto.getPreco());
+            values.put("tipo", produto.getTipo());
 
-        if(id != null){
-            String id_produto = String.valueOf(produto.getIdProduto());
-            String [] whereArgs = new String [] {id_produto};
-            //atualizo o produto
-            db.update("produto", values, "id_produto=?", whereArgs);
-        }else{
-            //insiro o produto
-            db.insert("produto","",values);
-        }
-        }finally {
-            db.close();
-        }
-
+            if(id != null){
+                String id_produto = String.valueOf(produto.getIdProduto());
+                String [] whereArgs = new String [] {id_produto};
+                //atualizo o produto
+                db.update("produto", values, "id_produto=?", whereArgs);
+            }else{
+                //insiro o produto
+                long ide = db.insert("produto","",values);
+            }
+            }finally {
+                db.close();
+            }
     }
 
     public void delete(Produto produto){
@@ -85,6 +85,7 @@ public class ProdutoDAO extends SQLiteOpenHelper {
     public List<Produto> findAllTipo( int tipo){
 
         SQLiteDatabase db = getWritableDatabase();
+
         try{
             Cursor c = db.query("produto", null, "tipo = '" + tipo + "'",null,null,null,null);
             return toList(c);
@@ -93,8 +94,23 @@ public class ProdutoDAO extends SQLiteOpenHelper {
         }
     }
 
+    public Produto find(int id){
+        SQLiteDatabase db = getWritableDatabase();
+
+        String where = "id_produto = ?";
+        String[] whereArgs = {String.valueOf(id)};
+
+        try{
+            Cursor cursor = db.query("produto", null, where, whereArgs, null, null, null, null);
+            return toProduto(cursor);
+        } finally {
+            db.close();
+        }
+    }
+
     private List<Produto> toList (Cursor c){
         List<Produto> produtos = new ArrayList<Produto>();
+
         if(c.moveToFirst()){
             do{
                 Produto produto = new Produto();
@@ -109,6 +125,25 @@ public class ProdutoDAO extends SQLiteOpenHelper {
         }
 
         return produtos;
+    }
+
+    private Produto toProduto(Cursor c){
+        Produto produto = new Produto();
+
+        if (c.moveToFirst()) {
+            Log.w("moveToFirst", "true");
+            produto.setIdProduto(c.getInt(c.getColumnIndex("id_produto")));
+            produto.setDescricao(c.getString(c.getColumnIndex("descricao")));
+            produto.setNomeProduto(c.getString(c.getColumnIndex("nome_produto")));
+            produto.setPreco(c.getFloat(c.getColumnIndex("preco")));
+            produto.setTipo(c.getInt(c.getColumnIndex("tipo")));
+
+            return produto;
+        }
+        else{
+            Log.w("moveToFirst", "false");
+            return null;
+        }
     }
 }
 

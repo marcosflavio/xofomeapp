@@ -25,14 +25,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/mini"
-            android:id="@+id/fotoProdutoDetalhes"
+            android:id="@+id/fotoProdutoImage"
             android:layout_marginBottom="15dp" />
 
         <TextView
-            android:text="Pastel de Flango"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/nomeProdutoDetalhes"
+            android:id="@+id/nomeProdutoTextDetalhes"
             android:textSize="24sp" />
 
         <LinearLayout
@@ -50,7 +49,6 @@
                 android:layout_marginRight="5dp" />
 
             <TextView
-                android:text="3,50"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/precoProdutoText"
@@ -69,16 +67,15 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/detalhesText"
+            android:id="@+id/descricaoText"
             android:textSize="24sp"
             android:textStyle="normal|bold"
-            android:text="@string/detalhes" />
+            android:text="@string/descricao" />
 
         <TextView
-            android:text="@string/texto_detalhes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textoDetalhesText"
+            android:id="@+id/conteudoDescricaoTextDetalhes"
             android:textSize="20sp" />
 
     </LinearLayout>

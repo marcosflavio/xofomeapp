@@ -15,6 +15,18 @@ import br.com.xofome.xofome.model.Produto;
 
 public class ProdutoService {
 
+    public static Produto getProdutoById(Context context, int id){
+        ProdutoDAO dao = new ProdutoDAO(context);
+
+        try{
+            Produto produto = dao.find(id);
+
+            return produto;
+        } finally {
+            dao.close();
+        }
+    }
+
     public static List<Produto> getProdutos(Context context, int tipo) throws IOException{
         ProdutoDAO dao = new ProdutoDAO(context);
         try{
@@ -27,6 +39,7 @@ public class ProdutoService {
 
     public static void save(Context context, Produto produto){
         ProdutoDAO dao = new ProdutoDAO(context);
+
         try{
             dao.save(produto);
         }finally {
@@ -45,6 +58,7 @@ public class ProdutoService {
 
     public static Produto formarProduto(int tipo, float preco, String nome, String desc){
         Produto produto = new Produto();
+
         produto.setTipo(tipo);
         produto.setPreco(preco);
         produto.setNomeProduto(nome);

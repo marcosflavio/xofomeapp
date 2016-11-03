@@ -22,6 +22,7 @@ public class Produto {
     public Produto(){
 
     }
+
     public String getDescricao() {
         return descricao;
     }
