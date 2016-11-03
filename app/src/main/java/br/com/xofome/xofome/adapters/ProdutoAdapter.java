@@ -50,7 +50,6 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.MyViewHo
             textViewNomeProduto = (TextView) v.findViewById(R.id.info_text);
             textViewDesc = (TextView) v.findViewById(R.id.textDescriptionPrice);
             textViewPrice = (TextView) v.findViewById(R.id.textViewPrice);
-            imageButtonMenu = (ImageButton) v.findViewById(R.id.imageButton);
             imageButtonShop = (ImageButton) v.findViewById(R.id.imageButton2);
         }
 

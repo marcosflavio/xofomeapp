@@ -85,6 +85,28 @@ public class ProdutoDAO extends SQLiteOpenHelper {
         }
     }
 
+    //retorna um determinado produto
+    public Produto findById( int id){
+
+        SQLiteDatabase db = getWritableDatabase();
+        try{
+            Cursor c = db.query("produto", null, "id_produto = '" + id + "'",null,null,null,null);
+            if(c.moveToFirst()){
+                Produto produto = new Produto();
+                produto.setIdProduto( c.getInt(c.getColumnIndex("id_produto")));
+                produto.setDescricao(c.getString(c.getColumnIndex("descricao")));
+                produto.setNomeProduto(c.getString(c.getColumnIndex("nome_produto")));
+                produto.setPreco(c.getFloat(c.getColumnIndex("preco")));
+                produto.setTipo(c.getInt(c.getColumnIndex("tipo")));
+                return  produto;
+            }
+
+        }finally {
+            db.close();
+        }
+        return null;
+    }
+
     private List<Produto> toList (Cursor c){
         List<Produto> produtos = new ArrayList<Produto>();
         if(c.moveToFirst()){

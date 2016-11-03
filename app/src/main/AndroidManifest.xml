@@ -40,6 +40,11 @@
 
 
         </activity>
+
+        <activity android:name=".activities.DescricaoProdutoActivity"
+            android:label="@string/detalhes">
+
+        </activity>
     </application>
 
 </manifest>

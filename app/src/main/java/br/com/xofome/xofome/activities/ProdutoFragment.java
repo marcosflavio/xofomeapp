@@ -80,9 +80,8 @@ public class ProdutoFragment extends Fragment {
                 if(tipo.equals("comidas")){
                     Produto p = comidas.get(idx);
                     Toast.makeText(getContext(),"Produto " + p.getNomeProduto() + "Comidas", Toast.LENGTH_SHORT).show();
-                    Intent  i = new Intent(getContext(),MainActivity.class);
+                    Intent  i = new Intent(getContext(),DescricaoProdutoActivity.class);
                     startActivity(i);
-
 
                 }else if(tipo.equals("bebidas")){
                     Produto p = bebidas.get(idx);

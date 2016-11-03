@@ -25,6 +25,16 @@ public class ProdutoService {
         }
     }
 
+    public static Produto getProduto(Context context, int id) throws IOException{
+        ProdutoDAO dao = new ProdutoDAO(context);
+        try{
+           Produto produto = dao.findById(id);
+            return produto;
+        }finally {
+            dao.close();
+        }
+    }
+
     public static void save(Context context, Produto produto){
         ProdutoDAO dao = new ProdutoDAO(context);
         try{
