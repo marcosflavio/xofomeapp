@@ -1,8 +1,8 @@
 package br.com.xofome.xofome.activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,17 +23,17 @@ public class SelecionarEnderecoActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         final RadioGroup group = (RadioGroup) findViewById(R.id.group1);
-        group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
+        group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 boolean atual = R.id.radioButtonEnderecoAtual == i;
                 boolean cadatrado = R.id.radioButtonEnderecoCadastrado == i;
 
-                if(atual){
+                if (atual) {
                     Toast.makeText(getApplicationContext(), "Optou por utilizar o endereço atual",
                             Toast.LENGTH_SHORT).show();
-                }else if(cadatrado){
+                } else if (cadatrado) {
                     Toast.makeText(getApplicationContext(), "Optou por utilizar o endereço cadastrado",
                             Toast.LENGTH_SHORT).show();
                 }
@@ -52,14 +52,14 @@ public class SelecionarEnderecoActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if(id == R.id.item_menu_confirm_selecionar_end){
+        if (id == R.id.item_menu_confirm_selecionar_end) {
 
-            Intent intent = new Intent(this,ListarProdutosActivity.class);
+            Intent intent = new Intent(this, ListarProdutosActivity.class);
             startActivityForResult(intent, Codes.REQUEST_LIST);
 
-        }else if (id == R.id.item_menu_cancel__selecionar_end){
+        } else if (id == R.id.item_menu_cancel__selecionar_end) {
 
-            Intent intent = new Intent(this,ListarProdutosActivity.class);
+            Intent intent = new Intent(this, ListarProdutosActivity.class);
             startActivityForResult(intent, Codes.REQUEST_LIST);
         }
 

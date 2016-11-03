@@ -1,8 +1,8 @@
 package br.com.xofome.xofome.activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if(id == R.id.itemSettings){
-            Toast.makeText(getApplicationContext(),"Opções",Toast.LENGTH_SHORT).show();
+        if (id == R.id.itemSettings) {
+            Toast.makeText(getApplicationContext(), "Opções", Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -44,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
 //        startActivityForResult(intent, Codes.REQUEST_LIST);
 //    }
 
-    public void callCadastrarEndereco (View view){
-        Intent intent = new Intent(this,CadastrarEnderecoActivity.class);
+    public void callCadastrarEndereco(View view) {
+        Intent intent = new Intent(this, CadastrarEnderecoActivity.class);
         startActivityForResult(intent, Codes.REQUEST_CADASTAR_END);
     }
 }

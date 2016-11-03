@@ -18,8 +18,7 @@
         android:elevation="6dp"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        />
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
     <ImageView
         android:layout_width="match_parent"
@@ -27,7 +26,7 @@
         app:srcCompat="@drawable/xf1"
         android:id="@+id/imageView"
         android:layout_weight="0.85"
-        android:layout_gravity="center|fill"/>
+        android:layout_gravity="center|fill" />
 
     <Button
         android:layout_width="363dp"

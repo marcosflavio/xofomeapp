@@ -1,8 +1,8 @@
 package br.com.xofome.xofome.activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,6 +16,7 @@ import br.com.xofome.xofome.constantes.Codes;
 public class CadastrarEnderecoActivity extends AppCompatActivity {
 
     private View view;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +38,7 @@ public class CadastrarEnderecoActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if(id == R.id.item_menu_confirm){
+        if (id == R.id.item_menu_confirm) {
 
             EditText rua = (EditText) this.findViewById(R.id.editTextRua);
             EditText bairro = (EditText) this.findViewById(R.id.editTextBairro);
@@ -51,17 +52,17 @@ public class CadastrarEnderecoActivity extends AppCompatActivity {
             String str_complemento = complemento.getText().toString();
             String str_pontoRef = pnt_ref.getText().toString();
 
-            Toast.makeText(getApplicationContext(), "Endereço :" + str_rua + " " + str_bairro + " "+
-                    str_numero + " " + str_complemento + " " + str_pontoRef + " adicionado com sucesso!",
+            Toast.makeText(getApplicationContext(), "Endereço :" + str_rua + " " + str_bairro + " " +
+                            str_numero + " " + str_complemento + " " + str_pontoRef + " adicionado com sucesso!",
                     Toast.LENGTH_SHORT).show();
 
-            Intent intent = new Intent(this,ListarProdutosActivity.class);
+            Intent intent = new Intent(this, ListarProdutosActivity.class);
             startActivityForResult(intent, Codes.REQUEST_LIST);
             return true;
 
-        }else if(id == R.id.item_menu_cancel){
+        } else if (id == R.id.item_menu_cancel) {
 
-            Intent intent = new Intent(this,MainActivity.class);
+            Intent intent = new Intent(this, MainActivity.class);
             startActivityForResult(intent, Codes.REQUEST_BACK);
             return true;
 

@@ -2,8 +2,8 @@ package br.com.xofome.xofome.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 
@@ -24,25 +24,25 @@ public class AddProdutoActivity extends AppCompatActivity {
     }
 
 
-    public void salvar(View view){
-            EditText nomeProduto = (EditText) findViewById(R.id.editTextNome);
-            EditText tipoProduto = (EditText) findViewById(R.id.editTextTipo);
-            EditText precoProduto = (EditText) findViewById(R.id.editTextPreco);
-            EditText descProduto = (EditText) findViewById(R.id.editTextDescricao);
+    public void salvar(View view) {
+        EditText nomeProduto = (EditText) findViewById(R.id.editTextNome);
+        EditText tipoProduto = (EditText) findViewById(R.id.editTextTipo);
+        EditText precoProduto = (EditText) findViewById(R.id.editTextPreco);
+        EditText descProduto = (EditText) findViewById(R.id.editTextDescricao);
 
-            int tipo = Integer.valueOf(tipoProduto.getText().toString());
-            float preco = Float.valueOf(precoProduto.getText().toString());
-            String nome = nomeProduto.getText().toString();
-            String desc = descProduto.getText().toString();
+        int tipo = Integer.valueOf(tipoProduto.getText().toString());
+        float preco = Float.valueOf(precoProduto.getText().toString());
+        String nome = nomeProduto.getText().toString();
+        String desc = descProduto.getText().toString();
 
-            Produto produto = ProdutoService.formarProduto(tipo, preco, nome, desc);
-            ProdutoService.save(getApplicationContext(), produto);
+        Produto produto = ProdutoService.formarProduto(tipo, preco, nome, desc);
+        ProdutoService.save(getApplicationContext(), produto);
 
-            Intent sav = new Intent();
-            sav.putExtra(Keys.RESPONSE_SAVE_NOME, nome);
-            setResult(Codes.RESPONSE_ADD_OK);
+        Intent sav = new Intent();
+        sav.putExtra(Keys.RESPONSE_SAVE_NOME, nome);
+        setResult(Codes.RESPONSE_ADD_OK);
 
-            finish();
-        }
+        finish();
     }
+}
 

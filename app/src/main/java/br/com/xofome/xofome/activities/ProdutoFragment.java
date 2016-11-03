@@ -1,4 +1,5 @@
 package br.com.xofome.xofome.activities;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -50,12 +51,12 @@ public class ProdutoFragment extends Fragment {
         rv.setHasFixedSize(true);
 
         try {
-            if(this.tipo.equals("comidas")){
-                comidas = ProdutoService.getProdutos(getContext(),0);
-                adapter = new ProdutoAdapter(this.getContext(),comidas, onClickProduto());
-            }else if(this.tipo.equals("bebidas")){
-                bebidas = ProdutoService.getProdutos(getContext(),1);
-                adapter = new ProdutoAdapter(this.getContext(),bebidas, onClickProduto());
+            if (this.tipo.equals("comidas")) {
+                comidas = ProdutoService.getProdutos(getContext(), 0);
+                adapter = new ProdutoAdapter(this.getContext(), comidas, onClickProduto());
+            } else if (this.tipo.equals("bebidas")) {
+                bebidas = ProdutoService.getProdutos(getContext(), 1);
+                adapter = new ProdutoAdapter(this.getContext(), bebidas, onClickProduto());
             }
 
             rv.setAdapter(adapter);
@@ -65,27 +66,27 @@ public class ProdutoFragment extends Fragment {
             rv.setLayoutManager(llm);
 
 
-         } catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return rootView;
     }
 
-    private ProdutoAdapter.ProdutoOnClickListener onClickProduto(){
+    private ProdutoAdapter.ProdutoOnClickListener onClickProduto() {
 
-        return new ProdutoAdapter.ProdutoOnClickListener(){
+        return new ProdutoAdapter.ProdutoOnClickListener() {
 
             @Override
-            public void onClickProduto(View view, int idx){
-                if(tipo.equals("comidas")){
+            public void onClickProduto(View view, int idx) {
+                if (tipo.equals("comidas")) {
                     Produto p = comidas.get(idx);
-                    Toast.makeText(getContext(),"Produto " + p.getNomeProduto() + "Comidas", Toast.LENGTH_SHORT).show();
-                    Intent  i = new Intent(getContext(),DescricaoProdutoActivity.class);
+                    Toast.makeText(getContext(), "Produto " + p.getNomeProduto() + "Comidas", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(getContext(), DescricaoProdutoActivity.class);
                     startActivity(i);
 
-                }else if(tipo.equals("bebidas")){
+                } else if (tipo.equals("bebidas")) {
                     Produto p = bebidas.get(idx);
-                    Toast.makeText(getContext(),"Produto " + p.getNomeProduto() + "Bebidas", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Produto " + p.getNomeProduto() + "Bebidas", Toast.LENGTH_SHORT).show();
                 }
 
             }

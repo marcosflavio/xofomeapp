@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.NumberPicker;
 import android.widget.TextView;
@@ -20,12 +19,12 @@ import br.com.xofome.xofome.model.ItemPedido;
  * Created by Caio on 30/10/2016.
  */
 
-public class ItemPedidoListAdapter extends BaseAdapter{
+public class ItemPedidoListAdapter extends BaseAdapter {
 
     private List<ItemPedido> itens;
     private Context context;
 
-    public ItemPedidoListAdapter(Context context,  List<ItemPedido> objects) {
+    public ItemPedidoListAdapter(Context context, List<ItemPedido> objects) {
         itens = objects;
         this.context = context;
     }
@@ -35,14 +34,11 @@ public class ItemPedidoListAdapter extends BaseAdapter{
     public View getView(int position, View convertView, ViewGroup parent) {
 
         LayoutInflater li = LayoutInflater.from(context);
-        convertView =  li.inflate(R.layout.product_list_item_layout, null);
+        convertView = li.inflate(R.layout.product_list_item_layout, null);
 
         ItemPedido itemPedido = getItem(position);
 
-        if (itemPedido != null){
-            ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(context, R.array.quant_itens, android.R.layout.simple_spinner_item);
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
+        if (itemPedido != null) {
             TextView nomeItem = (TextView) convertView.findViewById(R.id.nomeItemPedido);
             nomeItem.setText(itemPedido.getNomeProduto());
 

@@ -17,8 +17,7 @@
         app:popupTheme="@style/AppTheme.PopupOverlay"
         app:buttonGravity="top|bottom"
         android:minHeight="64dp"
-        android:elevation="0dp">
-    </android.support.v7.widget.Toolbar>
+        android:elevation="0dp"></android.support.v7.widget.Toolbar>
 
     <TextView
         android:text="@string/selecionar_entrega"

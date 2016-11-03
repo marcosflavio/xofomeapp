@@ -3,21 +3,21 @@ package br.com.xofome.xofome.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -60,7 +60,7 @@ public class ListarProdutosActivity extends AppCompatActivity
 
     class PagerAdapter extends FragmentPagerAdapter {
 
-        String tabTitles[] = new String[] { "Comidas", "Bebidas" };
+        String tabTitles[] = new String[]{"Comidas", "Bebidas"};
         Context context;
 
         public PagerAdapter(FragmentManager fm, Context context) {
@@ -76,9 +76,9 @@ public class ListarProdutosActivity extends AppCompatActivity
         @Override
         public Fragment getItem(int position) {
             Bundle args = new Bundle();
-            if(position == 0){
+            if (position == 0) {
                 args.putString("tipo", "comidas");
-            }else{
+            } else {
                 args.putString("tipo", "bebidas");
             }
             Fragment f = new ProdutoFragment();
@@ -123,11 +123,11 @@ public class ListarProdutosActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.add) {
-            Intent intent = new Intent(this,AddProdutoActivity.class);
+            Intent intent = new Intent(this, AddProdutoActivity.class);
             startActivityForResult(intent, Codes.REQUEST_ADD);
             return true;
-        }else if (id == R.id.refresh){
-            Intent intent = new Intent(this,SelecionarEnderecoActivity.class);
+        } else if (id == R.id.refresh) {
+            Intent intent = new Intent(this, SelecionarEnderecoActivity.class);
             startActivityForResult(intent, Codes.REQUEST_SELECT_END);
             return true;
         }
@@ -142,14 +142,14 @@ public class ListarProdutosActivity extends AppCompatActivity
 
         if (id == R.id.nav_alt_end) {
 
-            Intent intent = new Intent(this,EditarEnderecoActivity.class);
+            Intent intent = new Intent(this, EditarEnderecoActivity.class);
             startActivityForResult(intent, Codes.REQUEST_EDITAR_END);
 
         } else if (id == R.id.nav_config) {
 
-            Toast.makeText(getApplicationContext(),"Clicou em Configurações", Toast.LENGTH_SHORT).show();
-        }else if (id == R.id.nav_acompanhar_pedido){
-            Intent intent = new Intent(this,AcompanharPedidosActivity.class);
+            Toast.makeText(getApplicationContext(), "Clicou em Configurações", Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_acompanhar_pedido) {
+            Intent intent = new Intent(this, AcompanharPedidosActivity.class);
             startActivityForResult(intent, Codes.REQUEST_ACOMPANHAR_PEDIDO);
         }
 

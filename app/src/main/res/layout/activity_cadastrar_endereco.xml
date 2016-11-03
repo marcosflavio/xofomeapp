@@ -18,8 +18,7 @@
         app:popupTheme="@style/AppTheme.PopupOverlay"
         app:buttonGravity="top|bottom"
         android:minHeight="64dp"
-        android:elevation="0dp">
-    </android.support.v7.widget.Toolbar>
+        android:elevation="0dp"></android.support.v7.widget.Toolbar>
 
     <TextView
         android:text="@string/header_cadastrar_endereco"
@@ -29,7 +28,7 @@
         android:textStyle="normal|bold"
         android:textAlignment="center"
         android:textSize="30sp"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -66,7 +65,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/textViewBairro"
             android:layout_weight="1"
-            android:paddingLeft="24dp"/>
+            android:paddingLeft="24dp" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -90,7 +89,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/textViewNumero"
             android:layout_weight="1"
-            android:paddingLeft="24dp"/>
+            android:paddingLeft="24dp" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -107,7 +106,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textViewComplemento"
-        android:paddingLeft="24dp"/>
+        android:paddingLeft="24dp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -121,7 +120,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textViewPntRef"
-        android:paddingLeft="24dp"/>
+        android:paddingLeft="24dp" />
 
     <EditText
         android:layout_width="match_parent"

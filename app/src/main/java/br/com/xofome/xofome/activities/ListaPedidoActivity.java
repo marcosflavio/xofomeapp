@@ -1,11 +1,9 @@
-package br.com.xofome.xofome;
+package br.com.xofome.xofome.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
@@ -14,6 +12,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.xofome.xofome.R;
 import br.com.xofome.xofome.adapters.ItemPedidoListAdapter;
 import br.com.xofome.xofome.constantes.Keys;
 import br.com.xofome.xofome.model.ItemPedido;
@@ -49,29 +48,21 @@ public class ListaPedidoActivity extends AppCompatActivity {
                 mostrarDetalhes(position);
             }
         });
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            }
-        });
     }
 
-    public void mostrarDetalhes(int position){
+    public void mostrarDetalhes(int position) {
         Intent intent = new Intent(this, DescricaoProdutoActivity.class);
         intent.putExtra(Keys.REQUEST_DETALHES, itensPedido.get(position).getIdProduto());
         startActivity(intent);
     }
 
-    public List<ItemPedido> getItems(){
-        List<ItemPedido> itens  = new ArrayList<>();
+    public List<ItemPedido> getItems() {
+        List<ItemPedido> itens = new ArrayList<>();
 
         List<Produto> prods = ProdutoServiceMemory.getProdutos(0);
 
         for (int i = 0; i < prods.size(); i++) {
             itens.add(new ItemPedido(i, 0, prods.get(i).getIdProduto(), prods.get(i).getNomeProduto(), 1));
-            Log.w("quant_produtos", String.valueOf(prods.get(i).getIdProduto()));
         }
 
         return itens;

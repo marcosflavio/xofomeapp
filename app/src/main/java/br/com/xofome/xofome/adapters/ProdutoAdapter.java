@@ -3,8 +3,8 @@ package br.com.xofome.xofome.adapters;
 /**
  * Created by marcosf on 30/10/2016.
  */
+
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -17,8 +17,6 @@ import android.widget.TextView;
 import java.util.List;
 
 import br.com.xofome.xofome.R;
-import br.com.xofome.xofome.activities.SelecionarEnderecoActivity;
-import br.com.xofome.xofome.constantes.Codes;
 import br.com.xofome.xofome.model.Produto;
 
 public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.MyViewHolder> {
@@ -27,7 +25,7 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.MyViewHo
     private final Context context;
     private final ProdutoAdapter.ProdutoOnClickListener onClickListener;
 
-    public interface ProdutoOnClickListener{
+    public interface ProdutoOnClickListener {
         public void onClickProduto(View view, int idx);
     }
 
@@ -45,8 +43,8 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.MyViewHo
         public MyViewHolder(View v) {
             super(v);
             this.view = v;
-           mCardView = (CardView) v.findViewById(R.id.card_view);
-           imageView = (ImageView) v.findViewById(R.id.imageProduto);
+            mCardView = (CardView) v.findViewById(R.id.card_view);
+            imageView = (ImageView) v.findViewById(R.id.imageProduto);
             textViewNomeProduto = (TextView) v.findViewById(R.id.info_text);
             textViewDesc = (TextView) v.findViewById(R.id.textDescriptionPrice);
             textViewPrice = (TextView) v.findViewById(R.id.textViewPrice);
@@ -59,7 +57,7 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.MyViewHo
     }
 
 
-    public ProdutoAdapter(Context context, List<Produto> produtos, ProdutoAdapter.ProdutoOnClickListener onClickListener){
+    public ProdutoAdapter(Context context, List<Produto> produtos, ProdutoAdapter.ProdutoOnClickListener onClickListener) {
         this.context = context;
         this.produtos = produtos;
         this.onClickListener = onClickListener;
@@ -84,15 +82,15 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.MyViewHo
         holder.textViewPrice.setText(String.valueOf(p.getPreco()));
 
         //Click
-        if(onClickListener != null){
-            holder.itemView.setOnClickListener(new View.OnClickListener(){
+        if (onClickListener != null) {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View view) {
 
                     onClickListener.onClickProduto(holder.getView(), position);
 
-                    }
+                }
             });
         }
 

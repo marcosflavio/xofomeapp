@@ -22,8 +22,8 @@ public class AcompanharPedidosAdapter extends RecyclerView.Adapter<AcompanharPed
     private final Context context;
     private final AcompanharPedidosAdapter.AcompanharPedidoOnClickListener onClickListener;
 
-    public interface AcompanharPedidoOnClickListener{
-        public void onClickPedido(View view, int idx);
+    public interface AcompanharPedidoOnClickListener {
+        void onClickPedido(View view, int idx);
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
@@ -53,7 +53,7 @@ public class AcompanharPedidosAdapter extends RecyclerView.Adapter<AcompanharPed
 
 
     public AcompanharPedidosAdapter(Context context, List<Pedido> pedidos,
-                                    AcompanharPedidosAdapter.AcompanharPedidoOnClickListener onClickListener){
+                                    AcompanharPedidosAdapter.AcompanharPedidoOnClickListener onClickListener) {
         this.context = context;
         this.pedidos = pedidos;
         this.onClickListener = onClickListener;
@@ -76,8 +76,8 @@ public class AcompanharPedidosAdapter extends RecyclerView.Adapter<AcompanharPed
         holder.textViewNomeStatusPedido.setText(pedido.getStatus());
 
         //Click
-        if(onClickListener != null){
-            holder.itemView.setOnClickListener(new View.OnClickListener(){
+        if (onClickListener != null) {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View view) {
@@ -89,6 +89,7 @@ public class AcompanharPedidosAdapter extends RecyclerView.Adapter<AcompanharPed
         }
 
     }
+
     @Override
     public int getItemCount() {
         return pedidos.size();

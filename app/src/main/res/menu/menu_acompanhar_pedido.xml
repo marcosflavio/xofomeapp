@@ -2,9 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:title="@string/back"
+    <item
+        android:title="@string/back"
 
-    app:showAsAction="always"
-    android:icon="@mipmap/ic_back"
-    android:id="@+id/item_menu_back"/>
+        app:showAsAction="always"
+        android:icon="@mipmap/ic_back"
+        android:id="@+id/item_menu_back" />
 </menu>

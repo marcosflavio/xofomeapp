@@ -53,7 +53,9 @@
     <string name="id_pedido"> Id do Pedido: </string>
     <string name="status_pedido"> Status do Pedido:</string>
     <string name="title_activity_acompanhar_pedido"> Acompanhe seu Pedido! </string>
-    <string name="detalhes">Detalhes</string>
-    <string name="texto_detalhes">Pastel de flango é mto bom.\n\nRecomendo</string>
-
+    <string name="descricao">Descrição</string>
+    <string name="nome_do_produto">Nome do produto</string>
+    <string name="quantidade_itens">Quant.</string>
+    <string name="total_a_pagar">Total:</string>
+    <string name="lista_pedido">Pedido</string>
 </resources>

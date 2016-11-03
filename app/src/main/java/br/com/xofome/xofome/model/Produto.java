@@ -6,20 +6,20 @@ package br.com.xofome.xofome.model;
 
 public class Produto {
 
-    private static int idProduto = 0;
+    private int idProduto;
     private String nomeProduto;
     private Float preco;
     private String descricao;
     private int tipo;
 
-    public Produto (String nome, Float preco, String descricao, int tipo){
+    public Produto(String nome, Float preco, String descricao, int tipo) {
         this.nomeProduto = nome;
         this.preco = preco;
         this.descricao = descricao;
         this.tipo = tipo;
     }
 
-    public Produto(){
+    public Produto() {
 
     }
 

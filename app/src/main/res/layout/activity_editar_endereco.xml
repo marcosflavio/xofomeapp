@@ -17,8 +17,7 @@
         app:popupTheme="@style/AppTheme.PopupOverlay"
         app:buttonGravity="top|bottom"
         android:minHeight="64dp"
-        android:elevation="0dp">
-    </android.support.v7.widget.Toolbar>
+        android:elevation="0dp"></android.support.v7.widget.Toolbar>
 
     <TextView
         android:text="@string/header_editar_endereco"
@@ -28,7 +27,7 @@
         android:textStyle="normal|bold"
         android:textAlignment="center"
         android:textSize="30sp"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -65,7 +64,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/textEditarViewBairro"
             android:layout_weight="1"
-            android:paddingLeft="24dp"/>
+            android:paddingLeft="24dp" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -89,7 +88,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/textViewEditarNumero"
             android:layout_weight="1"
-            android:paddingLeft="24dp"/>
+            android:paddingLeft="24dp" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -107,7 +106,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textViewEditarComplemento"
-        android:paddingLeft="24dp"/>
+        android:paddingLeft="24dp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -122,7 +121,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textViewEditarPntRef"
-        android:paddingLeft="24dp"/>
+        android:paddingLeft="24dp" />
 
     <EditText
         android:layout_width="match_parent"

@@ -1,5 +1,4 @@
-<android.support.v4.widget.DrawerLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
@@ -24,8 +23,7 @@
             android:elevation="6dp"
             android:minHeight="?attr/actionBarSize"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            />
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tab_layout"
@@ -38,15 +36,13 @@
             app:tabTextColor="#d3d3d3"
             app:tabSelectedTextColor="#ffffff"
             app:tabIndicatorColor="#ff00ff"
-            android:minHeight="?attr/actionBarSize"
-            />
+            android:minHeight="?attr/actionBarSize" />
 
         <android.support.v4.view.ViewPager
             android:id="@+id/viewpager"
             android:layout_below="@+id/tab_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+            android:layout_height="wrap_content" />
 
     </RelativeLayout>
 

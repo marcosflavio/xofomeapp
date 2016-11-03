@@ -18,7 +18,7 @@
         android:layout_height="167dp"
         android:paddingTop="64dp"
         app:srcCompat="@drawable/goku"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center" />
 
     <TextView
         android:layout_width="match_parent"

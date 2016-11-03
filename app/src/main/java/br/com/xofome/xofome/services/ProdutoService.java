@@ -14,10 +14,10 @@ import br.com.xofome.xofome.model.Produto;
 
 public class ProdutoService {
 
-    public static Produto getProdutoById(Context context, int id){
+    public static Produto getProdutoById(Context context, int id) {
         ProdutoDAO dao = new ProdutoDAO(context);
 
-        try{
+        try {
             Produto produto = dao.find(id);
 
             return produto;
@@ -26,46 +26,46 @@ public class ProdutoService {
         }
     }
 
-    public static List<Produto> getProdutos(Context context, int tipo) throws IOException{
+    public static List<Produto> getProdutos(Context context, int tipo) throws IOException {
         ProdutoDAO dao = new ProdutoDAO(context);
-        try{
+        try {
             List<Produto> produtos = dao.findAllTipo(tipo);
             return produtos;
-        }finally {
+        } finally {
             dao.close();
         }
     }
 
-    public static Produto getProduto(Context context, int id) throws IOException{
+    public static Produto getProduto(Context context, int id) throws IOException {
         ProdutoDAO dao = new ProdutoDAO(context);
-        try{
-           Produto produto = dao.findById(id);
+        try {
+            Produto produto = dao.findById(id);
             return produto;
-        }finally {
+        } finally {
             dao.close();
         }
     }
 
-    public static void save(Context context, Produto produto){
+    public static void save(Context context, Produto produto) {
         ProdutoDAO dao = new ProdutoDAO(context);
 
-        try{
+        try {
             dao.save(produto);
-        }finally {
+        } finally {
             dao.close();
         }
     }
 
-    public static void delete(Context context, Produto produto){
+    public static void delete(Context context, Produto produto) {
         ProdutoDAO dao = new ProdutoDAO(context);
-        try{
+        try {
             dao.delete(produto);
-        }finally {
+        } finally {
             dao.close();
         }
     }
 
-    public static Produto formarProduto(int tipo, float preco, String nome, String desc){
+    public static Produto formarProduto(int tipo, float preco, String nome, String desc) {
         Produto produto = new Produto();
 
         produto.setTipo(tipo);

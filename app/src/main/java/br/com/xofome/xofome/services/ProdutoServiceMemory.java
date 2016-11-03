@@ -13,23 +13,23 @@ public class ProdutoServiceMemory {
 
     private static ProdutoDAOMemory dao = new ProdutoDAOMemory();
 
-    public static Produto getProdutoById(int id){
+    public static Produto getProdutoById(int id) {
         return dao.find(id);
     }
 
-    public static List<Produto> getProdutos(int tipo)  {
+    public static List<Produto> getProdutos(int tipo) {
         return dao.findAllTipo(tipo);
     }
 
-    public static void save(Produto produto){
+    public static void save(Produto produto) {
         dao.save(produto);
     }
 
-    public  static void delete(Produto produto){
+    public static void delete(Produto produto) {
         dao.delete(produto);
     }
 
-    public static Produto formarProduto(int tipo, float preco, String nome, String desc){
+    public static Produto formarProduto(int tipo, float preco, String nome, String desc) {
         Produto produto = new Produto();
 
         produto.setTipo(tipo);
