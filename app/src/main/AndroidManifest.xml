@@ -18,7 +18,7 @@
         <activity
             android:name=".activities.AddProdutoActivity"
             android:label="@string/add_activity_name"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".activities.ListarProdutosActivity"
             android:label="@string/title_activity_drawer"
@@ -37,15 +37,15 @@
             android:name=".activities.DescricaoProdutoActivity"
             android:label="@string/descricao"
             android:theme="@style/AppTheme" />
-
         <activity
             android:name=".activities.ListaPedidoActivity"
             android:label="@string/lista_pedido"
             android:theme="@style/AppTheme" />
-
         <activity
             android:name=".activities.AcompanharPedidosActivity"
             android:label="@string/title_activity_acompanhar_pedido"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".activities.ConfirmarPedidoActivity"></activity>
     </application>
+
 </manifest>

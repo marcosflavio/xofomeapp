@@ -53,6 +53,8 @@ public class SelecionarEnderecoActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.item_menu_confirm_selecionar_end) {
+            Toast.makeText(getApplicationContext(), "Pedido realizado com sucesso!!",
+                    Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(this, ListarProdutosActivity.class);
             startActivityForResult(intent, Codes.REQUEST_LIST);

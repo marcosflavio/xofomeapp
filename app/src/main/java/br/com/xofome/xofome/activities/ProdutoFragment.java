@@ -87,6 +87,9 @@ public class ProdutoFragment extends Fragment {
                 } else if (tipo.equals("bebidas")) {
                     Produto p = bebidas.get(idx);
                     Toast.makeText(getContext(), "Produto " + p.getNomeProduto() + "Bebidas", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(getContext(), DescricaoProdutoActivity.class);
+                    i.putExtra("","");
+                    startActivity(i);
                 }
 
             }

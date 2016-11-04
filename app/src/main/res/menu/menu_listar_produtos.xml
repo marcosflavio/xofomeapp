@@ -13,7 +13,7 @@
         android:id="@+id/refresh"
         android:orderInCategory="100"
         android:title="Adicionar"
-        android:icon="@mipmap/ic_refresh"
+        android:icon="@mipmap/ic_add_shopping_cart_white_48dp"
         app:showAsAction="always" />
 
 </menu>

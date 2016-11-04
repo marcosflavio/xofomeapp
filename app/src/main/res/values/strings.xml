@@ -58,4 +58,10 @@
     <string name="quantidade_itens">Quant.</string>
     <string name="total_a_pagar">Total:</string>
     <string name="lista_pedido">Pedido</string>
+    <string name="conf_pedido">Pedido: </string>
+    <string name="conf_pedido_id"> 169 </string>
+    <string name="valor_total"> Valor total do pedido: </string>
+    <string name="valor_conf"> 25,99 </string>
+    <string name="button_conf"> Confirmar Pedido </string>
+    <string name="text_conf_pagar"> Valor do Pagamento: </string>
 </resources>
