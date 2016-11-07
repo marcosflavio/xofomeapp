@@ -15,7 +15,7 @@ import br.com.xofome.xofome.constantes.Codes;
 
 public class CadastrarEnderecoActivity extends AppCompatActivity {
 
-    private View view;
+    //private View view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
