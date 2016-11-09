@@ -22,8 +22,11 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Calendar;
+
 import br.com.xofome.xofome.R;
 import br.com.xofome.xofome.constantes.Codes;
+import br.com.xofome.xofome.util.AlarmUtil;
 
 public class ListarProdutosActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -56,7 +59,7 @@ public class ListarProdutosActivity extends AppCompatActivity
             TabLayout.Tab tab = tabLayout.getTabAt(i);
             tab.setCustomView(pagerAdapter.getTabView(i));
         }
-
+        alarmRepeat();
     }
 
     class PagerAdapter extends FragmentPagerAdapter {
@@ -161,4 +164,19 @@ public class ListarProdutosActivity extends AppCompatActivity
         return true;
     }
 
+
+    public long getTime(){
+        Calendar c = Calendar.getInstance();
+        c.setTimeInMillis(System.currentTimeMillis());
+        c.add(Calendar.SECOND, 5); // 5 segundos
+        long time = c.getTimeInMillis();
+        return time;
+    }
+
+    //método para iniciar o alarm
+    public void alarmRepeat(){
+        Intent intent = new Intent("UPDATE_LIST");
+        //Agenda pra daqui a 5 segundos, a cada 10 segundos
+        AlarmUtil.scheduleRepeat(this,intent,getTime(), 10 * 1000);
+    }
 }

@@ -38,7 +38,6 @@ public class ProdutoFragment extends Fragment {
     private static List<Produto> comidas;
     private static List<Produto> bebidas;
     private String tipo;
-    private int verifica = 0;
     private ProdutoAdapter adapter = null;
     protected SwipeRefreshLayout swipeRefreshLayout;
     private  RecyclerView rv;
@@ -118,7 +117,6 @@ public class ProdutoFragment extends Fragment {
             LinearLayoutManager llm = new LinearLayoutManager(getActivity());
             GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
             rv.setLayoutManager(llm);
-            verifica = 0;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -162,7 +160,6 @@ public class ProdutoFragment extends Fragment {
         @Override
         public void onReceive(Context context, Intent intent) {
             Log.d("service","Entrei no BroadcastReceiver receiver");
-               // verifica = 1;
             onResume();
         }
     };
