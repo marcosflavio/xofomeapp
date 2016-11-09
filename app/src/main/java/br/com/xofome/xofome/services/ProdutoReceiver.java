@@ -9,6 +9,7 @@ import android.content.Intent;
  */
 
 public class ProdutoReceiver extends BroadcastReceiver {
+
     @Override
     public void onReceive(Context context, Intent intent) {
         context.startService(new Intent(context,UpdateProductListService.class));
