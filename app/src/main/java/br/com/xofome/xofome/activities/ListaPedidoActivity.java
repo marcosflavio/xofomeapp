@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
@@ -14,6 +16,7 @@ import java.util.List;
 
 import br.com.xofome.xofome.R;
 import br.com.xofome.xofome.adapters.ItemPedidoListAdapter;
+import br.com.xofome.xofome.constantes.Codes;
 import br.com.xofome.xofome.constantes.Keys;
 import br.com.xofome.xofome.model.ItemPedido;
 import br.com.xofome.xofome.model.Produto;
@@ -68,4 +71,22 @@ public class ListaPedidoActivity extends AppCompatActivity {
         return itens;
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_listar_item_pedido, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.item_menu_back_listar_itens_pedido) {
+            Intent intent = new Intent(this, ListarProdutosActivity.class);
+            startActivityForResult(intent, Codes.REQUEST_LIST);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 }

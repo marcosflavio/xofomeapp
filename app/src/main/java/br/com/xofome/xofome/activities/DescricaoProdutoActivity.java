@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -30,7 +32,7 @@ public class DescricaoProdutoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_descricao_produto);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarDescProduto);
         setSupportActionBar(toolbar);
 
         mNomeProduto = (TextView) findViewById(R.id.nomeProdutoTextDetalhes);
@@ -66,6 +68,26 @@ public class DescricaoProdutoActivity extends AppCompatActivity {
     public void chamarConfirmar(View view){
         Intent intent = new Intent(this, ConfirmarPedidoActivity.class);
         startActivityForResult(intent, Codes.REQUEST_SELECT_END);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_descricao_produto, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.item_menu_back_descricao_produto) {
+            Intent intent = new Intent(this, ListarProdutosActivity.class);
+            startActivityForResult(intent, Codes.REQUEST_LIST);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 }
