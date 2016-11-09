@@ -5,12 +5,12 @@
     <item
         android:title="@string/confirmar_menu_item"
         app:showAsAction="always"
-        android:icon="@mipmap/ic_confirm"
+        android:icon="@mipmap/ic_check_white_48dp"
         android:id="@+id/item_menu_confirm_selecionar_end" />
 
     <item
         android:title="@string/descartar_menu_item"
         app:showAsAction="always"
-        android:icon="@mipmap/ic_cancel"
+        android:icon="@mipmap/ic_close_white_48dp"
         android:id="@+id/item_menu_cancel__selecionar_end" />
 </menu>

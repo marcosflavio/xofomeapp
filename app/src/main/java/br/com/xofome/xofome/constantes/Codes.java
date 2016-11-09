@@ -16,11 +16,13 @@ public interface Codes {
     public static final int REQUEST_SELECT_END = 8;
     public static final int REQUEST_ACOMPANHAR_PEDIDO = 9;
     public static final int REQUEST_LIST_PEDIDO = 10;
-    public static final int RESPONSE_ADD_OK = 3;
-    public static final int RESPONSE_EDIT_OK = 4;
 
-    public static final int RESPONSE_ADD_CANCEL = 5;
-    public static final int RESPONSE_EDIT_CANCEL = 6;
+    public static final int REQUEST_CONFIRM_PEDIDO = 11;
+
+    public static final int RESPONSE_ADD_OK = 30;
+    public static final int RESPONSE_EDIT_OK = 31;
+    public static final int RESPONSE_ADD_CANCEL = 32;
+    public static final int RESPONSE_EDIT_CANCEL = 33;
 
 
 }

@@ -64,4 +64,6 @@
     <string name="valor_conf"> 25,99 </string>
     <string name="button_conf"> Confirmar Pedido </string>
     <string name="text_conf_pagar"> Valor do Pagamento: </string>
+    <string name="confirm_pedido"> Confirmar Pedido </string>
+    <string name="title_activity_confirmar_pedido"> Confirmar Pedido</string>
 </resources>

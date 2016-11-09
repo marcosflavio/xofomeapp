@@ -26,7 +26,7 @@ public class DescricaoProdutoActivity extends AppCompatActivity {
     private TextView mPrecoProduto;
     private TextView mDescricaoProduto;
     private ImageView mFotoProduto;
-
+    private Produto p;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +47,7 @@ public class DescricaoProdutoActivity extends AppCompatActivity {
 
     private void inicializar(int id) {
         try {
-            Produto p = ProdutoService.getProduto(getApplicationContext(), id);
+             p = ProdutoService.getProduto(getApplicationContext(), id);
 
             if (p != null) {
                 mNomeProduto.setText(p.getNomeProduto());
@@ -63,8 +63,12 @@ public class DescricaoProdutoActivity extends AppCompatActivity {
     }
 
     public void chamarConfirmar(View view){
-        Intent intent = new Intent(this, ConfirmarPedidoActivity.class);
-        startActivityForResult(intent, Codes.REQUEST_SELECT_END);
+
+        Toast.makeText(this,"Você adicionou o produto " +  p.getNomeProduto() +
+                " ao seu pedido!", Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(this, ListarProdutosActivity.class);
+        startActivityForResult(intent, Codes.REQUEST_LIST);
     }
 
 

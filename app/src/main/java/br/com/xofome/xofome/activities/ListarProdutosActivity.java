@@ -127,11 +127,8 @@ public class ListarProdutosActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.add) {
-            Intent intent = new Intent(this, AddProdutoActivity.class);
-            startActivityForResult(intent, Codes.REQUEST_ADD);
-
-
-
+            Intent intent = new Intent(this, ListaPedidoActivity.class);
+            startActivityForResult(intent, Codes.REQUEST_LIST_PEDIDO);
             return true;
         } else if (id == R.id.refresh) {
             sendBroadcast(new Intent("UPDATE_LIST"));

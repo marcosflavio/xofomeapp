@@ -90,11 +90,6 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.MyViewHo
 
                 Toast.makeText(context,"Você adicionou o produto " +  p.getNomeProduto() +
                 " ao seu pedido!", Toast.LENGTH_SHORT).show();
-
-                Intent intent = new Intent(context, DescricaoProdutoActivity.class);
-                intent.putExtra(Keys.REQUEST_DETALHES, p.getIdProduto());
-                context.startActivity(intent);
-
             }
         });
 

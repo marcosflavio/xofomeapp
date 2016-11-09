@@ -85,6 +85,10 @@ public class ListaPedidoActivity extends AppCompatActivity {
             Intent intent = new Intent(this, ListarProdutosActivity.class);
             startActivityForResult(intent, Codes.REQUEST_LIST);
             return true;
+        }else if(id == R.id.item_menu_confirm_item_pedido){
+            Intent intent = new Intent(this, ConfirmarPedidoActivity.class);
+            startActivityForResult(intent, Codes.REQUEST_CONFIRM_PEDIDO);
+            return true;
         }
 
         return super.onOptionsItemSelected(item);

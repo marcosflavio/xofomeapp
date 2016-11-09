@@ -8,7 +8,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_xofome"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -18,7 +18,10 @@
             android:exported="false">
         </service>
 
-
+        <service
+            android:name=".services.UpdateStatusService"
+            android:exported="false">
+        </service>
 
         <receiver android:name=".services.ProdutoReceiver">
             <intent-filter>
@@ -72,6 +75,7 @@
 
         <activity android:name=".activities.ConfirmarPedidoActivity"
             android:theme="@style/AppTheme"
+            android:label="@string/title_activity_confirmar_pedido"
             />
 
 

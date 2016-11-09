@@ -37,14 +37,15 @@ public class AcompanharPedidosActivity extends AppCompatActivity {
         Pedido pedido = new Pedido();
         pedido.setIdPedido(1);
         pedido.setStatus("Recebido");
+
         List<ItemPedido> itens = new ArrayList<ItemPedido>();
+
         for (int i = 0; i < 5; i++) {
             ItemPedido itemPedido = new ItemPedido(i, 1, 5, "Pastel de Flango " + i, 2);
             itens.add(itemPedido);
         }
 
         pedido.setItensPedido(itens);
-
         pedidos.add(pedido);
         adapter = new AcompanharPedidosAdapter(getApplicationContext(), pedidos, onClickPedido());
         rv.setAdapter(adapter);

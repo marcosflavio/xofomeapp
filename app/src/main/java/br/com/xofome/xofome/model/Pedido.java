@@ -8,9 +8,11 @@ import java.util.List;
  */
 
 public class Pedido {
+
     private int idPedido;
     private List<ItemPedido> itensPedido;
     private String status = "Inativo";
+    private double valorTotalPedido;
 
     public Pedido() {
         this.itensPedido = new ArrayList<ItemPedido>();
@@ -39,6 +41,14 @@ public class Pedido {
 
     public void setIdPedido(int idPedido) {
         this.idPedido = idPedido;
+    }
+
+    public double getValorTotalPedido() {
+        return valorTotalPedido;
+    }
+
+    public void setValorTotalPedido(double valorTotalPedido) {
+        this.valorTotalPedido = valorTotalPedido;
     }
 
     @Override

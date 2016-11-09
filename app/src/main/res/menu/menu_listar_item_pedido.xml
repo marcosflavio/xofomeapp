@@ -7,4 +7,10 @@
         app:showAsAction="always"
         android:icon="@mipmap/ic_arrow_back_white_48dp"
         android:id="@+id/item_menu_back_listar_itens_pedido"/>
+
+    <item
+        android:title="@string/confirm_pedido"
+        app:showAsAction="always"
+        android:icon="@mipmap/ic_check_white_48dp"
+        android:id="@+id/item_menu_confirm_item_pedido"/>
 </menu>

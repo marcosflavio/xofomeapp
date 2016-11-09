@@ -35,9 +35,8 @@ public class ConfirmarPedidoActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.item_menu_confirmar_pedido_ok) {
-            Toast.makeText(getApplicationContext(), "Pedido confirmado!", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, ListarProdutosActivity.class);
-            startActivityForResult(intent, Codes.REQUEST_BACK);
+            Intent intent = new Intent(this, SelecionarEnderecoActivity.class);
+            startActivityForResult(intent, Codes.REQUEST_SELECT_END);
 
         }else if(id == R.id.item_menu_confirmar_pedido_cancel){
             Toast.makeText(getApplicationContext(), "Opção cancelada", Toast.LENGTH_SHORT).show();
