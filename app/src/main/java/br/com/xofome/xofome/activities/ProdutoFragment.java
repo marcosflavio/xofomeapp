@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -30,6 +31,8 @@ public class ProdutoFragment extends Fragment {
     private static List<Produto> comidas;
     private static List<Produto> bebidas;
     private String tipo;
+    protected SwipeRefreshLayout swipeRefreshLayout;
+
 
     public ProdutoFragment() {
     }
@@ -65,12 +68,27 @@ public class ProdutoFragment extends Fragment {
             LinearLayoutManager llm = new LinearLayoutManager(getActivity());
             GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
             rv.setLayoutManager(llm);
-
+            swipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipe);
+            swipeRefreshLayout.setOnRefreshListener(OnRefreshListener());
+            swipeRefreshLayout.setColorSchemeResources(R.color.refresh_progress_1,R.color.refresh_progress_2,
+                    R.color.refresh_progress_3);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
         return rootView;
+    }
+
+
+    private SwipeRefreshLayout.OnRefreshListener OnRefreshListener(){
+        return  new SwipeRefreshLayout.OnRefreshListener(){
+
+            @Override
+            public void onRefresh() {
+                getActivity().sendBroadcast(new Intent("UPDATE_LIST"));
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        };
     }
 
     private ProdutoAdapter.ProdutoOnClickListener onClickProduto() {
