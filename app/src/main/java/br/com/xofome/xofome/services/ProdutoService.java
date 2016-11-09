@@ -75,4 +75,13 @@ public class ProdutoService {
 
         return produto;
     }
+
+    public static void setListProdutos(List<Produto> produtos, Context context) {
+
+        for(int i = 0; i <produtos.size();i++ ){
+            save(context,produtos.get(i));
+        }
+
+    }
+
 }

@@ -1,5 +1,6 @@
 package br.com.xofome.xofome.activities;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -126,12 +127,11 @@ public class ListarProdutosActivity extends AppCompatActivity
             Intent intent = new Intent(this, AddProdutoActivity.class);
             startActivityForResult(intent, Codes.REQUEST_ADD);
 
-            //sendBroadcast(new Intent("UPDATE_LIST"));
+
 
             return true;
         } else if (id == R.id.refresh) {
-            Intent intent = new Intent(this, ListaPedidoActivity.class);
-            startActivityForResult(intent, Codes.REQUEST_LIST_PEDIDO);
+            sendBroadcast(new Intent("UPDATE_LIST"));
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -160,4 +160,5 @@ public class ListarProdutosActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }

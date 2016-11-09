@@ -3,6 +3,10 @@ package br.com.xofome.xofome.services;
 import android.app.IntentService;
 import android.content.Intent;
 import android.util.Log;
+import java.util.ArrayList;
+import java.util.List;
+
+import br.com.xofome.xofome.model.Produto;
 
 /**
  * Created by marcosf on 07/11/2016.
@@ -10,34 +14,50 @@ import android.util.Log;
 
 public class UpdateProductListService extends IntentService {
 
+    private static final String TAG = "service";
+
     public UpdateProductListService() {
         super("UpdateProductListService");
     }
 
-    private static final int MAX = 120;
-    private static final String TAG = "service";
-    private boolean running;
-
     @Override
     protected void onHandleIntent(Intent intent) {
+        Log.d(TAG,"Entrei no onHandleIntent");
+        List<Produto> produtos = produtosVindosDoServerStub();
 
-        running = true;
-        //Método executado em uma thread implicida
-        //ao terminar, chamar o stopSelf()
-        int count = 0;
-        while(running && count < MAX){
-            teste();
-            Log.d(TAG, "Service atualizar lista executando.." + count);
-            count++;
-        }
+        ProdutoService.setListProdutos(produtos, this);
 
-        Log.d(TAG,"Service fim");
+        sendBroadcast(new Intent("Update_complete"));
     }
 
-    private void teste (){
+    private List<Produto> produtosVindosDoServerStub(){
+
+        Log.d(TAG,"Entrei no produtosVindosDoServerStub");
+
+        List<Produto> produtos = new ArrayList<>();
+
+        for(int i = 0; i < 3; i ++){
+
+            Log.d(TAG,"Entrei no primeiro for");
+            produtos.add(new Produto("Produto " +i, 22f, "Descrição " + i, 0));
+            durma();
+        }
+
+        for(int j = 0; j < 3; j ++){
+            Log.d(TAG,"Entrei no segundo for");
+
+            produtos.add(new Produto("Produto " +j, 22f, "Descrição " + j, 1));
+            durma();
+        }
+
+        return produtos;
+    }
+
+    private void durma (){
         try{
-            //simulando
-            Thread.sleep(1000);
+            Log.d(TAG,"Entrei na thread durma");
+
+            Thread.sleep(2000);
         }catch (InterruptedException e){
             e.printStackTrace();
         }
@@ -46,8 +66,6 @@ public class UpdateProductListService extends IntentService {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        //ao encerrar o servico, altero o running pra sair da thread
-        running = false;
         Log.d(TAG,"Service List produtos onDestroy");
     }
 }
