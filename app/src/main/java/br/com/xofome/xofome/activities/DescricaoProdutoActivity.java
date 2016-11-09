@@ -41,14 +41,11 @@ public class DescricaoProdutoActivity extends AppCompatActivity {
         mFotoProduto = (ImageView) findViewById(R.id.fotoProdutoImage);
 
         Intent intent = getIntent();
-        int idProduto = intent.getIntExtra(Keys.REQUEST_DETALHES, -1);
-
+        int idProduto = (Integer) getIntent().getExtras().get(Keys.REQUEST_DETALHES);
         inicializar(idProduto);
     }
 
     private void inicializar(int id) {
-       // Produto p = ProdutoServiceMemory.getProdutoById(id);
-
         try {
             Produto p = ProdutoService.getProduto(getApplicationContext(), id);
 
