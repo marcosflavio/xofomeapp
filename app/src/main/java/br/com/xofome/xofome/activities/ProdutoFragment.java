@@ -33,6 +33,7 @@ import br.com.xofome.xofome.services.ProdutoService;
  */
 
 public class ProdutoFragment extends Fragment {
+
     private ProdutoFragment.OnFragmentInteractionListener mListener;
     private static List<Produto> comidas;
     private static List<Produto> bebidas;
@@ -41,6 +42,7 @@ public class ProdutoFragment extends Fragment {
     private ProdutoAdapter adapter = null;
     protected SwipeRefreshLayout swipeRefreshLayout;
     private  RecyclerView rv;
+
 
     public ProdutoFragment() {
     }
@@ -103,46 +105,23 @@ public class ProdutoFragment extends Fragment {
 
     @Override
     public void onResume() {
-        final android.os.Handler handler = new android.os.Handler();
-        new Thread(){
-
-            public void run(){
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-
-
-                        if(verifica != 0){
-
-                            swipeRefreshLayout.setRefreshing(false);
-
-                            try {
-                                if (tipo.equals("comidas")) {
-                                    comidas = ProdutoService.getProdutos(getContext(), 0);
-                                    adapter = new ProdutoAdapter(getContext(), comidas, onClickProduto());
-                                } else if (tipo.equals("bebidas")) {
-                                    bebidas = ProdutoService.getProdutos(getContext(), 1);
-                                    adapter = new ProdutoAdapter(getContext(), bebidas, onClickProduto());
-                                }
-
-                                rv.setAdapter(adapter);
-
-                                LinearLayoutManager llm = new LinearLayoutManager(getActivity());
-                                GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
-                                rv.setLayoutManager(llm);
-                                verifica = 0;
-
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-
-                        }
-
-                    }
-                });
-            }
-
-        }.start();
+       swipeRefreshLayout.setRefreshing(false);
+        try {
+            if (tipo.equals("comidas")) {
+                comidas = ProdutoService.getProdutos(getContext(), 0);
+                adapter = new ProdutoAdapter(getContext(), comidas, onClickProduto());
+            } else if (tipo.equals("bebidas")) {
+                bebidas = ProdutoService.getProdutos(getContext(), 1);
+                adapter = new ProdutoAdapter(getContext(), bebidas, onClickProduto());
+                }
+            rv.setAdapter(adapter);
+            LinearLayoutManager llm = new LinearLayoutManager(getActivity());
+            GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
+            rv.setLayoutManager(llm);
+            verifica = 0;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         super.onResume();
     }
