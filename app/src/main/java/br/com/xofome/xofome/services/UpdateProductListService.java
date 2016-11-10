@@ -28,6 +28,7 @@ public class UpdateProductListService extends IntentService {
         ProdutoService.setListProdutos(produtos, this);
 
         sendBroadcast(new Intent("Update_complete"));
+        stopSelf();
     }
 
     private List<Produto> produtosVindosDoServerStub(){
@@ -62,10 +63,10 @@ public class UpdateProductListService extends IntentService {
             e.printStackTrace();
         }
     }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        Log.d(TAG,"Service List produtos onDestroy");
-    }
+//
+//    @Override
+//    public void onDestroy() {
+//        super.onDestroy();
+//        Log.d(TAG,"Service List produtos onDestroy");
+//    }
 }

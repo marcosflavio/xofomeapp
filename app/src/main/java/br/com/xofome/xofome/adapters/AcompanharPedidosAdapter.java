@@ -11,6 +11,7 @@ import java.util.List;
 
 import br.com.xofome.xofome.R;
 import br.com.xofome.xofome.model.Pedido;
+import br.com.xofome.xofome.model.PedidoSingleton;
 
 /**
  * Created by marcosf on 02/11/2016.
@@ -18,7 +19,7 @@ import br.com.xofome.xofome.model.Pedido;
 
 public class AcompanharPedidosAdapter extends RecyclerView.Adapter<AcompanharPedidosAdapter.MyViewHolder> {
 
-    private final List<Pedido> pedidos;
+    private final List<PedidoSingleton> pedidos;
     private final Context context;
     private final AcompanharPedidosAdapter.AcompanharPedidoOnClickListener onClickListener;
 
@@ -52,7 +53,7 @@ public class AcompanharPedidosAdapter extends RecyclerView.Adapter<AcompanharPed
     }
 
 
-    public AcompanharPedidosAdapter(Context context, List<Pedido> pedidos,
+    public AcompanharPedidosAdapter(Context context, List<PedidoSingleton> pedidos,
                                     AcompanharPedidosAdapter.AcompanharPedidoOnClickListener onClickListener) {
         this.context = context;
         this.pedidos = pedidos;
@@ -70,7 +71,7 @@ public class AcompanharPedidosAdapter extends RecyclerView.Adapter<AcompanharPed
     @Override
     public void onBindViewHolder(final AcompanharPedidosAdapter.MyViewHolder holder, final int position) {
 
-        Pedido pedido = pedidos.get(position);
+        PedidoSingleton pedido = pedidos.get(position);
 
         holder.textViewNumeroPedido.setText(String.valueOf(pedido.getIdPedido()));
         holder.textViewNomeStatusPedido.setText(pedido.getStatus());

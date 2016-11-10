@@ -64,6 +64,7 @@ public class ProdutoFragment extends Fragment {
         swipeRefreshLayout.setOnRefreshListener(OnRefreshListener());
         swipeRefreshLayout.setColorSchemeResources(R.color.refresh_progress_1,R.color.refresh_progress_2,
                 R.color.refresh_progress_3);
+        //registrando o brodcastreceiver
         getContext().registerReceiver(receiver,new IntentFilter("Update_complete"));
         rv = (RecyclerView) rootView.findViewById(R.id.rv_recycler_view);
         rv.setHasFixedSize(true);

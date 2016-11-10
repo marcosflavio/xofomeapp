@@ -5,8 +5,6 @@ import java.util.List;
 import br.com.xofome.xofome.dao.PedidoDAOMemory;
 import br.com.xofome.xofome.model.ItemPedido;
 import br.com.xofome.xofome.model.Pedido;
-
-
 /**
  * Created by marcosf on 09/11/2016.
  */

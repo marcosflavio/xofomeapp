@@ -7,6 +7,11 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import java.util.Random;
+
+import br.com.xofome.xofome.model.Pedido;
+import br.com.xofome.xofome.model.PedidoSingleton;
+
 /**
  * Created by marcosf on 07/11/2016.
  */
@@ -14,6 +19,7 @@ import android.util.Log;
 public class UpdateStatusService extends IntentService {
 
     private static final String TAG = "service";
+    private final Random mGenerator = new Random();
 
     public UpdateStatusService() {
         super("UpdateStatusService");
@@ -21,15 +27,18 @@ public class UpdateStatusService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        // faz um random
-        // de acordo com o random, muda o status
-        // usa o durma a cada random
-        //inves de criar um pedido forçadamente
-        //usar o daomemory.getall que retorna só um
-        // faz o mesmo que fiz na outra service, só que utilizando o ProdutoServiceMemory
-        //modifica o status, usa um swipe na tela de acompanhar pedido e um alarm tbm
-        //usa a técnica do onResume()
-        //criar o serviceMemoryPEDIDO!!
+
+        String status [] = {"Finalizado","Recebido", "Em espera", "Preparando","Pronto"," Em entrega","Finalizado"};
+        PedidoSingleton p = PedidoSingleton.getInstancia();
+        p.setStatus(status[getRandomNumber()]);
+        durma();
+        sendBroadcast(new Intent("Update_status_complete"));
+        stopSelf();
+
+    }
+
+    private int getRandomNumber() {
+        return mGenerator.nextInt(6);
     }
 
     private void durma (){
@@ -39,10 +48,4 @@ public class UpdateStatusService extends IntentService {
             e.printStackTrace();
         }
     }
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        Log.d(TAG,"Service List produtos onDestroy");
-    }
-
 }

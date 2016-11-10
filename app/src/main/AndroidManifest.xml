@@ -27,9 +27,8 @@
             <intent-filter>
                 <action android:name="UPDATE_LIST" />
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.net.wifi.STATE_CHANGE" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+                <!---->
             </intent-filter>
         </receiver>
 

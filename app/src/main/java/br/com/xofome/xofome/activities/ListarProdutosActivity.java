@@ -153,7 +153,7 @@ public class ListarProdutosActivity extends AppCompatActivity
             Toast.makeText(getApplicationContext(), "Clicou em Configurações", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_acompanhar_pedido) {
             Intent intent = new Intent(this, AcompanharPedidosActivity.class);
-            startActivityForResult(intent, Codes.REQUEST_ACOMPANHAR_PEDIDO);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -176,4 +176,6 @@ public class ListarProdutosActivity extends AppCompatActivity
         //Agenda pra daqui a 5 segundos, a cada 10 segundos
         AlarmUtil.scheduleRepeat(this,intent,getTime(), 10 * 1000);
     }
+
+
 }

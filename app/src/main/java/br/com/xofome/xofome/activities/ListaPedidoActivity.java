@@ -65,7 +65,7 @@ public class ListaPedidoActivity extends AppCompatActivity {
         List<Produto> prods = ProdutoServiceMemory.getProdutos(0);
 
         for (int i = 0; i < prods.size(); i++) {
-            itens.add(new ItemPedido(i, 0, prods.get(i).getIdProduto(), prods.get(i).getNomeProduto(), 1));
+            itens.add(new ItemPedido(i, 0, prods.get(i).getIdProduto(), prods.get(i).getNomeProduto(), 1,prods.get(i).getPreco()));
         }
 
         return itens;

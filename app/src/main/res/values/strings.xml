@@ -66,4 +66,5 @@
     <string name="text_conf_pagar"> Valor do Pagamento: </string>
     <string name="confirm_pedido"> Confirmar Pedido </string>
     <string name="title_activity_confirmar_pedido"> Confirmar Pedido</string>
+    <string name="atualizar">Refresh</string>
 </resources>
