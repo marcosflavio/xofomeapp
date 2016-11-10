@@ -44,6 +44,13 @@ public class Pedido {
     }
 
     public double getValorTotalPedido() {
+
+        double valorTotal =0;
+
+        for(ItemPedido i: itensPedido){
+            valorTotal += i.getValor();
+        }
+        valorTotalPedido = valorTotal;
         return valorTotalPedido;
     }
 

@@ -10,13 +10,23 @@ public class ItemPedido {
     private int idProduto;
     private String nomeProduto;
     private int quantidade;
+    private double valor;
 
-    public ItemPedido(int idItemPedido, int idPedido, int idProduto, String nomeProduto, int quantidade) {
+    public ItemPedido(int idItemPedido, int idPedido, int idProduto, String nomeProduto, int quantidade, double valor) {
         this.idItemPedido = idItemPedido;
         this.idPedido = idPedido;
         this.idProduto = idProduto;
         this.nomeProduto = nomeProduto;
         this.quantidade = quantidade;
+        this.valor = valor;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
     }
 
     public int getIdItemPedido() {
