@@ -40,7 +40,7 @@ public class AcompanharPedidosActivity extends AppCompatActivity {
         rv.setHasFixedSize(true);
         pedidos = new ArrayList<PedidoSingleton>();
         p = PedidoSingleton.getInstancia();
-
+        p.setIdPedido(1);
         p.iniciarLista();
 
         pedidos.add(p);
@@ -49,7 +49,6 @@ public class AcompanharPedidosActivity extends AppCompatActivity {
 
         LinearLayoutManager llm = new LinearLayoutManager(getApplicationContext());
         rv.setLayoutManager(llm);
-
 
     }
 
