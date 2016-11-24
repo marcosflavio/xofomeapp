@@ -1,6 +1,5 @@
 package br.com.xofome.xofome.services;
 
-import android.app.ListActivity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;

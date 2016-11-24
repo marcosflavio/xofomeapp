@@ -13,6 +13,8 @@ public class Pedido {
     private List<ItemPedido> itensPedido;
     private String status = "Inativo";
     private double valorTotalPedido;
+    private String endereco;
+    private double valorASerPago;
 
     public Pedido() {
         this.itensPedido = new ArrayList<ItemPedido>();
@@ -25,6 +27,22 @@ public class Pedido {
 
     public void setItensPedido(List<ItemPedido> itensPedido) {
         this.itensPedido = itensPedido;
+    }
+
+    public double getValorASerPago() {
+        return valorASerPago;
+    }
+
+    public void setValorASerPago(double valorASerPago) {
+        this.valorASerPago = valorASerPago;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
     public String getStatus() {
@@ -66,7 +84,6 @@ public class Pedido {
         Pedido pedido = (Pedido) o;
 
         return idPedido == pedido.idPedido;
-
     }
 
     @Override

@@ -21,6 +21,9 @@ public class ItemPedido {
         this.valor = valor;
     }
 
+    public ItemPedido(){
+
+    }
     public double getValor() {
         return valor;
     }

@@ -27,14 +27,12 @@ public class UpdateStatusService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-
         String status [] = {"Finalizado","Recebido", "Em espera", "Preparando","Pronto"," Em entrega","Finalizado"};
         PedidoSingleton p = PedidoSingleton.getInstancia();
         p.setStatus(status[getRandomNumber()]);
         durma();
         sendBroadcast(new Intent("Update_status_complete"));
         stopSelf();
-
     }
 
     private int getRandomNumber() {

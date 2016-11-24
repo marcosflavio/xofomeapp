@@ -59,7 +59,7 @@ public class ListarProdutosActivity extends AppCompatActivity
             TabLayout.Tab tab = tabLayout.getTabAt(i);
             tab.setCustomView(pagerAdapter.getTabView(i));
         }
-        alarmRepeat();
+      //  alarmRepeat();
     }
 
     class PagerAdapter extends FragmentPagerAdapter {
@@ -176,6 +176,5 @@ public class ListarProdutosActivity extends AppCompatActivity
         //Agenda pra daqui a 5 segundos, a cada 10 segundos
         AlarmUtil.scheduleRepeat(this,intent,getTime(), 10 * 1000);
     }
-
 
 }

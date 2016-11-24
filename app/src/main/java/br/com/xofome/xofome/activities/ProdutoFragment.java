@@ -101,8 +101,6 @@ public class ProdutoFragment extends Fragment {
             }
         };
     }
-
-
     @Override
     public void onResume() {
        swipeRefreshLayout.setRefreshing(false);
