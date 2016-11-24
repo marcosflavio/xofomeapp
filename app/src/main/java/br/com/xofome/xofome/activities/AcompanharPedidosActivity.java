@@ -20,13 +20,14 @@ import java.util.List;
 import br.com.xofome.xofome.R;
 import br.com.xofome.xofome.adapters.AcompanharPedidosAdapter;
 import br.com.xofome.xofome.constantes.Codes;
+import br.com.xofome.xofome.model.Pedido;
 import br.com.xofome.xofome.model.PedidoSingleton;
+import br.com.xofome.xofome.services.PedidoService;
 import br.com.xofome.xofome.services.UpdateStatusService;
 
 public class AcompanharPedidosActivity extends AppCompatActivity {
-    private List<PedidoSingleton> pedidos;
+    private List<Pedido> pedidos;
     RecyclerView rv;
-    PedidoSingleton p;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +39,10 @@ public class AcompanharPedidosActivity extends AppCompatActivity {
         registerReceiver(receiverAcompanhar,new IntentFilter("Update_status_complete"));
 
         rv.setHasFixedSize(true);
-        pedidos = new ArrayList<PedidoSingleton>();
-        p = PedidoSingleton.getInstancia();
-        p.setIdPedido(1);
-        p.iniciarLista();
-
-        pedidos.add(p);
+        Pedido p = new Pedido();
+        p.setStatus("Entrege");
+        PedidoService.save(p,getApplicationContext());
+        pedidos = PedidoService.findAll(getApplicationContext());
         AcompanharPedidosAdapter adapter = new AcompanharPedidosAdapter(getApplicationContext(), pedidos, onClickPedido());
         rv.setAdapter(adapter);
 
@@ -58,7 +57,7 @@ public class AcompanharPedidosActivity extends AppCompatActivity {
 
             @Override
             public void onClickPedido(View view, int idx) {
-                PedidoSingleton pedido = pedidos.get(idx);
+                Pedido pedido = pedidos.get(idx);
 
                 Toast.makeText(getApplicationContext(), "Pedido " + pedido.getIdPedido() + " com status: "
                         + pedido.getStatus(), Toast.LENGTH_SHORT).show();

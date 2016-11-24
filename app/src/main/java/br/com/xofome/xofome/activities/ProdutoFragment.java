@@ -91,7 +91,6 @@ public class ProdutoFragment extends Fragment {
         return rootView;
     }
 
-
     private SwipeRefreshLayout.OnRefreshListener OnRefreshListener(){
         return  new SwipeRefreshLayout.OnRefreshListener(){
 
