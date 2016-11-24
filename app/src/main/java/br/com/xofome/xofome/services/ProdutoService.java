@@ -16,72 +16,47 @@ public class ProdutoService {
 
     public static Produto getProdutoById(Context context, int id) {
         ProdutoDAO dao = new ProdutoDAO(context);
-
-        try {
-            Produto produto = dao.find(id);
-
+        Produto produto = dao.find(id);
+        if(produto!=null){
             return produto;
-        } finally {
-            dao.close();
         }
+        return null;
     }
 
     public static List<Produto> getProdutos(Context context, int tipo) throws IOException {
         ProdutoDAO dao = new ProdutoDAO(context);
-        try {
-            List<Produto> produtos = dao.findAllTipo(tipo);
-            return produtos;
-        } finally {
-            dao.close();
-        }
+        List<Produto> produtos = dao.findAllTipo(tipo);
+        return produtos;
     }
 
     public static Produto getProduto(Context context, int id) throws IOException {
         ProdutoDAO dao = new ProdutoDAO(context);
-        try {
-            Produto produto = dao.findById(id);
-            return produto;
-        } finally {
-            dao.close();
-        }
+        Produto produto = dao.findById(id);
+        return produto;
     }
 
     public static void save(Context context, Produto produto) {
         ProdutoDAO dao = new ProdutoDAO(context);
-
-        try {
-            dao.save(produto);
-        } finally {
-            dao.close();
-        }
+        dao.save(produto);
     }
 
     public static void delete(Context context, Produto produto) {
         ProdutoDAO dao = new ProdutoDAO(context);
-        try {
-            dao.delete(produto);
-        } finally {
-            dao.close();
-        }
+        dao.delete(produto);
     }
 
     public static Produto formarProduto(int tipo, float preco, String nome, String desc) {
         Produto produto = new Produto();
-
         produto.setTipo(tipo);
         produto.setPreco(preco);
         produto.setNomeProduto(nome);
         produto.setDescricao(desc);
-
         return produto;
     }
 
     public static void setListProdutos(List<Produto> produtos, Context context) {
-
-        for(int i = 0; i <produtos.size();i++ ){
-            save(context,produtos.get(i));
+        for (int i = 0; i < produtos.size(); i++) {
+            save(context, produtos.get(i));
         }
-
     }
-
 }
