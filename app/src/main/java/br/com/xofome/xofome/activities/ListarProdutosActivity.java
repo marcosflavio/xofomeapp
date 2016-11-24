@@ -143,12 +143,14 @@ public class ListarProdutosActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.nav_alt_end) {
-
-            Intent intent = new Intent(this, EditarEnderecoActivity.class);
-            startActivityForResult(intent, Codes.REQUEST_EDITAR_END);
-
-        } else if (id == R.id.nav_config) {
+//        if (id == R.id.nav_alt_end) {
+//
+//            Intent intent = new Intent(this, EditarEnderecoActivity.class);
+//            startActivityForResult(intent, Codes.REQUEST_EDITAR_END);
+//
+//        } else
+//
+        if (id == R.id.nav_config) {
 
             Toast.makeText(getApplicationContext(), "Clicou em Configurações", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_acompanhar_pedido) {
