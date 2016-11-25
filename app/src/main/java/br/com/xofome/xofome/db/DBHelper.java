@@ -11,7 +11,7 @@ import android.util.Log;
 public class DBHelper extends SQLiteOpenHelper {
     private static final String TAG = "sql";
     public static final String NOME_BANCO = "xofome.admin.sqlite";
-    private static final int VERSAO_BANCO = 4;
+    private static final int VERSAO_BANCO = 5;
 
     public DBHelper(Context context) {
         super(context, NOME_BANCO, null, VERSAO_BANCO);
@@ -20,7 +20,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private static final String CREATE_TABLE_PRODUTO = "create table if not exists produto " +
             "(id_produto integer primary key autoincrement" +
-            " , nome_produto text,descricao text,preco float, tipo integer);";
+            " , nome_produto text,descricao text,preco float, tipo integer, imagem BLOB);";
 
     private static final String CREATE_TABLE_ITEM_PEDIDO = "create table if not exists item_pedido(idItemPedido" +
             " integer primary key autoincrement, idPedido integer, idProduto integer, nomeProduto text, " +
@@ -40,9 +40,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
-
-
     }
 
 }

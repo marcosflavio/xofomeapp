@@ -21,7 +21,7 @@ public class ProdutoDAO {
 
     private Context context;
     private String table_name = "produto";
-    private String[] colunas  = new String[]{"id_produto","nome_produto","descricao","preco","tipo"};
+    private String[] colunas  = new String[]{"id_produto","nome_produto","descricao","preco","tipo","imagem"};
     private static final String TAG = "sql";
     public ProdutoDAO(Context context){
         this.context = context;
@@ -38,6 +38,7 @@ public class ProdutoDAO {
             values.put("descricao", produto.getDescricao());
             values.put("preco", produto.getPreco());
             values.put("tipo", produto.getTipo());
+            values.put("imagem", produto.getImagem());
             //insiro o produto
             db.insert(table_name, "", values);
         } finally {
@@ -56,6 +57,7 @@ public class ProdutoDAO {
             ContentValues values = new ContentValues();
             values.put("nome_produto",produto.getNomeProduto());
             values.put("preco",produto.getPreco());
+            values.put("imagem", produto.getImagem());
             values.put("descricao",produto.getDescricao());
             values.put("tipo",produto.getDescricao());
             //Atualiza o produto
@@ -114,6 +116,7 @@ public class ProdutoDAO {
                 produto.setNomeProduto(c.getString(c.getColumnIndex("nome_produto")));
                 produto.setPreco(c.getFloat(c.getColumnIndex("preco")));
                 produto.setTipo(c.getInt(c.getColumnIndex("tipo")));
+                produto.setImagem(c.getBlob(c.getColumnIndex("imagem")));
                 return produto;
             }
 
@@ -135,6 +138,7 @@ public class ProdutoDAO {
                 produto.setNomeProduto(c.getString(c.getColumnIndex("nome_produto")));
                 produto.setPreco(c.getFloat(c.getColumnIndex("preco")));
                 produto.setTipo(c.getInt(c.getColumnIndex("tipo")));
+                produto.setImagem(c.getBlob(c.getColumnIndex("imagem")));
 
             } while (c.moveToNext());
         }
@@ -152,6 +156,7 @@ public class ProdutoDAO {
             produto.setNomeProduto(c.getString(c.getColumnIndex("nome_produto")));
             produto.setPreco(c.getFloat(c.getColumnIndex("preco")));
             produto.setTipo(c.getInt(c.getColumnIndex("tipo")));
+            produto.setImagem(c.getBlob(c.getColumnIndex("imagem")));
 
             return produto;
         } else {
