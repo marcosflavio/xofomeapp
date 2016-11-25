@@ -35,8 +35,8 @@ public class AddProdutoActivity extends AppCompatActivity {
         String nome = nomeProduto.getText().toString();
         String desc = descProduto.getText().toString();
 
-        Produto produto = ProdutoService.formarProduto(tipo, preco, nome, desc);
-        ProdutoService.save(getApplicationContext(), produto);
+       // Produto produto = ProdutoService.formarProduto(tipo, preco, nome, desc);
+        //ProdutoService.save(getApplicationContext(), produto);
 
         Intent sav = new Intent();
         sav.putExtra(Keys.RESPONSE_SAVE_NOME, nome);
