@@ -1,18 +1,19 @@
 package br.com.xofome.xofome.tasks;
-
-import android.content.Intent;
+import android.content.Context;
 import android.os.AsyncTask;
+
+import br.com.xofome.xofome.dao.ProdutoDAO;
 
 /**
  * Created by marcosf on 27/11/2016.
  */
 
-public class CompareDBTask extends AsyncTask<Integer,Integer, Boolean> {
+public class CompareDBTask extends AsyncTask<Integer,Integer, Integer> {
 
+    private Context context;
 
-    @Override
-    protected void onPostExecute(Boolean aBoolean) {
-        super.onPostExecute(aBoolean);
+    public CompareDBTask(Context context){
+        this.context = context;
     }
 
     @Override
@@ -21,9 +22,14 @@ public class CompareDBTask extends AsyncTask<Integer,Integer, Boolean> {
     }
 
     @Override
-    protected Boolean doInBackground(Integer... integers) {
+    protected void onPostExecute(Integer integer) {
+        super.onPostExecute(integer);
+    }
 
-
+    @Override
+    protected Integer doInBackground(Integer... integers) {
+        int atualiza = integers[0];
+        ProdutoDAO dao = new ProdutoDAO(context);
         return null;
     }
 }
