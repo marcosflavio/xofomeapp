@@ -30,11 +30,14 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private static final String CREATE_TABLE_PEDIDO = "create table if not exists pedido (idPedido integer primary key autoincrement, status text, endereco text, valorTotalPedido double, valorASerPago double);";
 
+
+    private static final String CREATE_TABLE_USUARIO = "create table if not exists usuario (email text primary key);";
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE_PRODUTO);
         db.execSQL(CREATE_TABLE_ITEM_PEDIDO);
         db.execSQL(CREATE_TABLE_PEDIDO);
+        db.execSQL(CREATE_TABLE_USUARIO);
         Log.d(TAG, "Banco criado com sucesso!");
     }
 
