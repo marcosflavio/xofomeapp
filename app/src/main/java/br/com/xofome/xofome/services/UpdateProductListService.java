@@ -1,8 +1,12 @@
 package br.com.xofome.xofome.services;
 
 import android.app.IntentService;
+import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -27,14 +31,13 @@ public class UpdateProductListService extends IntentService {
     private static final String TAG = "service";
     private long atualizar = 0;
     private long count = 0;
-
+    private List<Produto> produtos= new ArrayList<>();
     public UpdateProductListService() {
         super("UpdateProductListService");
     }
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        List<Produto> produtos = new ArrayList<>();
 
         //chamo o CompareDBTask.execute(atualizar)
         ProdutoDAO dao = new ProdutoDAO(this.getApplicationContext());
@@ -43,10 +46,10 @@ public class UpdateProductListService extends IntentService {
         buscaCountBD.run();
         if (atualizar < count) {
             Log.w(TAG, "A lista precisa ser atualizada!!");
-
             atualizar = count - atualizar;
-
-
+            UpdateList updateList = new UpdateList();
+            updateList.run();
+            ProdutoService.setListProdutos(produtos,this);
             sendBroadcast(new Intent("Update_complete"));
             stopSelf();
             //chamo o método que atualiza o coiso.
@@ -108,13 +111,13 @@ public class UpdateProductListService extends IntentService {
         }
     }
     //thread que atualiza a lista de acordo com os produtos que precisam ser atualizados
-    class updateList implements Runnable {
+    class UpdateList implements Runnable {
         public void run() {
             HttpURLConnection urlConnection = null;
             BufferedReader in = null;
 
             try {
-                URL url = new URL(HTTP.REQUEST_UPDATE_BD);
+                URL url = new URL(HTTP.REQUEST_UPDATE_BD+String.valueOf(atualizar));
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setDoOutput(false);
                 urlConnection.setRequestMethod("GET");
@@ -129,9 +132,12 @@ public class UpdateProductListService extends IntentService {
                 while ((inputLine = in.readLine()) != null)
                     response += inputLine;
 
+
                 Log.e(TAG, "Resposta >>>>>> " + response);
-                count = Long.valueOf(response);
-                Log.e(TAG, "Count >>>>>> " + count);
+                Gson gson = new Gson();
+
+                produtos = (List<Produto>) gson.fromJson(response,new TypeToken<List<Produto>>(){}.getType());
+
 
             } catch (MalformedURLException ex) {
                 Log.e(TAG, ex.getMessage());
