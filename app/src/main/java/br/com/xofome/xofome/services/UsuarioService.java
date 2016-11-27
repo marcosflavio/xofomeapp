@@ -12,8 +12,18 @@ import br.com.xofome.xofome.model.Usuario;
 
 public class UsuarioService {
 
-    public void save(Context context, Usuario usuario){
+    private Context context;
+    public UsuarioService(Context context){
+        this.context = context;
+    }
+
+    public void save(Usuario usuario){
         UsuarioDAO dao = new UsuarioDAO(context);
         dao.save(usuario);
+    }
+
+    public Long getUser (){
+        UsuarioDAO dao = new UsuarioDAO(context);
+        return dao.getTaskCount();
     }
 }

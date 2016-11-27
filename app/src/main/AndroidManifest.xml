@@ -3,9 +3,9 @@
     package="br.com.xofome.xofome">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -13,28 +13,28 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <service
             android:name=".services.UpdateProductListService"
-            android:exported="false">
-        </service>
-
+            android:exported="false"></service>
         <service
             android:name=".services.UpdateStatusService"
-            android:exported="false">
-        </service>
+            android:exported="false"></service>
 
         <receiver android:name=".services.ProdutoReceiver">
             <intent-filter>
                 <action android:name="UPDATE_LIST" />
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <!--<category android:name="android.intent.category.DEFAULT" />-->
-                <!---->
+                <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+                <!--  -->
             </intent-filter>
         </receiver>
 
         <activity android:name=".activities.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".activities.AddProdutoActivity"
@@ -43,23 +43,17 @@
         <activity
             android:name=".activities.ListarProdutosActivity"
             android:label="@string/title_activity_drawer"
-            android:theme="@style/AppTheme" >
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:theme="@style/AppTheme">
 
         </activity>
         <activity
             android:name=".activities.CadastrarEnderecoActivity"
             android:label="@string/title_activity_cadastrar_endereco"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".activities.EditarEnderecoActivity"
             android:label="@string/title_activity_editar_endereco"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".activities.SelecionarEnderecoActivity"
             android:label="@string/title_activity_selecionar_endereco"
@@ -76,13 +70,13 @@
             android:name=".activities.AcompanharPedidosActivity"
             android:label="@string/title_activity_acompanhar_pedido"
             android:theme="@style/AppTheme" />
-
-        <activity android:name=".activities.ConfirmarPedidoActivity"
-            android:theme="@style/AppTheme"
+        <activity
+            android:name=".activities.ConfirmarPedidoActivity"
             android:label="@string/title_activity_confirmar_pedido"
-            />
+            android:theme="@style/AppTheme" />
+        <activity android:name=".activities.CadastrarEmailActivity">
 
-
+        </activity>
     </application>
 
 </manifest>

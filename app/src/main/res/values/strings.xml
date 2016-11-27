@@ -67,4 +67,8 @@
     <string name="confirm_pedido"> Confirmar Pedido </string>
     <string name="title_activity_confirmar_pedido"> Confirmar Pedido</string>
     <string name="atualizar">Refresh</string>
+    <string name="add_email">Adicionar email</string>
+    <string name="cancel_email">Cancelar email</string>
+    <string name="text_view_cadatrar_email">Digite seu email: </string>
+    <string name="button_cadastrar_email">Cadastrar </string>
 </resources>

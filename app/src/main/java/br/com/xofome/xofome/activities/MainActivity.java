@@ -7,10 +7,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import br.com.xofome.xofome.R;
 import br.com.xofome.xofome.constantes.Codes;
+import br.com.xofome.xofome.services.UsuarioService;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,8 +22,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarMain);
         setSupportActionBar(toolbar);
-    }
+        Button b = (Button) findViewById(R.id.button_cadastrar);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                UsuarioService service = new UsuarioService(getApplicationContext());
+                if(service.getUser() != 0){
 
+                    Intent i = new Intent(getApplicationContext(), ListarProdutosActivity.class);
+                    startActivity(i);
+
+                }else{
+                    Intent i = new Intent(getApplicationContext(), CadastrarEmailActivity.class);
+                    startActivity(i);
+                }
+            }
+        });
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -38,11 +55,6 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-
-//    public void callListarProdutosActivity (View view){
-//        Intent intent = new Intent(this,ListarProdutosActivity.class);
-//        startActivityForResult(intent, Codes.REQUEST_LIST);
-//    }
 
     public void callCadastrarEndereco(View view) {
         Intent intent = new Intent(this, CadastrarEnderecoActivity.class);

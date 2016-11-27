@@ -2,6 +2,7 @@ package br.com.xofome.xofome.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
@@ -35,5 +36,10 @@ public class UsuarioDAO {
             db.close();
         }
 
+    }
+
+    public long getTaskCount() {
+        SQLiteDatabase db = new DBHelper(context).getWritableDatabase();
+        return DatabaseUtils.queryNumEntries(db,table_name);
     }
 }
