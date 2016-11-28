@@ -21,6 +21,8 @@ import java.util.List;
 import br.com.xofome.xofome.R;
 import br.com.xofome.xofome.activities.DescricaoProdutoActivity;
 import br.com.xofome.xofome.constantes.Keys;
+import br.com.xofome.xofome.model.ItemPedido;
+import br.com.xofome.xofome.model.ItemPedidoSingleton;
 import br.com.xofome.xofome.model.Produto;
 import br.com.xofome.xofome.util.ImageUtil;
 
@@ -89,6 +91,13 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.MyViewHo
         holder.imageButtonShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Crio um novo item e adiciona à lista Singleton
+                ItemPedido item = new ItemPedido();
+                item.setNomeProduto(p.getNomeProduto());
+                item.setIdProduto(p.getIdProduto());
+                item.setValor(p.getPreco());
+                ItemPedidoSingleton itemPedidoSingleton = ItemPedidoSingleton.getInstancia();
+                itemPedidoSingleton.adicionarItem(item);
 
                 Toast.makeText(context,"Você adicionou o produto " +  p.getNomeProduto() +
                 " ao seu pedido!", Toast.LENGTH_SHORT).show();

@@ -26,6 +26,7 @@ import java.util.Calendar;
 
 import br.com.xofome.xofome.R;
 import br.com.xofome.xofome.constantes.Codes;
+import br.com.xofome.xofome.model.ItemPedidoSingleton;
 import br.com.xofome.xofome.util.AlarmUtil;
 
 public class ListarProdutosActivity extends AppCompatActivity
@@ -37,6 +38,9 @@ public class ListarProdutosActivity extends AppCompatActivity
         setContentView(R.layout.activity_listar_produtos);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        //ItensPedido singleton
+        ItemPedidoSingleton itemPedidoSingleton = ItemPedidoSingleton.getInstancia();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

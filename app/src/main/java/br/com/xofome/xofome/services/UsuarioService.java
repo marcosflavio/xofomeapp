@@ -22,6 +22,11 @@ public class UsuarioService {
         dao.save(usuario);
     }
 
+    public String getEmail(){
+        UsuarioDAO dao = new UsuarioDAO(context);
+        return dao.find();
+    }
+
     public Long getUser (){
         UsuarioDAO dao = new UsuarioDAO(context);
         return dao.getTaskCount();

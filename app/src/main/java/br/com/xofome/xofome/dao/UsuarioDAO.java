@@ -2,11 +2,13 @@ package br.com.xofome.xofome.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import br.com.xofome.xofome.db.DBHelper;
+import br.com.xofome.xofome.model.Produto;
 import br.com.xofome.xofome.model.Usuario;
 
 /**
@@ -42,4 +44,30 @@ public class UsuarioDAO {
         SQLiteDatabase db = new DBHelper(context).getWritableDatabase();
         return DatabaseUtils.queryNumEntries(db,table_name);
     }
+
+    public String find() {
+        SQLiteDatabase db = new DBHelper(context).getWritableDatabase();
+
+        try {
+            Cursor c = db.query(table_name, null, null, null, null, null, null);
+            return toEmail(c);
+        } finally {
+            db.close();
+        }
+    }
+
+    private String toEmail(Cursor c) {
+        Usuario user = new Usuario();
+
+        if (c.moveToFirst()) {
+            Log.w("moveToFirst", "true");
+            user.setEmail(c.getString(c.getColumnIndex("email")));
+            return user.getEmail();
+        } else {
+            Log.w("moveToFirst", "false");
+            return null;
+        }
+    }
+
+
 }

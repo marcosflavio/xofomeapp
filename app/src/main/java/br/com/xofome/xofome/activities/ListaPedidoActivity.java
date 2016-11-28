@@ -19,6 +19,7 @@ import br.com.xofome.xofome.adapters.ItemPedidoListAdapter;
 import br.com.xofome.xofome.constantes.Codes;
 import br.com.xofome.xofome.constantes.Keys;
 import br.com.xofome.xofome.model.ItemPedido;
+import br.com.xofome.xofome.model.ItemPedidoSingleton;
 import br.com.xofome.xofome.model.Produto;
 import br.com.xofome.xofome.services.ItemPedidoService;
 import br.com.xofome.xofome.services.ProdutoServiceMemory;
@@ -36,21 +37,10 @@ public class ListaPedidoActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-       // ProdutoServiceMemory.save(new Produto("Pastel de flango", 3.50f, "Descrição do pastel de flango", 0));
-       // ProdutoServiceMemory.save(new Produto("Pastel de peixe", 5f, "Descrição do pastel de peixe", 0));
-       // ProdutoServiceMemory.save(new Produto("Pastel de arroz", 4.30f, "Descrição do pastel de arroz", 0));
-
         //pegar os itens de um determinado pedido somente
         //criar esse service
-        ItemPedido i = new ItemPedido();
-        i.setNomeProduto("Pastel");
-        ItemPedidoService.save(i,getApplicationContext());
-
-        ItemPedido i1 = new ItemPedido();
-        i1.setNomeProduto("Peixe");
-        ItemPedidoService.save(i1,getApplicationContext());
-
-        itensPedido = ItemPedidoService.findAll(getApplicationContext());
+        ItemPedidoSingleton itemPedidoSingleton = ItemPedidoSingleton.getInstancia();
+        itensPedido = itemPedidoSingleton.getListItens();
 
         ListAdapter adapter = new ItemPedidoListAdapter(this, itensPedido);
 
@@ -69,18 +59,6 @@ public class ListaPedidoActivity extends AppCompatActivity {
         intent.putExtra(Keys.REQUEST_DETALHES, itensPedido.get(position).getIdProduto());
         startActivity(intent);
     }
-
-//    public List<ItemPedido> getItems() {
-//        List<ItemPedido> itens = new ArrayList<>();
-//
-//        List<Produto> prods = ProdutoServiceMemory.getProdutos(0);
-//
-//        for (int i = 0; i < prods.size(); i++) {
-//            itens.add(new ItemPedido(i, 0, prods.get(i).getIdProduto(), prods.get(i).getNomeProduto(), 1,prods.get(i).getPreco()));
-//        }
-//
-//        return itens;
-//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

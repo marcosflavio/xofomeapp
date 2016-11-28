@@ -16,6 +16,8 @@ import java.io.IOException;
 import br.com.xofome.xofome.R;
 import br.com.xofome.xofome.constantes.Codes;
 import br.com.xofome.xofome.constantes.Keys;
+import br.com.xofome.xofome.model.ItemPedido;
+import br.com.xofome.xofome.model.ItemPedidoSingleton;
 import br.com.xofome.xofome.model.Produto;
 import br.com.xofome.xofome.services.ProdutoService;
 import br.com.xofome.xofome.services.ProdutoServiceMemory;
@@ -63,6 +65,14 @@ public class DescricaoProdutoActivity extends AppCompatActivity {
     }
 
     public void chamarConfirmar(View view){
+
+        //Crio um novo item e adiciona à lista Singleton
+        ItemPedido item = new ItemPedido();
+        item.setNomeProduto(p.getNomeProduto());
+        item.setIdProduto(p.getIdProduto());
+        item.setValor(p.getPreco());
+        ItemPedidoSingleton itemPedidoSingleton = ItemPedidoSingleton.getInstancia();
+        itemPedidoSingleton.adicionarItem(item);
 
         Toast.makeText(this,"Você adicionou o produto " +  p.getNomeProduto() +
                 " ao seu pedido!", Toast.LENGTH_SHORT).show();
