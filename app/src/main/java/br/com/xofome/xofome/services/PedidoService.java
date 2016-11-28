@@ -42,9 +42,4 @@ public class PedidoService {
         return dao.findAll();
     }
 
-//    public static List<ItemPedido> getItensPedido(int id, Context context){
-//        PedidoDAO dao = new PedidoDAO(context);
-//
-//    }
-
 }

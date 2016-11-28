@@ -16,6 +16,7 @@ public class Pedido {
     private String endereco;
     private double valorASerPago;
     private String email;
+    private Usuario usuario;
 
     public String getEmail() {
         return email;
@@ -79,6 +80,14 @@ public class Pedido {
         }
         valorTotalPedido = valorTotal;
         return valorTotalPedido;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public void setValorTotalPedido(double valorTotalPedido) {

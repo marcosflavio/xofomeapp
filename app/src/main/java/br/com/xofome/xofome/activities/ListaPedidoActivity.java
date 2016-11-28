@@ -11,7 +11,6 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import br.com.xofome.xofome.R;
@@ -20,9 +19,6 @@ import br.com.xofome.xofome.constantes.Codes;
 import br.com.xofome.xofome.constantes.Keys;
 import br.com.xofome.xofome.model.ItemPedido;
 import br.com.xofome.xofome.model.ItemPedidoSingleton;
-import br.com.xofome.xofome.model.Produto;
-import br.com.xofome.xofome.services.ItemPedidoService;
-import br.com.xofome.xofome.services.ProdutoServiceMemory;
 
 public class ListaPedidoActivity extends AppCompatActivity {
 
@@ -56,7 +52,7 @@ public class ListaPedidoActivity extends AppCompatActivity {
 
     public void mostrarDetalhes(int position) {
         Intent intent = new Intent(this, DescricaoProdutoActivity.class);
-        intent.putExtra(Keys.REQUEST_DETALHES, itensPedido.get(position).getIdProduto());
+        intent.putExtra(Keys.REQUEST_DETALHES, itensPedido.get(position).getProduto().getIdProduto());
         startActivity(intent);
     }
 

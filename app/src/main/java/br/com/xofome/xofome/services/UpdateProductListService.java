@@ -1,7 +1,6 @@
 package br.com.xofome.xofome.services;
 
 import android.app.IntentService;
-import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
@@ -20,7 +19,7 @@ import java.util.List;
 import br.com.xofome.xofome.constantes.HTTP;
 import br.com.xofome.xofome.dao.ProdutoDAO;
 import br.com.xofome.xofome.model.Produto;
-import br.com.xofome.xofome.tasks.CompareDBTask;
+
 
 /**
  * Created by marcosf on 07/11/2016.
@@ -39,7 +38,6 @@ public class UpdateProductListService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
 
-        //chamo o CompareDBTask.execute(atualizar)
         ProdutoDAO dao = new ProdutoDAO(this.getApplicationContext());
         atualizar = dao.getTaskCount();
         BuscaCountBD buscaCountBD = new BuscaCountBD();
@@ -52,7 +50,6 @@ public class UpdateProductListService extends IntentService {
             ProdutoService.setListProdutos(produtos,this);
             sendBroadcast(new Intent("Update_complete"));
             stopSelf();
-            //chamo o método que atualiza o coiso.
         } else {
             Log.w(TAG, "A lista não precisa ser atualizada!!");
             sendBroadcast(new Intent("Update_complete"));

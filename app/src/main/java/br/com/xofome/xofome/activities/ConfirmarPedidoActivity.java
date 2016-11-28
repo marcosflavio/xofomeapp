@@ -31,8 +31,6 @@ public class ConfirmarPedidoActivity extends AppCompatActivity {
 
     }
 
-
-
     public void confirmar(View view){
 
         Intent intent = new Intent(this, SelecionarEnderecoActivity.class);
