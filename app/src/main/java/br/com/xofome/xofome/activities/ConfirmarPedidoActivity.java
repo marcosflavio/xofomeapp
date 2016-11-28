@@ -50,7 +50,8 @@ public class ConfirmarPedidoActivity extends AppCompatActivity {
             pedido.setValorTotalPedido(itemPedidoSingleton.getValorTotalPedido());
             pedido.setValorASerPago(Double.valueOf(valorPago.getText().toString()));
             UsuarioService service = new UsuarioService(getApplicationContext());
-            pedido.setEmail(service.getEmail());
+            //modificar isso aqui, passar o próprio usuario
+            //pedido.setEmail(service.getEmail());
 
             //Envio e salvo na web
             //chamar asynctask

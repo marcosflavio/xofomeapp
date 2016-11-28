@@ -11,6 +11,8 @@ import java.util.List;
 
 import br.com.xofome.xofome.db.DBHelper;
 import br.com.xofome.xofome.model.ItemPedido;
+import br.com.xofome.xofome.model.Pedido;
+import br.com.xofome.xofome.model.Produto;
 
 /**
  * Created by marcosf on 23/11/2016.
@@ -33,9 +35,18 @@ public class ItemPedidoDAO {
         SQLiteDatabase db = new DBHelper(context).getWritableDatabase();
         try {
             ContentValues values = new ContentValues();
-            values.put("idPedido", itemPedido.getIdPedido());
-            values.put("idProduto", itemPedido.getIdProduto());
-            values.put("nomeProduto", itemPedido.getNomeProduto());
+            //Encontro o meu pedido, pego o seu id e seto no values
+            PedidoDAO pedidoDAO = new PedidoDAO(context);
+            Pedido pedido = pedidoDAO.find(itemPedido.getPedido().getIdPedido());
+
+            //Encontro o meu produto, pego o seu id e seto no values
+            ProdutoDAO produtoDAO = new ProdutoDAO(context);
+            Produto produto = produtoDAO.find(itemPedido.getProduto().getIdProduto());
+
+            values.put("idItemPedido", itemPedido.getIdItemPedido());
+            values.put("idPedido", pedido.getIdPedido());
+            values.put("idProduto", produto.getIdProduto());
+            values.put("nomeProduto", produto.getNomeProduto());
             values.put("quantidade", itemPedido.getQuantidade());
             values.put("valor", itemPedido.getValor());
             //insiro o item
@@ -54,13 +65,21 @@ public class ItemPedidoDAO {
 
         try {
             ContentValues values = new ContentValues();
-            values.put("idPedido", itemPedido.getIdPedido());
-            values.put("idProduto", itemPedido.getIdProduto());
-            values.put("nomeProduto", itemPedido.getNomeProduto());
+            //Encontro o meu pedido, pego o seu id e seto no values
+            PedidoDAO pedidoDAO = new PedidoDAO(context);
+            Pedido pedido = pedidoDAO.find(itemPedido.getPedido().getIdPedido());
+
+            //Encontro o meu produto, pego o seu id e seto no values
+            ProdutoDAO produtoDAO = new ProdutoDAO(context);
+            Produto produto = produtoDAO.find(itemPedido.getProduto().getIdProduto());
+
+            values.put("idPedido", pedido.getIdPedido());
+            values.put("idProduto", produto.getIdProduto());
+            values.put("nomeProduto", produto.getNomeProduto());
             values.put("quantidade", itemPedido.getQuantidade());
             values.put("valor", itemPedido.getValor());
             //Atualiza o item
-            db.update(table_name,values,"idPedido = " + id, null);
+            db.update(table_name,values,"idItemPedido = " + id, null);
         }finally {
             Log.d(TAG, "Item" + itemPedido.getIdItemPedido() + " atualizado no banco!");
             db.close();
@@ -102,6 +121,18 @@ public class ItemPedidoDAO {
         }
     }
 
+    public List<ItemPedido> findAllByPedido(int idPedido){
+        SQLiteDatabase db = new DBHelper(context).getWritableDatabase();
+
+        try {
+            Cursor c = db.query(table_name, null, "idPedido = '" + idPedido + "'", null, null, null, null);
+            return toList(c);
+        } finally {
+            db.close();
+        }
+
+    }
+
     //retorna um determinado item
     public ItemPedido findById(int id) {
 
@@ -111,10 +142,19 @@ public class ItemPedidoDAO {
             if (c.moveToFirst()) {
                 ItemPedido itemPedido = new ItemPedido();
 
-                itemPedido.setIdPedido(c.getInt(c.getColumnIndex("idPedido")));
-                itemPedido.setIdProduto(c.getInt(c.getColumnIndex("idProduto")));
+                int idPedido = (c.getInt(c.getColumnIndex("idPedido")));
+                int idProduto = (c.getInt(c.getColumnIndex("idProduto")));
+
+                PedidoDAO pedidoDAO = new PedidoDAO(context);
+                Pedido pedido = pedidoDAO.find(idPedido);
+
+                ProdutoDAO produtoDAO = new ProdutoDAO(context);
+                Produto produto = produtoDAO.find(idProduto);
+
+                itemPedido.setProduto(produto);
+                itemPedido.setPedido(pedido);
                 itemPedido.setIdItemPedido(c.getInt(c.getColumnIndex("idItemPedido")));
-                itemPedido.setNomeProduto(c.getString(c.getColumnIndex("nomeProduto")));
+                itemPedido.setNomeProduto(produto.getNomeProduto());
                 itemPedido.setQuantidade(c.getInt(c.getColumnIndex("quantidade")));
                 itemPedido.setValor(c.getDouble(c.getColumnIndex("valor")));
 
@@ -134,10 +174,20 @@ public class ItemPedidoDAO {
             do {
                 ItemPedido itemPedido = new ItemPedido();
                 itens.add(itemPedido);
-                itemPedido.setIdPedido(c.getInt(c.getColumnIndex("idPedido")));
-                itemPedido.setIdProduto(c.getInt(c.getColumnIndex("idProduto")));
+
+                int idPedido = (c.getInt(c.getColumnIndex("idPedido")));
+                int idProduto = (c.getInt(c.getColumnIndex("idProduto")));
+
+                PedidoDAO pedidoDAO = new PedidoDAO(context);
+                Pedido pedido = pedidoDAO.find(idPedido);
+
+                ProdutoDAO produtoDAO = new ProdutoDAO(context);
+                Produto produto = produtoDAO.find(idProduto);
+
                 itemPedido.setIdItemPedido(c.getInt(c.getColumnIndex("idItemPedido")));
-                itemPedido.setNomeProduto(c.getString(c.getColumnIndex("nomeProduto")));
+                itemPedido.setPedido(pedido);
+                itemPedido.setProduto(produto);
+                itemPedido.setNomeProduto(produto.getNomeProduto());
                 itemPedido.setQuantidade(c.getInt(c.getColumnIndex("quantidade")));
                 itemPedido.setValor(c.getDouble(c.getColumnIndex("valor")));
 
@@ -153,12 +203,22 @@ public class ItemPedidoDAO {
         if (c.moveToFirst()) {
             Log.w("moveToFirst", "true");
 
-            itemPedido.setIdPedido(c.getInt(c.getColumnIndex("idPedido")));
-            itemPedido.setIdProduto(c.getInt(c.getColumnIndex("idProduto")));
+            int idPedido = (c.getInt(c.getColumnIndex("idPedido")));
+            int idProduto = (c.getInt(c.getColumnIndex("idProduto")));
+
+            PedidoDAO pedidoDAO = new PedidoDAO(context);
+            Pedido pedido = pedidoDAO.find(idPedido);
+
+            ProdutoDAO produtoDAO = new ProdutoDAO(context);
+            Produto produto = produtoDAO.find(idProduto);
+
             itemPedido.setIdItemPedido(c.getInt(c.getColumnIndex("idItemPedido")));
-            itemPedido.setNomeProduto(c.getString(c.getColumnIndex("nomeProduto")));
+            itemPedido.setPedido(pedido);
+            itemPedido.setProduto(produto);
+            itemPedido.setNomeProduto(produto.getNomeProduto());
             itemPedido.setQuantidade(c.getInt(c.getColumnIndex("quantidade")));
             itemPedido.setValor(c.getDouble(c.getColumnIndex("valor")));
+
             return itemPedido;
         } else {
             Log.w("moveToFirst", "false");

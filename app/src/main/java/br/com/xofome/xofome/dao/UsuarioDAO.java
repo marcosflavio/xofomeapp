@@ -7,7 +7,10 @@ import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import java.util.List;
+
 import br.com.xofome.xofome.db.DBHelper;
+import br.com.xofome.xofome.model.Pedido;
 import br.com.xofome.xofome.model.Produto;
 import br.com.xofome.xofome.model.Usuario;
 
@@ -16,7 +19,6 @@ import br.com.xofome.xofome.model.Usuario;
  */
 
 public class UsuarioDAO {
-
     private Context context;
     private String table_name = "usuario";
     private static final String TAG = "sql";
@@ -45,29 +47,33 @@ public class UsuarioDAO {
         return DatabaseUtils.queryNumEntries(db,table_name);
     }
 
-    public String find() {
+    public Usuario find() {
         SQLiteDatabase db = new DBHelper(context).getWritableDatabase();
 
         try {
             Cursor c = db.query(table_name, null, null, null, null, null, null);
-            return toEmail(c);
+            return toUsuario(c);
         } finally {
             db.close();
         }
     }
 
-    private String toEmail(Cursor c) {
+    private Usuario toUsuario(Cursor c) {
         Usuario user = new Usuario();
 
         if (c.moveToFirst()) {
             Log.w("moveToFirst", "true");
             user.setEmail(c.getString(c.getColumnIndex("email")));
-            return user.getEmail();
+
+            PedidoDAO pedidoDAO = new PedidoDAO(context);
+            List<Pedido> pedidoList = pedidoDAO.findAllByUser(user.getEmail());
+
+            user.setPedidos(pedidoList);
+            return user;
         } else {
             Log.w("moveToFirst", "false");
             return null;
         }
     }
-
 
 }

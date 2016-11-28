@@ -36,6 +36,8 @@ public class ProdutoDAO {
         SQLiteDatabase db = new DBHelper(context).getWritableDatabase();
         try {
             ContentValues values = new ContentValues();
+
+            values.put("id_produto", produto.getIdProduto());
             values.put("nome_produto", produto.getNomeProduto());
             values.put("descricao", produto.getDescricao());
             values.put("preco", produto.getPreco());

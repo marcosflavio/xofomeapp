@@ -12,6 +12,7 @@ import java.util.List;
 import br.com.xofome.xofome.db.DBHelper;
 import br.com.xofome.xofome.model.ItemPedido;
 import br.com.xofome.xofome.model.Pedido;
+import br.com.xofome.xofome.model.Usuario;
 
 /**
  * Created by marcosf on 23/11/2016.
@@ -33,11 +34,19 @@ public class PedidoDAO {
         Integer id = pedido.getIdPedido();
         SQLiteDatabase db = new DBHelper(context).getWritableDatabase();
         try {
+
+            UsuarioDAO usuarioDAO = new UsuarioDAO(context);
+            Usuario user = usuarioDAO.find();
+
             ContentValues values = new ContentValues();
+
+            values.put("idPedido",pedido.getIdPedido());
+            values.put("email",user.getEmail());
             values.put("status", pedido.getStatus());
             values.put("valorTotalPedido", pedido.getValorTotalPedido());
             values.put("endereco", pedido.getEndereco());
             values.put("valorASerPago", pedido.getValorASerPago());
+
             //insiro o pedido
             db.insert(table_name, "", values);
         } finally {
@@ -53,8 +62,12 @@ public class PedidoDAO {
         SQLiteDatabase db = new DBHelper(context).getWritableDatabase();
 
         try {
+            UsuarioDAO usuarioDAO = new UsuarioDAO(context);
+            Usuario user = usuarioDAO.find();
+
             ContentValues values = new ContentValues();
             values.put("status", pedido.getStatus());
+            values.put("email",user.getEmail());
             values.put("valorTotalPedido", pedido.getValorTotalPedido());
             values.put("endereco", pedido.getEndereco());
             values.put("valorASerPago", pedido.getValorASerPago());
@@ -88,6 +101,8 @@ public class PedidoDAO {
         }
     }
 
+
+
     //listar todos os pedidos com um determinado status
     public List<Pedido> findAllByStatus(String status) {
 
@@ -95,6 +110,18 @@ public class PedidoDAO {
 
         try {
             Cursor c = db.query(table_name, null, "status = '" + status + "'", null, null, null, null);
+            return toList(c);
+        } finally {
+            db.close();
+        }
+    }
+
+    //Listar todos os pedidos de um dado usuário
+    public List<Pedido> findAllByUser(String email){
+        SQLiteDatabase db = new DBHelper(context).getWritableDatabase();
+
+        try {
+            Cursor c = db.query(table_name, null, "email = '" + email + "'", null, null, null, null);
             return toList(c);
         } finally {
             db.close();
@@ -125,6 +152,16 @@ public class PedidoDAO {
             if (c.moveToFirst()) {
                 Pedido pedido = new Pedido();
                 pedido.setIdPedido(c.getInt(c.getColumnIndex("idPedido")));
+
+                String email = (c.getString(c.getColumnIndex("email")));
+                UsuarioDAO usuarioDAO = new UsuarioDAO(context);
+                Usuario usuario = usuarioDAO.find();
+
+                ItemPedidoDAO itemPedidoDAO = new ItemPedidoDAO(context);
+                List<ItemPedido> itens= itemPedidoDAO.findAllByPedido(pedido.getIdPedido());
+
+                pedido.setUsuario(usuario);
+                pedido.setItensPedido(itens);
                 pedido.setValorTotalPedido(c.getDouble(c.getColumnIndex("valorTotalPedido")));
                 pedido.setStatus(c.getString(c.getColumnIndex("status")));
                 pedido.setEndereco(c.getString(c.getColumnIndex("endereco")));
@@ -144,9 +181,20 @@ public class PedidoDAO {
         if (c.moveToFirst()) {
 
             do {
+
                 Pedido pedido = new Pedido();
                 pedidos.add(pedido);
                 pedido.setIdPedido(c.getInt(c.getColumnIndex("idPedido")));
+
+                String email = (c.getString(c.getColumnIndex("email")));
+                UsuarioDAO usuarioDAO = new UsuarioDAO(context);
+                Usuario usuario = usuarioDAO.find();
+
+                ItemPedidoDAO itemPedidoDAO = new ItemPedidoDAO(context);
+                List<ItemPedido> itens= itemPedidoDAO.findAllByPedido(pedido.getIdPedido());
+
+                pedido.setUsuario(usuario);
+                pedido.setItensPedido(itens);
                 pedido.setValorTotalPedido(c.getDouble(c.getColumnIndex("valorTotalPedido")));
                 pedido.setStatus(c.getString(c.getColumnIndex("status")));
                 pedido.setEndereco(c.getString(c.getColumnIndex("endereco")));
@@ -158,25 +206,27 @@ public class PedidoDAO {
         return pedidos;
     }
 
-    private List<ItemPedido> itensPedidoDAO( int id ){
-        Pedido pedido = findById( id );
-        List<ItemPedido> itens = pedido.getItensPedido();
-        if(itens.size()!= 0){
-            return itens;
-        }
-        return null;
-    }
-
     private Pedido toPedido(Cursor c) {
+
         Pedido pedido = new Pedido();
 
         if (c.moveToFirst()) {
             Log.w("moveToFirst", "true");
 
             pedido.setIdPedido(c.getInt(c.getColumnIndex("idPedido")));
+
+            String email = (c.getString(c.getColumnIndex("email")));
+            UsuarioDAO usuarioDAO = new UsuarioDAO(context);
+            Usuario usuario = usuarioDAO.find();
+
+            ItemPedidoDAO itemPedidoDAO = new ItemPedidoDAO(context);
+            List<ItemPedido> itens= itemPedidoDAO.findAllByPedido(pedido.getIdPedido());
+            pedido.setItensPedido(itens);
+
             pedido.setValorTotalPedido(c.getDouble(c.getColumnIndex("valorTotalPedido")));
             pedido.setStatus(c.getString(c.getColumnIndex("status")));
             pedido.setEndereco(c.getString(c.getColumnIndex("endereco")));
+            pedido.setUsuario(usuario);
             pedido.setValorASerPago(c.getDouble(c.getColumnIndex("valorTotalASerPago")));
 
             return pedido;

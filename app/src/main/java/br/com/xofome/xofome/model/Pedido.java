@@ -15,16 +15,7 @@ public class Pedido {
     private double valorTotalPedido;
     private String endereco;
     private double valorASerPago;
-    private String email;
     private Usuario usuario;
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public Pedido() {
         this.itensPedido = new ArrayList<ItemPedido>();
