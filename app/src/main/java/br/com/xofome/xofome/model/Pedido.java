@@ -14,7 +14,7 @@ public class Pedido {
     private String status = "Inativo";
     private double valorTotalPedido;
     private String endereco;
-    private double valorASerPago;
+    private double valorASerPago = 0.0;
     private Usuario usuario;
 
     public Pedido() {

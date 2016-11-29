@@ -67,10 +67,10 @@ public class DescricaoProdutoActivity extends AppCompatActivity {
 
         //Crio um novo item e adiciona à lista Singleton
         ItemPedido item = new ItemPedido();
+        item.setProduto(p);
         item.setNomeProduto(p.getNomeProduto());
-        //passar o próprio produto
-        //item.setIdProduto(p.getIdProduto());
         item.setValor(p.getPreco());
+
         ItemPedidoSingleton itemPedidoSingleton = ItemPedidoSingleton.getInstancia();
         itemPedidoSingleton.adicionarItem(item);
 

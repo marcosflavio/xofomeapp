@@ -21,7 +21,6 @@ import br.com.xofome.xofome.R;
 import br.com.xofome.xofome.adapters.AcompanharPedidosAdapter;
 import br.com.xofome.xofome.constantes.Codes;
 import br.com.xofome.xofome.model.Pedido;
-import br.com.xofome.xofome.model.PedidoSingleton;
 import br.com.xofome.xofome.services.PedidoService;
 import br.com.xofome.xofome.services.UpdateStatusService;
 

@@ -48,10 +48,13 @@ public class ConfirmarPedidoActivity extends AppCompatActivity {
             pedido.setStatus("Iniciado");
 
             pedido.setValorTotalPedido(itemPedidoSingleton.getValorTotalPedido());
-            pedido.setValorASerPago(Double.valueOf(valorPago.getText().toString()));
-            UsuarioService service = new UsuarioService(getApplicationContext());
-            //modificar isso aqui, passar o próprio usuario
-            //pedido.setEmail(service.getEmail());
+            Double valor = Double.valueOf(valorPago.getText().toString());
+            if(valor != null)
+                pedido.setValorASerPago(valor);
+
+            UsuarioService serviceUsuario = new UsuarioService(getApplicationContext());
+            pedido.setUsuario(serviceUsuario.getUsuario());
+            
 
             //Envio e salvo na web
             //chamar asynctask

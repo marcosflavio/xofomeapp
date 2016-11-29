@@ -22,7 +22,7 @@ public class UsuarioService {
         dao.save(usuario);
     }
 
-    public String getEmail(){
+    public Usuario getUsuario(){
         UsuarioDAO dao = new UsuarioDAO(context);
         return dao.find();
     }

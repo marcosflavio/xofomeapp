@@ -94,10 +94,10 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.MyViewHo
                 //Crio um novo item e adiciona à lista Singleton
                 ItemPedido item = new ItemPedido();
                 item.setNomeProduto(p.getNomeProduto());
-
-                //modificar isso, passar o próprio Produto
-                    //item.setIdProduto(p.getIdProduto());
+                item.setProduto(p);
+                //Quando chamar a task, depois de salvar todo o pedido, salvar o id desse pedido na lista toda
                 item.setValor(p.getPreco());
+                //adiciono o item na lista singleton
                 ItemPedidoSingleton itemPedidoSingleton = ItemPedidoSingleton.getInstancia();
                 itemPedidoSingleton.adicionarItem(item);
 
