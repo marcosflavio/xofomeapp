@@ -16,6 +16,7 @@ import br.com.xofome.xofome.constantes.Codes;
 import br.com.xofome.xofome.model.ItemPedidoSingleton;
 import br.com.xofome.xofome.model.Pedido;
 import br.com.xofome.xofome.services.UsuarioService;
+import br.com.xofome.xofome.tasks.PedidoTask;
 
 public class ConfirmarPedidoActivity extends AppCompatActivity {
     private Pedido pedido;
@@ -59,7 +60,10 @@ public class ConfirmarPedidoActivity extends AppCompatActivity {
             //Envio e salvo na web
             //chamar asynctask
             // depois salva os items de pedido que estão no singleton setando o id do pedido retornado
-            
+
+            PedidoTask pedidoTask = new PedidoTask(getApplicationContext());
+            pedidoTask.execute(pedido);
+
             Toast.makeText(getApplicationContext(), "Pedido confirmado!", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, ListarProdutosActivity.class);
             startActivityForResult(intent, Codes.REQUEST_BACK);
