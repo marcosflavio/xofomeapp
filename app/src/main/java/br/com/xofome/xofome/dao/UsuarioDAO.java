@@ -65,10 +65,10 @@ public class UsuarioDAO {
             Log.w("moveToFirst", "true");
             user.setEmail(c.getString(c.getColumnIndex("email")));
 
-            PedidoDAO pedidoDAO = new PedidoDAO(context);
-            List<Pedido> pedidoList = pedidoDAO.findAllByUser(user.getEmail());
-
-            user.setPedidos(pedidoList);
+//            PedidoDAO pedidoDAO = new PedidoDAO(context);
+//            List<Pedido> pedidoList = pedidoDAO.findAllByUser(user.getEmail());
+//
+//            user.setPedidos(pedidoList);
             return user;
         } else {
             Log.w("moveToFirst", "false");

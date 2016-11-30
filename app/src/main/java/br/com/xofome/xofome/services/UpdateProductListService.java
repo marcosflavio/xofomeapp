@@ -97,7 +97,8 @@ public class UpdateProductListService extends IntentService {
 
                 urlConnection.disconnect();
                 try {
-                    in.close();
+                    if(in != null)
+                        in.close();
                 } catch (IOException ex) {
                     Log.e(TAG, ex.getMessage());
                     Log.e(TAG, ex.toString());

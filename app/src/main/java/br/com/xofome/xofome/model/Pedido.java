@@ -10,7 +10,6 @@ import java.util.List;
 public class Pedido {
 
     private int idPedido;
-    private List<ItemPedido> itensPedido;
     private String status = "Inativo";
     private double valorTotalPedido;
     private String endereco;
@@ -18,17 +17,17 @@ public class Pedido {
     private Usuario usuario;
 
     public Pedido() {
-        this.itensPedido = new ArrayList<ItemPedido>();
+       // this.itensPedido = new ArrayList<ItemPedido>();
         idPedido++;
     }
 
-    public List<ItemPedido> getItensPedido() {
-        return itensPedido;
-    }
-
-    public void setItensPedido(List<ItemPedido> itensPedido) {
-        this.itensPedido = itensPedido;
-    }
+//    public List<ItemPedido> getItensPedido() {
+//        return itensPedido;
+//    }
+//
+//    public void setItensPedido(List<ItemPedido> itensPedido) {
+//        this.itensPedido = itensPedido;
+//    }
 
     public double getValorASerPago() {
         return valorASerPago;
@@ -66,10 +65,10 @@ public class Pedido {
 
         double valorTotal =0;
 
-        for(ItemPedido i: itensPedido){
-            valorTotal += i.getValor();
-        }
-        valorTotalPedido = valorTotal;
+//        for(ItemPedido i: itensPedido){
+//            valorTotal += i.getValor();
+//        }
+//        valorTotalPedido = valorTotal;
         return valorTotalPedido;
     }
 

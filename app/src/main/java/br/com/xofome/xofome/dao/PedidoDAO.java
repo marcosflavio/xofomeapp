@@ -157,11 +157,11 @@ public class PedidoDAO {
                 UsuarioDAO usuarioDAO = new UsuarioDAO(context);
                 Usuario usuario = usuarioDAO.find();
 
-                ItemPedidoDAO itemPedidoDAO = new ItemPedidoDAO(context);
-                List<ItemPedido> itens= itemPedidoDAO.findAllByPedido(pedido.getIdPedido());
+//                ItemPedidoDAO itemPedidoDAO = new ItemPedidoDAO(context);
+//                List<ItemPedido> itens= itemPedidoDAO.findAllByPedido(pedido.getIdPedido());
 
                 pedido.setUsuario(usuario);
-                pedido.setItensPedido(itens);
+//                pedido.setItensPedido(itens);
                 pedido.setValorTotalPedido(c.getDouble(c.getColumnIndex("valorTotalPedido")));
                 pedido.setStatus(c.getString(c.getColumnIndex("status")));
                 pedido.setEndereco(c.getString(c.getColumnIndex("endereco")));
@@ -190,11 +190,11 @@ public class PedidoDAO {
                 UsuarioDAO usuarioDAO = new UsuarioDAO(context);
                 Usuario usuario = usuarioDAO.find();
 
-                ItemPedidoDAO itemPedidoDAO = new ItemPedidoDAO(context);
-                List<ItemPedido> itens= itemPedidoDAO.findAllByPedido(pedido.getIdPedido());
+//                ItemPedidoDAO itemPedidoDAO = new ItemPedidoDAO(context);
+//                List<ItemPedido> itens= itemPedidoDAO.findAllByPedido(pedido.getIdPedido());
 
                 pedido.setUsuario(usuario);
-                pedido.setItensPedido(itens);
+//                pedido.setItensPedido(itens);
                 pedido.setValorTotalPedido(c.getDouble(c.getColumnIndex("valorTotalPedido")));
                 pedido.setStatus(c.getString(c.getColumnIndex("status")));
                 pedido.setEndereco(c.getString(c.getColumnIndex("endereco")));
@@ -219,9 +219,9 @@ public class PedidoDAO {
             UsuarioDAO usuarioDAO = new UsuarioDAO(context);
             Usuario usuario = usuarioDAO.find();
 
-            ItemPedidoDAO itemPedidoDAO = new ItemPedidoDAO(context);
-            List<ItemPedido> itens= itemPedidoDAO.findAllByPedido(pedido.getIdPedido());
-            pedido.setItensPedido(itens);
+//            ItemPedidoDAO itemPedidoDAO = new ItemPedidoDAO(context);
+//            List<ItemPedido> itens= itemPedidoDAO.findAllByPedido(pedido.getIdPedido());
+//            pedido.setItensPedido(itens);
 
             pedido.setValorTotalPedido(c.getDouble(c.getColumnIndex("valorTotalPedido")));
             pedido.setStatus(c.getString(c.getColumnIndex("status")));

@@ -9,7 +9,7 @@ public class Usuario {
 
     private String email;
 
-    private List<Pedido> pedidos;
+   // private List<Pedido> pedidos;
 
     public Usuario (){
     }
@@ -26,11 +26,11 @@ public class Usuario {
         this.email = email;
     }
 
-    public List<Pedido> getPedidos() {
-        return pedidos;
-    }
-
-    public void setPedidos(List<Pedido> pedidos) {
-        this.pedidos = pedidos;
-    }
+//    public List<Pedido> getPedidos() {
+//        return pedidos;
+//    }
+//
+//    public void setPedidos(List<Pedido> pedidos) {
+//        this.pedidos = pedidos;
+//    }
 }
