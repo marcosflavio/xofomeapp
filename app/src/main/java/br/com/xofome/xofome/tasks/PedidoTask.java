@@ -278,8 +278,10 @@ public class PedidoTask extends AsyncTask<  Pedido,Integer, Integer> {
 
             } catch (MalformedURLException ex) {
                 Log.e(TAG, ex.getMessage());
+                ex.printStackTrace();
                 Log.e(TAG, ex.toString());
             } catch (IOException ex) {
+                ex.printStackTrace();
                 Log.e(TAG, ex.getMessage());
                 Log.e(TAG, ex.toString());
             } finally {
@@ -288,6 +290,7 @@ public class PedidoTask extends AsyncTask<  Pedido,Integer, Integer> {
                 try {
                     in.close();
                 } catch (IOException ex) {
+                    ex.printStackTrace();
                     Log.e(TAG, ex.getMessage());
                     Log.e(TAG, ex.toString());
                 }
