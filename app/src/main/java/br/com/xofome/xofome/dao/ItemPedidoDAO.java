@@ -34,14 +34,18 @@ public class ItemPedidoDAO {
         Integer id = itemPedido.getIdItemPedido();
         SQLiteDatabase db = new DBHelper(context).getWritableDatabase();
         try {
+            Log.w("pedidoTASK", "Entrei no dao do item");
+
             ContentValues values = new ContentValues();
             //Encontro o meu pedido, pego o seu id e seto no values
             PedidoDAO pedidoDAO = new PedidoDAO(context);
             Pedido pedido = pedidoDAO.find(itemPedido.getPedido().getIdPedido());
 
+            Log.w("pedidoTASK", "PEDIDO ::" + pedido.getIdPedido());
             //Encontro o meu produto, pego o seu id e seto no values
             ProdutoDAO produtoDAO = new ProdutoDAO(context);
             Produto produto = produtoDAO.find(itemPedido.getProduto().getIdProduto());
+            Log.w("pedidoTASK", "PRODUTO ::" + produto.getIdProduto());
 
             values.put("idItemPedido", itemPedido.getIdItemPedido());
             values.put("idPedido", pedido.getIdPedido());

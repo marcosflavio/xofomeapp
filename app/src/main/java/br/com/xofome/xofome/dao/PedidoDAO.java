@@ -215,19 +215,14 @@ public class PedidoDAO {
 
             pedido.setIdPedido(c.getInt(c.getColumnIndex("idPedido")));
 
-            String email = (c.getString(c.getColumnIndex("email")));
+            //String email = (c.getString(c.getColumnIndex("email")));
             UsuarioDAO usuarioDAO = new UsuarioDAO(context);
             Usuario usuario = usuarioDAO.find();
-
-//            ItemPedidoDAO itemPedidoDAO = new ItemPedidoDAO(context);
-//            List<ItemPedido> itens= itemPedidoDAO.findAllByPedido(pedido.getIdPedido());
-//            pedido.setItensPedido(itens);
-
             pedido.setValorTotalPedido(c.getDouble(c.getColumnIndex("valorTotalPedido")));
             pedido.setStatus(c.getString(c.getColumnIndex("status")));
             pedido.setEndereco(c.getString(c.getColumnIndex("endereco")));
             pedido.setUsuario(usuario);
-            pedido.setValorASerPago(c.getDouble(c.getColumnIndex("valorTotalASerPago")));
+            pedido.setValorASerPago(c.getDouble(c.getColumnIndex("valorASerPago")));
 
             return pedido;
         } else {
