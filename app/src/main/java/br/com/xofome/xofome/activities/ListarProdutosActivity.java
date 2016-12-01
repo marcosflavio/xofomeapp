@@ -139,7 +139,6 @@ public class ListarProdutosActivity extends AppCompatActivity
             return true;
         }
         return super.onOptionsItemSelected(item);
-
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -147,13 +146,6 @@ public class ListarProdutosActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-//        if (id == R.id.nav_alt_end) {
-//
-//            Intent intent = new Intent(this, EditarEnderecoActivity.class);
-//            startActivityForResult(intent, Codes.REQUEST_EDITAR_END);
-//
-//        } else
-//
         if (id == R.id.nav_config) {
 
             Toast.makeText(getApplicationContext(), "Clicou em Configurações", Toast.LENGTH_SHORT).show();
