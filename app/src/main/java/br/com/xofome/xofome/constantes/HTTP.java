@@ -5,6 +5,7 @@ package br.com.xofome.xofome.constantes;
  */
 
 public class HTTP {
+
     public static final String URL = "http://192.168.0.174:8060";
     public static final String REQUEST_COMPARE_BD = URL + "/produtos/count";
     public static final String REQUEST_UPDATE_BD = URL + "/produtos/update/";
