@@ -153,12 +153,10 @@ public class ListarProdutosActivity extends AppCompatActivity
             Intent intent = new Intent(this, AcompanharPedidosActivity.class);
             startActivity(intent);
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
 
     public long getTime(){
         Calendar c = Calendar.getInstance();
