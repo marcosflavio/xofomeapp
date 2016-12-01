@@ -13,4 +13,5 @@ public class HTTP {
     public static final String REQUEST_FIND_PEDIDO_BY_USER_AND_STATUS = URL + "/pedidos/";
     public static final String REQUEST_SAVE_ITEM_PEDIDO = URL + "/item/";
     public static final String REQUEST_FIND_ITENS_BY_PEDIDO = URL + "/pedidos/itensp/";
+    public static final String REQUEST_UPDATE_STATUS_PEDIDO = URL + "/pedidos/findPedido/";
 }

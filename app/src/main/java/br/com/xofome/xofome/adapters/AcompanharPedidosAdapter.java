@@ -59,7 +59,6 @@ public class AcompanharPedidosAdapter extends RecyclerView.Adapter<AcompanharPed
         this.onClickListener = onClickListener;
     }
 
-
     @Override
     public AcompanharPedidosAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.pedido_layout, parent, false);

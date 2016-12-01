@@ -5,10 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,20 +29,29 @@ import br.com.xofome.xofome.services.UpdateStatusService;
 public class AcompanharPedidosActivity extends AppCompatActivity {
     private List<Pedido> pedidos;
     RecyclerView rv;
+    protected SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acompanhar_pedidos);
+
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeAcompanhar);
+        swipeRefreshLayout.setOnRefreshListener(OnRefreshListener());
+        swipeRefreshLayout.setColorSchemeResources(R.color.refresh_progress_1,R.color.refresh_progress_2,
+                R.color.refresh_progress_3);
+
+
         rv = (RecyclerView) findViewById(R.id.recycler_view_acompanhar_pedido);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarAcompanharPedido);
         setSupportActionBar(toolbar);
         registerReceiver(receiverAcompanhar,new IntentFilter("Update_status_complete"));
+        registerReceiver(receiverAcompanharFail, new IntentFilter("Update_status_erro"));
 
         rv.setHasFixedSize(true);
-        Pedido p = new Pedido();
-        p.setStatus("Entrege");
-        PedidoService.save(p,getApplicationContext());
+       // Pedido p = new Pedido();
+       // p.setStatus("Entrege");
+        //PedidoService.save(p,getApplicationContext());
         pedidos = PedidoService.findAll(getApplicationContext());
         AcompanharPedidosAdapter adapter = new AcompanharPedidosAdapter(getApplicationContext(), pedidos, onClickPedido());
         rv.setAdapter(adapter);
@@ -64,6 +75,16 @@ public class AcompanharPedidosActivity extends AppCompatActivity {
         };
     }
 
+
+    private SwipeRefreshLayout.OnRefreshListener OnRefreshListener(){
+        return  new SwipeRefreshLayout.OnRefreshListener(){
+
+            @Override
+            public void onRefresh() {
+                startService(new Intent(getApplicationContext(),UpdateStatusService.class));
+            }
+        };
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -89,6 +110,8 @@ public class AcompanharPedidosActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
+        swipeRefreshLayout.setRefreshing(false);
+        pedidos = PedidoService.findAll(getApplicationContext());
         AcompanharPedidosAdapter adapter = new AcompanharPedidosAdapter(getApplicationContext(), pedidos, onClickPedido());
         rv.setAdapter(adapter);
         LinearLayoutManager llm = new LinearLayoutManager(getApplicationContext());
@@ -100,6 +123,15 @@ public class AcompanharPedidosActivity extends AppCompatActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
             onResume();
+        }
+    };
+
+    private BroadcastReceiver receiverAcompanharFail = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.d("service","Entrei no BroadcastReceiver acompanharFail");
+            Toast.makeText(getApplicationContext(), "Falha ao verificar atualizações, favor verificar conexão com a internet.",
+                    Toast.LENGTH_SHORT).show();
         }
     };
 

@@ -44,24 +44,32 @@ public class ConfirmarPedidoActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.item_menu_confirmar_pedido_ok) {
-            ItemPedidoSingleton itemPedidoSingleton = ItemPedidoSingleton.getInstancia();
             EditText valorPago = (EditText) findViewById(R.id.editTextConfPagar);
-            pedido.setStatus("Iniciado");
-
-            pedido.setValorTotalPedido(itemPedidoSingleton.getValorTotalPedido());
             Double valor = Double.valueOf(valorPago.getText().toString());
-            if(valor != null)
-                pedido.setValorASerPago(valor);
+            ItemPedidoSingleton itemPedidoSingleton = ItemPedidoSingleton.getInstancia();
 
-            UsuarioService serviceUsuario = new UsuarioService(getApplicationContext());
-            pedido.setUsuario(serviceUsuario.getUsuario());
+            if( valor >= itemPedidoSingleton.getValorTotalPedido() ) {
+                pedido.setStatus("Iniciado");
 
-            PedidoTask pedidoTask = new PedidoTask(getApplicationContext());
-            pedidoTask.execute(pedido);
+                pedido.setValorTotalPedido(itemPedidoSingleton.getValorTotalPedido());
 
-            Toast.makeText(getApplicationContext(), "Pedido confirmado!", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, ListarProdutosActivity.class);
-            startActivityForResult(intent, Codes.REQUEST_BACK);
+
+                if (valor != null)
+                    pedido.setValorASerPago(valor);
+
+                UsuarioService serviceUsuario = new UsuarioService(getApplicationContext());
+                pedido.setUsuario(serviceUsuario.getUsuario());
+
+                PedidoTask pedidoTask = new PedidoTask(getApplicationContext());
+                pedidoTask.execute(pedido);
+
+                Toast.makeText(getApplicationContext(), "Pedido confirmado!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, ListarProdutosActivity.class);
+                startActivityForResult(intent, Codes.REQUEST_BACK);
+            } else {
+                Toast.makeText(getApplicationContext(), "Valor a ser pago menor que o valor total!", Toast.LENGTH_SHORT).show();
+            }
+
 
         }else if(id == R.id.item_menu_confirmar_pedido_cancel){
             Toast.makeText(getApplicationContext(), "Opção cancelada", Toast.LENGTH_SHORT).show();
