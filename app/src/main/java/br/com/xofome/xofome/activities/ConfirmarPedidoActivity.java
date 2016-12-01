@@ -29,6 +29,7 @@ public class ConfirmarPedidoActivity extends AppCompatActivity {
         valorPedido.setText(String.valueOf(itemPedidoSingleton.getValorTotalPedido()));
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarConfimarPedido);
         setSupportActionBar(toolbar);
+        pedido = new Pedido();
 
     }
 
@@ -45,7 +46,6 @@ public class ConfirmarPedidoActivity extends AppCompatActivity {
         if (id == R.id.item_menu_confirmar_pedido_ok) {
             ItemPedidoSingleton itemPedidoSingleton = ItemPedidoSingleton.getInstancia();
             EditText valorPago = (EditText) findViewById(R.id.editTextConfPagar);
-            pedido = new Pedido();
             pedido.setStatus("Iniciado");
 
             pedido.setValorTotalPedido(itemPedidoSingleton.getValorTotalPedido());
@@ -55,11 +55,6 @@ public class ConfirmarPedidoActivity extends AppCompatActivity {
 
             UsuarioService serviceUsuario = new UsuarioService(getApplicationContext());
             pedido.setUsuario(serviceUsuario.getUsuario());
-            
-
-            //Envio e salvo na web
-            //chamar asynctask
-            // depois salva os items de pedido que estão no singleton setando o id do pedido retornado
 
             PedidoTask pedidoTask = new PedidoTask(getApplicationContext());
             pedidoTask.execute(pedido);

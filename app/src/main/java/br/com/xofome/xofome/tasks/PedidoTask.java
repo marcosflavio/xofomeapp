@@ -63,6 +63,7 @@ public class PedidoTask extends AsyncTask<  Pedido,Integer, Integer> {
     @Override
     protected Integer doInBackground(Pedido... pedidos) {
         pedidoRetornado = pedidos[0];
+        pedidoRetornado.setIdPedido(0);
         savePedido(pedidoRetornado);
         Log.w(TAG, "Entrei no doInBack");
 
@@ -129,6 +130,9 @@ public class PedidoTask extends AsyncTask<  Pedido,Integer, Integer> {
                 //Adiciona o tamanho do conteudo do dados do post
                 request.addRequestProperty("Content-Length", Integer.toString(post.length()));
                 //Adiciona o tipo de conteudo do request
+
+                Log.w(TAG, ">>>>>>........." + post.toString());
+
                 request.setRequestMethod("POST");
                 request.addRequestProperty("Content-Type", "application/json");
                 request.connect();
@@ -236,7 +240,7 @@ public class PedidoTask extends AsyncTask<  Pedido,Integer, Integer> {
                 writer.flush();
                 writer.close();
                 status = request.getResponseCode();
-                Log.e(TAG, ">>>>>" + status);
+                Log.e(TAG, "SAVE ITEM PEDIDO >>>>>" + status);
 
             } catch (MalformedURLException e) {
                 Log.w("ErroNet", "Erro de MalFormed salvarPedido");

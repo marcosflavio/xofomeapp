@@ -28,7 +28,13 @@ public class ItemPedidoSingleton {
     }
 
     public void clear (){
+
+        for(int i = 0; i < itensPedido.size(); i++){
+            itensPedido.remove(i);
+        }
         itensPedido.clear();
+        itensPedido = new ArrayList<>();
+
     }
     public double getValorTotalPedido() {
         double valorTotal =0;
