@@ -82,6 +82,7 @@ public class PedidoTask extends AsyncTask<  Pedido,Integer, Integer> {
             //Pega o pedido retornado, seta nos itens do singleton
             for(int i = 0; i < itens.size(); i++){
                 itens.get(i).setPedido(pedidoRetornado);
+
                 Log.w(TAG, itens.get(i).getPedido().toString());
                 Log.w(TAG, "Setando o pedido retornado");
             }
@@ -259,7 +260,7 @@ public class PedidoTask extends AsyncTask<  Pedido,Integer, Integer> {
 
             try {
                 Log.w(TAG, "Entrei no ReturnItensPedido");
-                URL url = new URL(HTTP.REQUEST_FIND_ITENS_BY_PEDIDO +pedidoRetornado.getIdPedido());
+                URL url = new URL(HTTP.REQUEST_FIND_ITENS_BY_PEDIDO + pedidoRetornado.getIdPedido());
 
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setDoOutput(false);
