@@ -1,6 +1,7 @@
 package br.com.xofome.xofome.tasks;
 
 import android.content.Context;
+import android.location.Location;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
@@ -24,6 +25,7 @@ import br.com.xofome.xofome.model.ItemPedidoSingleton;
 import br.com.xofome.xofome.model.Pedido;
 import br.com.xofome.xofome.model.Usuario;
 import br.com.xofome.xofome.services.ItemPedidoService;
+import br.com.xofome.xofome.services.LocationService;
 import br.com.xofome.xofome.services.PedidoService;
 import br.com.xofome.xofome.services.UsuarioService;
 
@@ -38,20 +40,24 @@ public class PedidoTask extends AsyncTask<  Pedido,Integer, Integer> {
     private Integer status = 0;
     private Pedido pedidoRetornado;
     private List<ItemPedido> itensRetornados = new ArrayList<ItemPedido>();
+    private LocationService locationService;
 
     public PedidoTask (Context context){
         this.context = context;
+
+        locationService = new LocationService(context);
     }
 
     @Override
     protected void onPreExecute() {
-
         Toast.makeText(context, "Salvando pedido...", Toast.LENGTH_SHORT).show();
+
+        locationService.doConnect();
     }
 
     @Override
     protected void onPostExecute(Integer integer) {
-
+        locationService.doDisconnect();
         if(integer.equals(200)){
             Toast.makeText(context, "Pedido criado com sucesso!", Toast.LENGTH_SHORT).show();
         }
@@ -64,8 +70,12 @@ public class PedidoTask extends AsyncTask<  Pedido,Integer, Integer> {
     protected Integer doInBackground(Pedido... pedidos) {
         pedidoRetornado = pedidos[0];
         pedidoRetornado.setIdPedido(0);
+
+        Location endereco = locationService.getLocation();
+        pedidoRetornado.setLatitude(String.valueOf(endereco.getLatitude()));
+        pedidoRetornado.setLongitude(String.valueOf(endereco.getLongitude()));
+
         savePedido(pedidoRetornado);
-        Log.w(TAG, "Entrei no doInBack");
 
         if(status.equals(200)) {
             Log.w(TAG, "Status 200");

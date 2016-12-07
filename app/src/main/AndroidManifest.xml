@@ -40,6 +40,8 @@
             <intent-filter>
                 <action android:name="UPDATE_LIST" />
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
                 <!-- <category android:name="android.intent.category.DEFAULT" /> -->
                 <!--  -->
             </intent-filter>
@@ -83,13 +85,6 @@
             android:label="@string/title_activity_confirmar_pedido"
             android:theme="@style/AppTheme" />
         <activity android:name=".activities.CadastrarEmailActivity" />
-        <activity android:name=".activities.Main2Activity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>

@@ -41,5 +41,4 @@ public class PedidoService {
         PedidoDAO dao = new PedidoDAO(context);
         return dao.findAll();
     }
-
 }

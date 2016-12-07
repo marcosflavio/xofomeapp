@@ -7,7 +7,6 @@ package br.com.xofome.xofome.constantes;
 public interface Keys {
 
     public static final String RESPONSE_SAVE_NOME = "nome";
-    public static final String RESPONSE_CANCEL = "cancelar";
 
     public static final String REQUEST_DETALHES = "mostrar_detalhes";
 }

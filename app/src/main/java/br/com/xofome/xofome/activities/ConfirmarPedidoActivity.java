@@ -19,24 +19,23 @@ import br.com.xofome.xofome.services.UsuarioService;
 import br.com.xofome.xofome.tasks.PedidoTask;
 
 public class ConfirmarPedidoActivity extends AppCompatActivity {
+    
     private Pedido pedido;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmar_pedido);
+
         ItemPedidoSingleton itemPedidoSingleton = ItemPedidoSingleton.getInstancia();
+
         TextView valorPedido = (TextView) findViewById(R.id.textViewValorConfirma);
         valorPedido.setText(String.valueOf(itemPedidoSingleton.getValorTotalPedido()));
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarConfimarPedido);
         setSupportActionBar(toolbar);
+
         pedido = new Pedido();
-
-    }
-
-    public void confirmar(View view){
-
-        Intent intent = new Intent(this, SelecionarEnderecoActivity.class);
-        startActivityForResult(intent, Codes.REQUEST_SELECT_END);
     }
 
     @Override
