@@ -31,11 +31,11 @@
             android:id="@+id/textViewItemDescProdutoPreco"
             android:layout_weight="0.2" />
 
-        <NumberPicker
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/quantidadeItemPedido"
-            android:layout_weight="0.8" />
+        <!--<NumberPicker-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/quantidadeItemPedido"-->
+            <!--android:layout_weight="0.8" />-->
 
     </LinearLayout>
 

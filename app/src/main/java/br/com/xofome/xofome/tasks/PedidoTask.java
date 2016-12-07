@@ -41,17 +41,16 @@ public class PedidoTask extends AsyncTask<  Pedido,Integer, Integer> {
 
     public PedidoTask (Context context){
         this.context = context;
+
     }
 
     @Override
     protected void onPreExecute() {
-
         Toast.makeText(context, "Salvando pedido...", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     protected void onPostExecute(Integer integer) {
-
         if(integer.equals(200)){
             Toast.makeText(context, "Pedido criado com sucesso!", Toast.LENGTH_SHORT).show();
         }
@@ -64,8 +63,8 @@ public class PedidoTask extends AsyncTask<  Pedido,Integer, Integer> {
     protected Integer doInBackground(Pedido... pedidos) {
         pedidoRetornado = pedidos[0];
         pedidoRetornado.setIdPedido(0);
+
         savePedido(pedidoRetornado);
-        Log.w(TAG, "Entrei no doInBack");
 
         if(status.equals(200)) {
             Log.w(TAG, "Status 200");

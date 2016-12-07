@@ -6,28 +6,20 @@ import java.util.List;
 /**
  * Created by marcosf on 02/11/2016.
  */
-
 public class Pedido {
 
     private int idPedido;
     private String status = "Inativo";
     private double valorTotalPedido;
-    private String endereco;
-    private double valorASerPago = 0.0;
+    private String latitude;
+    private String longitude;
+    private double valorASerPago;
     private Usuario usuario;
 
     public Pedido() {
-       // this.itensPedido = new ArrayList<ItemPedido>();
-        idPedido++;
+        this.idPedido++;
+        this.valorASerPago = 0.0d;
     }
-
-//    public List<ItemPedido> getItensPedido() {
-//        return itensPedido;
-//    }
-//
-//    public void setItensPedido(List<ItemPedido> itensPedido) {
-//        this.itensPedido = itensPedido;
-//    }
 
     public double getValorASerPago() {
         return valorASerPago;
@@ -37,12 +29,20 @@ public class Pedido {
         this.valorASerPago = valorASerPago;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public String getLatitude() {
+        return latitude;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
     }
 
     public String getStatus() {
@@ -62,13 +62,6 @@ public class Pedido {
     }
 
     public double getValorTotalPedido() {
-
-        double valorTotal =0;
-
-//        for(ItemPedido i: itensPedido){
-//            valorTotal += i.getValor();
-//        }
-//        valorTotalPedido = valorTotal;
         return valorTotalPedido;
     }
 
@@ -98,5 +91,4 @@ public class Pedido {
     public int hashCode() {
         return idPedido;
     }
-
 }

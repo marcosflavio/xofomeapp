@@ -45,11 +45,10 @@ public class ItemPedidoListAdapter extends BaseAdapter {
             TextView valorItem = (TextView) convertView.findViewById(R.id.textViewItemDescProdutoPreco);
             valorItem.setText(String.valueOf(itemPedido.getValor()));
 
-            NumberPicker quantidadeItemPedido = (NumberPicker) convertView.findViewById(R.id.quantidadeItemPedido);
-            quantidadeItemPedido.setMinValue(1);
-            quantidadeItemPedido.setMaxValue(10);
-
-            quantidadeItemPedido.setValue(itemPedido.getQuantidade());
+           // NumberPicker quantidadeItemPedido = (NumberPicker) convertView.findViewById(R.id.quantidadeItemPedido);
+            //quantidadeItemPedido.setMinValue(1);
+            //quantidadeItemPedido.setMaxValue(10);
+            //quantidadeItemPedido.setValue(itemPedido.getQuantidade());
         }
 
         return convertView;

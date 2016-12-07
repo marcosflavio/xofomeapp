@@ -40,8 +40,6 @@ public class AcompanharPedidosActivity extends AppCompatActivity {
         swipeRefreshLayout.setOnRefreshListener(OnRefreshListener());
         swipeRefreshLayout.setColorSchemeResources(R.color.refresh_progress_1,R.color.refresh_progress_2,
                 R.color.refresh_progress_3);
-
-
         rv = (RecyclerView) findViewById(R.id.recycler_view_acompanhar_pedido);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarAcompanharPedido);
         setSupportActionBar(toolbar);
@@ -49,9 +47,6 @@ public class AcompanharPedidosActivity extends AppCompatActivity {
         registerReceiver(receiverAcompanharFail, new IntentFilter("Update_status_erro"));
 
         rv.setHasFixedSize(true);
-       // Pedido p = new Pedido();
-       // p.setStatus("Entrege");
-        //PedidoService.save(p,getApplicationContext());
         pedidos = PedidoService.findAll(getApplicationContext());
         AcompanharPedidosAdapter adapter = new AcompanharPedidosAdapter(getApplicationContext(), pedidos, onClickPedido());
         rv.setAdapter(adapter);

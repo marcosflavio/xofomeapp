@@ -32,14 +32,14 @@
                 android:textStyle="normal|bold"
                 android:textSize="20sp" />
 
-            <TextView
-                android:text="@string/quantidade_itens"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/quantidadeText"
-                android:layout_weight="0"
-                android:textSize="20sp"
-                android:textStyle="normal|bold" />
+            <!--<TextView-->
+                <!--android:text="@string/quantidade_itens"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:id="@+id/quantidadeText"-->
+                <!--android:layout_weight="0"-->
+                <!--android:textSize="20sp"-->
+                <!--android:textStyle="normal|bold" />-->
 
         </LinearLayout>
 
@@ -51,30 +51,30 @@
             android:id="@+id/listaItemsPedido"
             android:focusable="false" />
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <!--<LinearLayout-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
 
-            <TextView
-                android:text="@string/total_a_pagar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/totalPagarText"
-                android:layout_weight="0.04"
-                android:textSize="20sp"
-                android:textStyle="normal|bold"
-                android:layout_marginTop="10dp" />
+            <!--<TextView-->
+                <!--android:text="@string/total_a_pagar"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:id="@+id/totalPagarText"-->
+                <!--android:layout_weight="0.04"-->
+                <!--android:textSize="20sp"-->
+                <!--android:textStyle="normal|bold"-->
+                <!--android:layout_marginTop="10dp" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/totalText"
-                android:layout_weight="0.63"
-                android:textSize="20sp"
-                android:layout_marginTop="10dp" />
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:id="@+id/totalText"-->
+                <!--android:layout_weight="0.63"-->
+                <!--android:textSize="20sp"-->
+                <!--android:layout_marginTop="10dp" />-->
 
-        </LinearLayout>
+        <!--</LinearLayout>-->
 
     </LinearLayout>
 
