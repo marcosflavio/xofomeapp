@@ -120,7 +120,8 @@ public class ProdutoDAO {
                 produto.setNomeProduto(c.getString(c.getColumnIndex("nome_produto")));
                 produto.setPreco(c.getFloat(c.getColumnIndex("preco")));
                 produto.setTipo(c.getInt(c.getColumnIndex("tipo")));
-                produto.setImagem(c.getBlob(c.getColumnIndex("imagem")));
+                //produto.setImagem(c.getBlob(c.getColumnIndex("imagem")));
+                produto.setImagem(c.getString(c.getColumnIndex("imagem")));
                 return produto;
             }
 
@@ -142,8 +143,8 @@ public class ProdutoDAO {
                 produto.setNomeProduto(c.getString(c.getColumnIndex("nome_produto")));
                 produto.setPreco(c.getFloat(c.getColumnIndex("preco")));
                 produto.setTipo(c.getInt(c.getColumnIndex("tipo")));
-                produto.setImagem(c.getBlob(c.getColumnIndex("imagem")));
-
+                //produto.setImagem(c.getBlob(c.getColumnIndex("imagem")));
+                produto.setImagem(c.getString(c.getColumnIndex("imagem")));
             } while (c.moveToNext());
         }
 
@@ -165,8 +166,8 @@ public class ProdutoDAO {
             produto.setNomeProduto(c.getString(c.getColumnIndex("nome_produto")));
             produto.setPreco(c.getFloat(c.getColumnIndex("preco")));
             produto.setTipo(c.getInt(c.getColumnIndex("tipo")));
-            produto.setImagem(c.getBlob(c.getColumnIndex("imagem")));
-
+            //produto.setImagem(c.getBlob(c.getColumnIndex("imagem")));
+            produto.setImagem(c.getString(c.getColumnIndex("imagem")));
             return produto;
         } else {
             Log.w("moveToFirst", "false");

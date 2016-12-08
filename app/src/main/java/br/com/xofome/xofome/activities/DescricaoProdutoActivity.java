@@ -20,6 +20,7 @@ import br.com.xofome.xofome.model.ItemPedido;
 import br.com.xofome.xofome.model.ItemPedidoSingleton;
 import br.com.xofome.xofome.model.Produto;
 import br.com.xofome.xofome.services.ProdutoService;
+import br.com.xofome.xofome.util.ImageUtil;
 
 public class DescricaoProdutoActivity extends AppCompatActivity {
 
@@ -54,6 +55,7 @@ public class DescricaoProdutoActivity extends AppCompatActivity {
                 mNomeProduto.setText(p.getNomeProduto());
                 mPrecoProduto.setText(String.valueOf(p.getPreco()));
                 mDescricaoProduto.setText(p.getDescricao());
+                mFotoProduto.setImageBitmap(ImageUtil.decodeBase64(p.getImagem()));
             } else {
                 Toast.makeText(this, "Erro ao visualizar o produto.", Toast.LENGTH_LONG).show();
                 finish();

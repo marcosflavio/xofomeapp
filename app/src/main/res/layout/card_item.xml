@@ -34,7 +34,7 @@
 
             <ImageView
                 android:id="@+id/imageProduto"
-                android:layout_height="wrap_content"
+                android:layout_height="240dp"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/imagem_produto"
                 android:paddingBottom="2dp"
@@ -42,7 +42,6 @@
                 android:paddingRight="0dp"
                 android:paddingTop="2dp"
                 android:visibility="visible"
-                app:srcCompat="@drawable/mini"
                 android:cropToPadding="false"
                 android:paddingEnd="0dp"
                 android:paddingStart="2dp"

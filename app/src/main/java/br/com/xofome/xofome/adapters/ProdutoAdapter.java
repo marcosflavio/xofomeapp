@@ -87,7 +87,7 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.MyViewHo
         //Atualiza os valores nas views
         holder.textViewNomeProduto.setText(p.getNomeProduto());
         holder.textViewPrice.setText(String.valueOf(p.getPreco()));
-       // holder.imageView.setImageBitmap(ImageUtil.getImage(p.getImagem()));
+        holder.imageView.setImageBitmap(ImageUtil.decodeBase64(p.getImagem()));
         holder.imageButtonShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

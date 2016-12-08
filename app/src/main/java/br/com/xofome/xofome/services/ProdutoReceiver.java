@@ -19,8 +19,8 @@ public class ProdutoReceiver extends BroadcastReceiver {
         context.startService(new Intent(context,UpdateProductListService.class));
         Intent i = new Intent(context, ListarProdutosActivity.class);
 
-        NotificationUtil.create(context,1,i, R.mipmap.ic_launcher,
-                "Lista de produtos atualizada!", "Venha conferir!");
+        //NotificationUtil.create(context,1,i, R.mipmap.ic_xofome,
+        //"Lista de produtos atualizada!", "Venha conferir!");
 
     }
 }

@@ -45,7 +45,7 @@ public class ProdutoService {
         dao.delete(produto);
     }
 
-    public static Produto formarProduto(int tipo, float preco, String nome, String desc, byte [] imagem) {
+    public static Produto formarProduto(int tipo, float preco, String nome, String desc, String imagem) {
         Produto produto = new Produto();
         produto.setTipo(tipo);
         produto.setPreco(preco);
