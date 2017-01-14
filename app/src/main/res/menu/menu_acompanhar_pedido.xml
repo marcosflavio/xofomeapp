@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:title="@string/back"
+        app:showAsAction="always"
+        android:icon="@mipmap/ic_arrow_back_white_48dp"
+        android:id="@+id/item_menu_back"/>
+
+    <item
+        android:title="@string/atualizar"
+        app:showAsAction="always"
+        android:icon="@mipmap/ic_autorenew_white_48dp"
+        android:id="@+id/item_menu_acompanhar_atualizar"/>
+
+</menu>

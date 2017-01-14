@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_editar_endereco"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="br.com.xofome.xofome.activities.EditarEnderecoActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarEditarEndereco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        app:buttonGravity="top|bottom"
+        android:minHeight="64dp"
+        android:elevation="0dp"></android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:text="@string/header_editar_endereco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewEditarDadosEndereço"
+        android:textStyle="normal|bold"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textColor="@color/black" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="@string/rua"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewEditarRua"
+            android:paddingLeft="24dp"
+            android:layout_weight="1" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="@string/editar_rua_stub"
+            android:ems="10"
+            android:id="@+id/editEditarTextRua"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="@string/bairro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textEditarViewBairro"
+            android:layout_weight="1"
+            android:paddingLeft="24dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="@string/editar_bairro_stub"
+            android:ems="10"
+            android:id="@+id/editTextEditarBairro"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="@string/numero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewEditarNumero"
+            android:layout_weight="1"
+            android:paddingLeft="24dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/editTextEditarNumero"
+            android:layout_weight="1"
+            android:text="@string/editar_numero_stub" />
+
+    </LinearLayout>
+
+    <TextView
+        android:text="@string/complemento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewEditarComplemento"
+        android:paddingLeft="24dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/editTextMultAreaEditarComplemento"
+        android:text="@string/editar_complemento_stub" />
+
+    <TextView
+        android:text="@string/ponto_ref"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewEditarPntRef"
+        android:paddingLeft="24dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/multiAreaEditarPontoRef"
+        android:layout_weight="0.18"
+        android:text="@string/editar_pnt_ref_stub" />
+
+
+</LinearLayout>
